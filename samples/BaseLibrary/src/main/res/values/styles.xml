@@ -1,0 +1,38 @@
+<resources>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+    </style>
+
+    <!--首页采用的主题-->
+    <style name="Theme.DesignDemo" parent="Base.Theme.DesignDemo">
+    </style>
+    <style name="Base.Theme.DesignDemo" parent="Theme.AppCompat.Light.NoActionBar">
+        <!--toolbar背景色-->
+        <item name="colorPrimary">#ff6600</item>
+        <!--状态栏颜色，只针对5.0以上设备-->
+        <item name="colorPrimaryDark">#512DA8</item>
+        <!--EditText正在输入时，RadioButton选中时的颜色，只针对5.0以上设备-->
+        <item name="colorAccent">#FF4081</item>
+        <!--主题背景色=界面整体色-->
+        <item name="android:windowBackground">@color/window_background</item>
+        <!--ps:其它属性
+        textColorPrimary属性=toolbar中标题字体颜色
+        navigationBarColor属性=设备底部导航栏色
+        -->
+    </style>
+    <!--其它界面主题-->
+    <style name="NoActionBarTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- customize the color palette -->
+        <item name="colorPrimary">@color/material_blue_500</item>
+        <item name="colorPrimaryDark">@color/material_blue_700</item>
+        <item name="colorAccent">@color/material_green_A200</item>
+    </style>
+    <!--让界面在状态栏下面，哪个界面需要就在哪个界面根布局下加入此style-->
+    <style name="immersion_status">
+        <item name="android:clipToPadding">true</item>
+        <item name="android:fitsSystemWindows">true</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+</resources>

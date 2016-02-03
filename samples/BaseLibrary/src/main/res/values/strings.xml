@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">通用架构</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">正在开发的大项目</string>
+    <string name="settings">Settings</string>
+    <string name="history">history</string>
+    <string name="sure">确定</string>
+    <string name="cancle">取消</string>
+    <string name="connection_time_out">连接超时</string>
+    <string name="not_found_request">找不到请求连接</string>
+    <string name="network_connection_error">网络连接错误</string>
+    <string name="server_exception">连接失败</string>
+
+    <!--数据库用到的-->
+    <string name="lib_database_no_name_exception">数据库的名字没设置，请设置。如DBHelper.DATABASE_NAME = “/workform/platform.db”</string>
+    <string name="lib_database_no_version_exception">数据库的版本没设置，请设置。如DBHelper.DATABASE_VERSION = 1</string>
+    <string name="lib_database_no_ipl_exception">数据库的版本升级时的回调接口没设置，请设置DatabaseUpdate</string>
+    <string name="lib_database_no_name_exception2">数据库的名字没设置，请设置。</string>
+    <string name="lib_database_no_version_exception2">数据库的版本不能小于０，请设置。</string>
+    <string name="lib_database_no_ipl_exception2">数据库的版本升级时的回调接口没设置，请设置DatabaseUpdate</string>
+    <string name="reset_download_time_suc">初始化时间已还原</string>
+    <string name="revert_database_suc">数据库已还原</string>
+    <string name="revert_database_fail">数据库还原失败</string>
+
+    <string name="action_search">查找</string>
+    <string name="action_add">添加</string>
+    <string name="menu_group_chat">发起群聊</string>
+    <string name="menu_feedback">意见反馈</string>
+    <string name="menu_addfriend">添加朋友</string>
+    <string name="menu_scan">扫一扫</string>
+    <string name="tab_contact">通讯录</string>
+    <string name="tab_found">发现</string>
+    <string name="tab_me">我</string>
+</resources>

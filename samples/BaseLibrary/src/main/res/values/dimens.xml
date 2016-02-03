@@ -1,0 +1,13 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+
+    <!--内容字体大小-->
+    <dimen name="content_normal_textsize">18sp</dimen>
+
+    <dimen name="px20">20px</dimen>
+    <dimen name="px020">020px</dimen>
+    <dimen name="dp20">20dp</dimen>
+</resources>

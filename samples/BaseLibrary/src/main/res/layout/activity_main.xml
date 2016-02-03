@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    设置布局在状态栏下面的style
+    style="@style/immersion_status"
+-->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:hyman="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="#ff6600"
+    style="@style/immersion_status"
+    >
+    <!--
+        有两点要注意：主内容区的布局代码要放在侧滑菜单布局的前面,这可以帮助DrawerLayout判断谁是侧滑菜单，谁是主内容区；侧滑菜单的部分的布局（这里是ListView）可以设置layout_gravity属性，他表示侧滑菜单是在左边还是右边。
+    -->
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/id_drawer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <!--内容区域-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/id_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                app:layout_scrollFlags="scroll|enterAlways"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/id_viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1" >
+            </android.support.v4.view.ViewPager>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@drawable/tab_bg"
+                android:orientation="horizontal" >
+
+                <com.kenny.baselibrary.view.ChangeColorIconWithText
+                    android:id="@+id/id_indicator_one"
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    hyman:weixin_icon="@drawable/ic_menu_start_conversation"
+                    hyman:weixin_text="@string/app_name"
+                    hyman:weixin_text_size="12sp"
+                    hyman:weixin_color="#ff45c01a" />
+
+                <com.kenny.baselibrary.view.ChangeColorIconWithText
+                    android:id="@+id/id_indicator_two"
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    hyman:weixin_icon="@drawable/ic_menu_friendslist"
+                    hyman:weixin_text="@string/tab_contact"
+                    hyman:weixin_text_size="12sp"
+                    hyman:weixin_color="#ff45c01a" />
+
+                <com.kenny.baselibrary.view.ChangeColorIconWithText
+                    android:id="@+id/id_indicator_three"
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    hyman:weixin_icon="@drawable/ic_menu_emoticons"
+                    hyman:weixin_text="@string/tab_found"
+                    hyman:weixin_text_size="12sp"
+                    hyman:weixin_color="#ff45c01a" />
+
+                <com.kenny.baselibrary.view.ChangeColorIconWithText
+                    android:id="@+id/id_indicator_four"
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    hyman:weixin_icon="@drawable/ic_menu_allfriends"
+                    hyman:weixin_text="@string/tab_me"
+                    hyman:weixin_text_size="12sp"
+                    hyman:weixin_color="#ff45c01a" />
+            </LinearLayout>
+
+        </LinearLayout>
+        <!--左侧菜单-->
+        <android.support.design.widget.NavigationView
+            android:id="@+id/id_nv_menu"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="left"
+            android:fitsSystemWindows="true"
+            app:headerLayout="@layout/header_just_username"
+            app:menu="@menu/menu_drawer"
+            />
+
+    </android.support.v4.widget.DrawerLayout>
+</LinearLayout>
