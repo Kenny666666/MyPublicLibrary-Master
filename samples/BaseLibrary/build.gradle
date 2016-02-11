@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'bugly'
 
 android {
     compileSdkVersion 23
@@ -66,4 +67,11 @@ dependencies {
     compile files('libs/litepal-1.2.0-src.jar')
     compile files('libs/android-push.jar')
     compile project(':librarys:autolayout')
+    compile 'com.tencent.bugly:crashreport:1.2.8'
+    compile project(':librarys:PullToRefresh-lib')
+}
+//腾讯bugly
+bugly {
+    appId = '900018995'    //注册时分配的App ID
+    appKey = 'MRG8rUHqSmCAPBHU'  //注册时分配的App Key
 }

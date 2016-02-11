@@ -8,7 +8,6 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 import com.j256.ormlite.support.ConnectionSource;
 import com.kenny.baselibrary.db.DBHelper;
-import com.kenny.baselibrary.utils.common.AppUtils;
 import com.kenny.baselibrary.utils.common.FileUtil;
 import com.kenny.baselibrary.utils.common.L;
 import com.kenny.baselibrary.utils.common.ResourcesConstant;
@@ -19,8 +18,8 @@ import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
+import com.tencent.bugly.crashreport.CrashReport;
 
-import org.androidpn.client.ServiceManager;
 import org.litepal.LitePalApplication;
 
 import java.io.BufferedReader;
@@ -54,6 +53,8 @@ public class BaseLibraryApplication extends LitePalApplication {
         //Crash机制，全局异常捕获
         CustomCrashHandler mCustomCrashHandler = CustomCrashHandler.getInstance();
         mCustomCrashHandler.setCustomCrashHanler(getApplicationContext());
+        //腾讯bugly，false--上传，true开发中不上传
+        CrashReport.initCrashReport(getApplicationContext(), "900018995", true);
         //初始化图片管理框架
         initImageLoader(getApplicationContext());
         //初始化数据库

@@ -19,9 +19,12 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
 
+import com.kenny.baselibrary.BaseActivity;
 import com.kenny.baselibrary.R;
-import com.kenny.baselibrary.fragment.TabFragment;
-import com.kenny.baselibrary.utils.common.T;
+import com.kenny.baselibrary.fragment.MainOneFragment;
+import com.kenny.baselibrary.fragment.MainThreeFragment;
+import com.kenny.baselibrary.fragment.MainTwoFragment;
+import com.kenny.baselibrary.fragment.MainfourFragment;
 import com.kenny.baselibrary.utils.crash.ExitAppUtils;
 import com.kenny.baselibrary.view.ChangeColorIconWithText;
 
@@ -47,6 +50,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
             {"First Fragment !", "Second Fragment !", "Third Fragment !", "Fourth Fragment !"};
     private FragmentPagerAdapter mAdapter;
     private List<ChangeColorIconWithText> mTabIndicators = new ArrayList<ChangeColorIconWithText>();
+    /**底部4个自定义view*/
     private ChangeColorIconWithText one, two, three, four;
     /**
      * 再按一次退出程序
@@ -130,13 +134,30 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
     }
 
     private void initDatas() {
-        for (String title : mTitles) {
-            TabFragment tabFragment = new TabFragment();
-            Bundle bundle = new Bundle();
-            bundle.putString(TabFragment.TITLE, title);
-            tabFragment.setArguments(bundle);
-            mTabs.add(tabFragment);
-        }
+        //通用架构
+        MainOneFragment oneFragment = new MainOneFragment();
+        Bundle oneBundle = new Bundle();
+        oneBundle.putString(MainOneFragment.TITLE, mTitles[0]);
+        oneFragment.setArguments(oneBundle);
+        mTabs.add(oneFragment);
+        //通讯录
+        MainTwoFragment twoFragment = new MainTwoFragment();
+        Bundle twoBundle = new Bundle();
+        twoBundle.putString(MainTwoFragment.TITLE, mTitles[1]);
+        twoFragment.setArguments(twoBundle);
+        mTabs.add(twoFragment);
+        //发现
+        MainThreeFragment threeFragment = new MainThreeFragment();
+        Bundle threeBundle = new Bundle();
+        threeBundle.putString(MainThreeFragment.TITLE, mTitles[2]);
+        threeFragment.setArguments(threeBundle);
+        mTabs.add(threeFragment);
+        //我
+        MainfourFragment fourFragment = new MainfourFragment();
+        Bundle fourBundle = new Bundle();
+        fourBundle.putString(MainfourFragment.TITLE, mTitles[3]);
+        fourFragment.setArguments(fourBundle);
+        mTabs.add(fourFragment);
 
         mAdapter = new FragmentPagerAdapter(getSupportFragmentManager()) {
 
@@ -167,6 +188,13 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
     @Override
     public void onClick(View v) {
         clickTab(v);
+
+        //如果主界面还有其它view有点击事件，则在下面代码中添加
+        /*
+        switch (v.getId()){
+            case R.id.test:
+                break;
+        }*/
     }
 
     /**

@@ -184,6 +184,7 @@ public class ChangeColorIconWithText extends View
 	private static final String INSTANCE_STATUS = "instance_status";
 	private static final String STATUS_ALPHA = "status_alpha";
 
+	//屏幕旋转时保存view状态、还可以避免系统将activity回收后无法恢复
 	@Override
 	protected Parcelable onSaveInstanceState()
 	{
@@ -192,7 +193,7 @@ public class ChangeColorIconWithText extends View
 		bundle.putFloat(STATUS_ALPHA, mAlpha);
 		return bundle;
 	}
-
+	//屏幕恢复时不愿view状态、还可以避免系统将activity回收后无法恢复
 	@Override
 	protected void onRestoreInstanceState(Parcelable state)
 	{

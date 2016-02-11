@@ -1,14 +1,13 @@
 package com.kenny.baselibrary.activity;
 
-import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.Menu;
-import android.view.WindowManager;
 
+import com.kenny.baselibrary.BaseActivity;
 import com.kenny.baselibrary.R;
 import com.kenny.baselibrary.fragment.ListFragment;
 import com.kenny.baselibrary.fragment.PayFragment;
@@ -53,7 +52,7 @@ import java.util.ArrayList;
  * Created by kenny on 2016/1/31.
  * version 1.0
  */
-public class AutoLayoutActivity extends BaseActivity{
+public class AutoLayoutActivity extends BaseActivity {
 
     private ViewPager mViewPager;
 

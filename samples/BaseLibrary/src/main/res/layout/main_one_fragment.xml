@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                xmlns:ptr="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/window_background">
+
+    <!--
+        ptr:ptrMode属性
+        可选值为：disabled（禁用下拉刷新），
+        pullFromStart（仅支持下拉刷新），
+        pullFromEnd（仅支持上拉刷新），
+        both（二者都支持）
+        manualOnly（只允许手动触发）
+        当然了，如果你不喜欢在布局文件中指定，完全可以使用代码设置，在onCreate里面写：mPullRefreshListView.setMode(Mode.BOTH);//设置你需要的模式
+        设置了模式为双向都支持，当然必须为上拉和下拉分别设置回调
+
+        ptr:ptrDrawable="@drawable/ic_launcher"上下拉刷新图标
+        ptr:ptrAnimationStyle的取值：flip（翻转动画）， rotate（旋转动画） 。
+
+        5、常用的一些属性
+        当然了，pull-to-refresh在xml中还能定义一些属性：
+        ptrMode，ptrDrawable，ptrAnimationStyle这三个上面已经介绍过。
+        ptrRefreshableViewBackground 设置整个mPullRefreshListView的背景色
+        ptrHeaderBackground 设置下拉Header或者上拉Footer的背景色
+        ptrHeaderTextColor 用于设置Header与Footer中文本的颜色
+        ptrHeaderSubTextColor 用于设置Header与Footer中上次刷新时间的颜色
+        ptrShowIndicator如果为true会在mPullRefreshListView中出现icon，右上角和右下角，挺有意思的。
+        ptrHeaderTextAppearance ， ptrSubHeaderTextAppearance分别设置拉Header或者上拉Footer中字体的类型颜色等等。
+        ptrRotateDrawableWhilePulling当动画设置为rotate时，下拉是是否旋转。
+        ptrScrollingWhileRefreshingEnabled刷新的时候，是否允许ListView或GridView滚动。觉得为true比较好。
+        ptrListViewExtrasEnabled 决定了Header，Footer以何种方式加入mPullRefreshListView，true为headView方式加入，就是滚动时刷新头部会一起滚动。
+        最后2个其实对于用户体验还是挺重要的，如果设置的时候考虑下~。其他的属性自己选择就好。
+        注：上述属性很多都可以代码控制，如果有需要可以直接mPullRefreshListView.set属性名 查看
+        以上为pull-to-refresh所有支持的属性~~
+    -->
+    <com.handmark.pulltorefresh.library.PullToRefreshListView
+        android:id="@+id/pull_refresh_list"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:cacheColorHint="#00000000"
+        android:divider="#19000000"
+        android:dividerHeight="4dp"
+        android:fadingEdge="none"
+        android:fastScrollEnabled="false"
+        android:footerDividersEnabled="false"
+        android:headerDividersEnabled="false"
+        android:smoothScrollbar="true"
+        ptr:ptrMode="both"
+        />
+
+</RelativeLayout>

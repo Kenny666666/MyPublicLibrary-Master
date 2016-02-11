@@ -1,4 +1,4 @@
-package com.kenny.baselibrary.activity;
+package com.kenny.baselibrary;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -10,7 +10,6 @@ import com.android.volley.NoConnectionError;
 import com.android.volley.Response;
 import com.android.volley.TimeoutError;
 import com.android.volley.VolleyError;
-import com.kenny.baselibrary.R;
 import com.kenny.baselibrary.utils.common.L;
 import com.kenny.baselibrary.utils.common.T;
 import com.kenny.baselibrary.utils.crash.ExitAppUtils;
@@ -21,9 +20,6 @@ import com.zhy.autolayout.AutoLayoutActivity;
 
 /**
  * 所有activity的基类
- *
-
-
  * Created by kenny on 2015/6/21.
  */
 public abstract  class BaseActivity extends AutoLayoutActivity implements Response.ErrorListener,Response.Listener<StringNetWorkResponse> {

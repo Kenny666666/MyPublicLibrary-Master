@@ -1,8 +1,8 @@
 package com.kenny.baselibrary.activity;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 
+import com.kenny.baselibrary.BaseActivity;
 import com.kenny.baselibrary.R;
 import com.kenny.baselibrary.dao.DefectDao;
 import com.kenny.baselibrary.model.DefectModel;

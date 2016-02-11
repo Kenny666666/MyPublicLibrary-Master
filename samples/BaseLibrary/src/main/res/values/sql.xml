@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 把缺陷插入到中间表 -->
+    <string name="sql_insert_defect_to_rel">insert into SP_PD_DEFECT_BUSINESS_RE(ID,DEFECT_ID,
+ASSOCIATED_BUSI_OBJECT_ID,CREATE_DATE,DEFECT_BUSINESS_RE_TYPE) values(?,?,?,?,3)
+</string>
+    <!-- 更新缺陷的客户端状态 -->
+    <string name="sql_update_defect_client_state">
+        	UPDATE SP_PD_DEFECT
+SET CLIENT_STATE = \'历史\'
+WHERE
+	ID IN (
+		SELECT
+			DEFECT_ID
+		FROM
+			SP_PD_DEFECT_BUSINESS_RE
+		WHERE
+			ASSOCIATED_BUSI_OBJECT_ID IN (
+				SELECT
+					MOUDEL_OBJECT_ID
+				FROM
+					SP_PD_TF_RELATION
+				WHERE
+					ID =?
+			)
+	)
+        </string>
+    <!-- 根据设备id查询新增缺陷和历史缺陷的个数 -->
+    <string name="sql_get_add_history_count">         SELECT
+	d.CLIENT_STATE,
+	count(d.CLIENT_STATE) COUNT
+FROM
+	SP_PD_DEFECT d
+WHERE
+	d.DEVICE_ID = \'%1$s\'
+GROUP BY
+	d.CLIENT_STATE
+ORDER BY
+	d.CLIENT_STATE desc
+</string>
+    <!-- 根据表单实例ID查询缺陷列表(变电巡视) -->
+    <string name="sql_get_defect_by_device_id">    SELECT
+	*
+FROM
+	SP_PD_DEFECT a
+WHERE
+	a.device_id =?
+ORDER BY a.FIND_TIME desc
+</string>
+    <!-- 根据缺陷ID查询继保差异信息 -->
+    <string name="sql_get_relayInfo_by_defectId">
+		    SELECT ID,
+		       PROVINCE_CODE,
+		       BUREAU_CODE,
+		       DEFECT_ID,
+		       DEVICE_MODEL_SERIES,
+		       PROTECT_EXIT_TIME,
+		       PROTECT_RUN_TIME,
+		       PROTECT_TIME,
+		       IS_NEED_MACHINE_PART,
+		       WAIT_TIME,
+		       FLOW_STATE,
+		       PROCESS_INS_ID,
+		       OPTIMISTIC_LOCK_VERSION,
+		       DATA_FROM,
+		       UPDATE_TIME
+		  FROM SP_PD_DEFECT_RELAY D
+		 WHERE D.DEFECT_ID = ?
+    </string>
+    <!-- 根据缺陷ID查询自动化差异信息 -->
+    <string name="sql_get_autoInfo_by_defectId">
+		    SELECT ID,
+		       PROVINCE_CODE,
+		       BUREAU_CODE,
+		       DEFECT_ID,
+		       SUBSTATION_TYPE,
+		       REMOTE_CONTROL_TYPE,
+		       REMOTE_CONTROL_RANGE,
+		       DEAL_BEGIN_TIME,
+		       FACTORY_ANA_ABILITY,
+		       FACTORY_DEAL_ABILITY,
+		       FACTORY_WORK_QUALITY,
+		       FACTORY_SERVICE_QUALITY,
+		       FACTORY_SUPPORT_ABILITY,
+		       REWARD,
+		       PREVENT_MEASURE,
+		       FLOW_STATE,
+		       PROCESS_INS_ID,
+		       OPTIMISTIC_LOCK_VERSION,
+		       DATA_FROM,
+		       UPDATE_TIME
+		  FROM SP_PD_DEFECT_AUTOMATION D
+		 WHERE D.DEFECT_ID = ?
+    </string>
+    <!-- 根据缺陷ID查询历史缺陷信息 -->
+    <string name="sql_get_defect_by_id">    select DEAL_MAN_UID,
+	       DEAL_TIME,
+	       DEAL_TEAM_OID,
+	       DEFECT_CAUSE,
+	       TECH_CLASSIFY,
+	       DEFECT_POSITION,
+	       DEAL_MEASURE,
+	       DEAL_RESULT,
+	       UNDEAL_REASON,
+	       LEGACY,
+	       DEAL_DESC,
+	       CLASSIFY_ID,
+	       SPECIALITY_TYPE
+	  from SP_PD_DEFECT d
+	 where d.id = ?
+</string>
+    <!-- 根据表单ID和附件代码获取附件列表 -->
+    <string name="sql_delete_attachment_by_defect_id">       DELETE
+FROM
+	SP_PD_ATTACHMENT
+WHERE
+	OBJECT_ID like ?
+</string>
+    <!-- 删除缺陷关联表 -->
+    <string name="sql_delete_defect_to_rel">    	   delete from SP_PD_DEFECT_BUSINESS_RE
+    where DEFECT_ID=?
+</string>
+    <!-- 根据缺陷ID更新继保差异信息 -->
+    <string name="sql_update_relayInfo_by_defectId">
+     update sp_pd_defect_relay
+	   set IS_NEED_MACHINE_PART    = ?,
+	       WAIT_TIME       = ?,
+	       PROTECT_EXIT_TIME   = ?,
+	       PROTECT_RUN_TIME    = ?,
+	       PROTECT_TIME   = ?
+	   where id = ?
+	 </string>
+    <!-- 插入继保差异信息 -->
+    <string name="sql_insert_relayInfo">
+		    INSERT INTO SP_PD_DEFECT_RELAY
+		      (
+		       ID,
+		       DEFECT_ID,
+		       IS_NEED_MACHINE_PART,
+		       WAIT_TIME,
+		       PROTECT_EXIT_TIME,
+		       PROTECT_RUN_TIME,
+		       PROTECT_TIME
+		       )
+		       VALUES (?,?,?,?,?,?,?)
+    </string>
+    <!-- 根据缺陷ID更新自动化差异信息 -->
+    <string name="sql_update_autoInfo_by_defectId">
+     update sp_pd_defect_automation
+	   set PREVENT_MEASURE    = ?,
+	       FACTORY_ANA_ABILITY       = ?,
+	       FACTORY_DEAL_ABILITY   = ?,
+	       FACTORY_WORK_QUALITY    = ?,
+	       FACTORY_SERVICE_QUALITY   = ?,
+	       FACTORY_SUPPORT_ABILITY = ?,
+	       REWARD    = ?
+	   where id = ?
+	 </string>
+    <!-- 插入自动化差异信息 -->
+    <string name="sql_insert_autoInfo">
+		    INSERT INTO SP_PD_DEFECT_AUTOMATION
+		      (
+		       ID,
+		       DEFECT_ID,
+		       PREVENT_MEASURE,
+		       FACTORY_ANA_ABILITY,
+		       FACTORY_DEAL_ABILITY,
+		       FACTORY_WORK_QUALITY,
+		       FACTORY_SERVICE_QUALITY,
+		       FACTORY_SUPPORT_ABILITY,
+		       REWARD
+		       )
+		       VALUES (?,?,?,?,?,?,?,?,?)
+    </string>
+    <!-- 根据缺陷ID更新缺陷表 -->
+    <string name="sql_update_defect_by_id">	update SP_PD_DEFECT
+	   set DEAL_MAN_UID    = ?,
+	       DEAL_TIME       = ?,
+	       DEAL_TEAM_OID   = ?,
+	       DEFECT_CAUSE    = ?,
+	       TECH_CLASSIFY   = ?,
+	       DEFECT_POSITION = ?,
+	       DEAL_MEASURE    = ?,
+	       DEAL_RESULT     = ?,
+	       UNDEAL_REASON   = ?,
+	       LEGACY          = ?,
+	       DEAL_DESC       = ?
+
+	 where id = ?
+    </string>
+</resources>

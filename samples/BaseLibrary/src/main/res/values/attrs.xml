@@ -68,4 +68,6 @@
         <attr name="weixin_text"></attr>
         <attr name="weixin_text_size"></attr>
     </declare-styleable>
+
+
 </resources>
