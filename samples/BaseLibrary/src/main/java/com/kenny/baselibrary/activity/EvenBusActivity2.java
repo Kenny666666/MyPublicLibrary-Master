@@ -49,14 +49,14 @@ public class EvenBusActivity2 extends BaseActivity implements OnClickListener{
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.bt_one:
-                EventBus.getDefault().post(new Event.ItemListEvent1("One Event button"));
+                EventBus.getDefault().post(new Event.ItemListEvent1("MainThread"));
                 EvenBusActivity2.this.finish();
                 break;
             case R.id.bt_two:
-                EventBus.getDefault().post(new Event.ItemListEvent2("Two Event button"));
+                EventBus.getDefault().post(new Event.ItemListEvent2("BackgroundThread"));
                 break;
             case R.id.bt_three:
-                EventBus.getDefault().postSticky(new TestEvent("Third Event button"));
+                EventBus.getDefault().postSticky(new TestEvent("Sticky"));
                 break;
         }
     }

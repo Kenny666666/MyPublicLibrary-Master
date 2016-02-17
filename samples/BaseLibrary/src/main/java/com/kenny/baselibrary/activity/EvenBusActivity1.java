@@ -2,6 +2,7 @@ package com.kenny.baselibrary.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Looper;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -98,6 +99,7 @@ public class EvenBusActivity1 extends BaseActivity implements OnClickListener{
         tv_one.setText(event.getMsg());
         T.showShort(EvenBusActivity1.this,event.getMsg());
     }
+
     /**
      * 收到消息 使用后台线程处理
      * @param event
@@ -106,8 +108,12 @@ public class EvenBusActivity1 extends BaseActivity implements OnClickListener{
     public void helloEventBackgroundThread(Event.ItemListEvent2 event) {
 
         Log.e(TAG, "helloEventBackgroundThread收到消息:" + event.getMsg());
+        Looper.prepare();
+        T.showShort(EvenBusActivity1.this, "后台线程处理中："+event.getMsg());
+        Looper.loop();
 //        tv_two.setText(event.getMsg());后台线程不能更新UI
     }
+
     /**
      * sticy使用
      * 什么时候使用sticy,当你希望你的事件不被马上处理的时候，举个栗子，比如说，在一个详情页点赞之后，产生一个VoteEvent，VoteEvent并不立即被消费，而是等用户退出详情页回到商品列表之后，接收到该事件，然后刷新Adapter等。其实这就是之前我们用startActivityForResult和onActivityResult做的事情。

@@ -11,20 +11,29 @@ android {
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
+
     }
+
     buildTypes {
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
     packagingOptions {
         exclude 'META-INF/DEPENDENCIES'
         exclude 'META-INF/NOTICE'
         exclude 'META-INF/LICENSE'
         exclude 'META-INF/LICENSE.txt'
         exclude 'META-INF/NOTICE.txt'
+
     }
+
+    lintOptions {
+        abortOnError false
+    }
+
     //重命名APK
     applicationVariants.all { variant ->
         variant.outputs.each { output ->
@@ -79,7 +88,9 @@ dependencies {
     compile 'org.greenrobot:eventbus:3.0.0'
     //其在编译的时候为注册类构建了一个索引，而不是在运行时，这样的结果是其让EventBus 3.0的性能提升了一倍，相比2.4来说，其会是它的3到6倍
     provided 'de.greenrobot:eventbus-annotation-processor:3.0.0-beta1'
+
 }
+
 //腾讯bugly
 bugly {
     appId = '900018995'    //注册时分配的App ID
