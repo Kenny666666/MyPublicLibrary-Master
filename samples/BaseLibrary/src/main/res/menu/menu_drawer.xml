@@ -29,6 +29,10 @@
             <item
                 android:checkable="true"
                 android:icon="@drawable/ic_dashboard"
+                android:title="屏幕适配"/>
+            <item
+                android:checkable="true"
+                android:icon="@drawable/ic_dashboard"
                 android:title="JNI"/>
             <item
                 android:checkable="true"

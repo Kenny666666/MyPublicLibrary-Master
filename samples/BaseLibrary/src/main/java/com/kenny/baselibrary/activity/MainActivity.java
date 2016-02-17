@@ -138,6 +138,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
 
                         }else if("Http".equals(menuItem.getTitle())) {
 
+                        }else if("屏幕适配".equals(menuItem.getTitle())) {
+                            startActivity(new Intent(MainActivity.this,AutoLayoutActivity.class));
                         }
                         return true;
                     }
