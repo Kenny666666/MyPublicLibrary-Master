@@ -49,6 +49,13 @@ android {
 }
 
 dependencies {
+    //Android Studio中有六种依赖
+    //        compile：是对所有的build type以及favlors都会参与编译并且打包到最终的apk文件中。
+    //       Provided：是对所有的build type以及favlors只在编译时使用，类似eclipse中的external-libs,只参与编译，不打包到最终apk。
+    //            APK：只会打包到apk文件中，而不参与编译，所以不能再代码中直接调用jar中的类或方法，否则在编译时会报错
+    //   Test compile：仅仅是针对单元测试代码的编译编译以及最终打包测试apk时有效，而对正常的debug或者release apk包不起作用。
+    //  Debug compile: 仅仅针对debug模式的编译和最终的debug apk打包。
+    //Release compile: 仅仅针对Release 模式的编译和最终的Release apk打包。
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
     compile('com.android.support:appcompat-v7:23.1.1') {
@@ -69,6 +76,9 @@ dependencies {
     compile project(':librarys:autolayout')
     compile 'com.tencent.bugly:crashreport:1.2.8'
     compile project(':librarys:PullToRefresh-lib')
+    compile 'org.greenrobot:eventbus:3.0.0'
+    //其在编译的时候为注册类构建了一个索引，而不是在运行时，这样的结果是其让EventBus 3.0的性能提升了一倍，相比2.4来说，其会是它的3到6倍
+    provided 'de.greenrobot:eventbus-annotation-processor:3.0.0-beta1'
 }
 //腾讯bugly
 bugly {

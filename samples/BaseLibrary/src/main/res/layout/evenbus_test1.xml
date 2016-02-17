@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="事件总线案例测试"
+        android:textSize="24sp"
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="点击打开第二个Activity"
+        android:id="@+id/bt_one"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:text="这边显示消息内容1..."
+        android:id="@+id/tv_one" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:text="这边显示消息内容2..."
+        android:id="@+id/tv_two" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:text="这边显示消息内容3..."
+        android:id="@+id/tv_three" />
+</LinearLayout>

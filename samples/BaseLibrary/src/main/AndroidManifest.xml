@@ -30,7 +30,13 @@
         <activity android:name=".activity.AutoLayoutActivity"
                   android:theme="@style/NoActionBarTheme"
             ></activity>
-
+        <!--事件总线测试界面-->
+        <activity android:name=".activity.EvenBusActivity1"
+                  android:theme="@style/NoActionBarTheme"
+            ></activity>
+        <activity android:name=".activity.EvenBusActivity2"
+                  android:theme="@style/NoActionBarTheme"
+            ></activity>
         <!--推送服务相关activity/service/Receiver      开始-->
         <activity
             android:name="org.androidpn.client.NotificationDetailsActivity"

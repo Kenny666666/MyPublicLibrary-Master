@@ -1,5 +1,6 @@
 package com.kenny.baselibrary.activity;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -127,7 +128,17 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
                         menuItem.setChecked(true);
                         mDrawerLayout.closeDrawers();
                         mPreMenuItem = menuItem;
-                        Toast.makeText(MainActivity.this, menuItem.getItemId() + "," + menuItem.getTitle(), Toast.LENGTH_SHORT).show();
+                        if ("EvenBus".equals(menuItem.getTitle())) {
+
+                            startActivity(new Intent(MainActivity.this,EvenBusActivity1.class));
+
+                        }else if("ORM".equals(menuItem.getTitle())) {
+
+                        }else if("JNI".equals(menuItem.getTitle())) {
+
+                        }else if("Http".equals(menuItem.getTitle())) {
+
+                        }
                         return true;
                     }
                 });

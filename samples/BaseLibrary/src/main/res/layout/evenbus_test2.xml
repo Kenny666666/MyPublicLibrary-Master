@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="事件总线案例测试"
+        android:textSize="24sp"
+        />
+
+    <Button
+        android:id="@+id/bt_one"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="这是第二个activity"/>
+
+    <Button
+        android:id="@+id/bt_two"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Two Event Button"/>
+
+    <Button
+        android:id="@+id/bt_three"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Third Event Button"/>
+
+</LinearLayout>

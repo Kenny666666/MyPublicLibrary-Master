@@ -10,6 +10,7 @@ import com.android.volley.NoConnectionError;
 import com.android.volley.Response;
 import com.android.volley.TimeoutError;
 import com.android.volley.VolleyError;
+import com.kenny.baselibrary.activity.NetWorkActivity;
 import com.kenny.baselibrary.utils.common.L;
 import com.kenny.baselibrary.utils.common.T;
 import com.kenny.baselibrary.utils.crash.ExitAppUtils;
@@ -23,6 +24,8 @@ import com.zhy.autolayout.AutoLayoutActivity;
  * Created by kenny on 2015/6/21.
  */
 public abstract  class BaseActivity extends AutoLayoutActivity implements Response.ErrorListener,Response.Listener<StringNetWorkResponse> {
+
+    public final String TAG = this.getClass().getName();
 
     public RequestHelp requestHelp;
 
