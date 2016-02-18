@@ -46,10 +46,17 @@
 现已集成
 =
 1、首页初步完成，MD设计风格，Toolbar、DrawerLayout/NavigationView左侧菜单、viewPage+fragment
+
 2、网络模块volley(功能待完善)
+
 3、ORM数据库框架
+
 4、EventBus 3.0 组件间通信使用案例
+
 5、某大神最强适配方案AutoLayoutActivity
+
 6、腾讯bugly，异常捕获及异常回传。本地全局异常捕获机制。
+
 7、AndroidPN消息推送，集成github上的AndroidPN框架扩展：1、加入心跳和断线重连2、优化断线重连3、离线推送4、别名和标签推送功能5、富媒体推送6、丰富客户端功能、查看历史、开机自启。
+
 8、通用工具等。
