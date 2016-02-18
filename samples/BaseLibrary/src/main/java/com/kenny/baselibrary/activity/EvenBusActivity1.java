@@ -23,7 +23,6 @@ import org.greenrobot.eventbus.ThreadMode;
 /**
  * description 此activity中包含evenBus框架的介绍
  * Created by kenny on 2016/1/26.
- * version 1.0
  *
  * 总结一下：register会把当前类中匹配的方法，存入一个map，而post会根据实参去map查找进行反射调用。分析这么久，一句话就说完了~~
 

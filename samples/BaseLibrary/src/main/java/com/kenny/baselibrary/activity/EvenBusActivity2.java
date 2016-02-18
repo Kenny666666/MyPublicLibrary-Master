@@ -16,7 +16,6 @@ import org.greenrobot.eventbus.EventBus;
 /**
  * description 此activity中包含evenBus框架的介绍
  * Created by kenny on 2016/1/26.
- * version 1.0
  */
 public class EvenBusActivity2 extends BaseActivity implements OnClickListener{
 

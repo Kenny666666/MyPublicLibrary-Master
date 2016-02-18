@@ -15,9 +15,8 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
 /**
- * description
+ * description 数据库工具类
  * Created by kenny on 2016/1/26.
- * version 1.0
  */
 public class DBinit {
 	

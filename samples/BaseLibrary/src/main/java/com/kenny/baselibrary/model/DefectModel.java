@@ -6,7 +6,7 @@ import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
 /**
- * 缺陷信息实体类
+ * 缺陷信息实体类--实际项目中抽取
  * 
  * @author kenny
  * 

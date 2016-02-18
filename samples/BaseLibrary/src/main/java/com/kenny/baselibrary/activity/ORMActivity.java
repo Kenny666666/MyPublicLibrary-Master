@@ -12,9 +12,8 @@ import com.kenny.baselibrary.utils.common.Utility;
 import java.util.List;
 
 /**
- * description
+ * description ORM数据库框架测试界面
  * Created by kenny on 2016/1/26.
- * version
  */
 public class ORMActivity extends BaseActivity {
     @Override

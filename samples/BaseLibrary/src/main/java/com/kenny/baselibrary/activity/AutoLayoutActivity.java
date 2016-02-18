@@ -50,7 +50,6 @@ import java.util.ArrayList;
  如果你不想继承AutoLayoutActivity，那么你就得像Google的百分比库一样，去用AutoXXXLayout代替系统原有的XXXLayout。当然，你可以放心的是，所有的系统属性原有的属性都会支持，不过根布局上就不支持px的自动百分比化了，但是一般根布局都是MATCH_PARENT，而上述的方式，根布局也是可以直接px的百分比化的。
 
  * Created by kenny on 2016/1/31.
- * version 1.0
  */
 public class AutoLayoutActivity extends BaseActivity {
 

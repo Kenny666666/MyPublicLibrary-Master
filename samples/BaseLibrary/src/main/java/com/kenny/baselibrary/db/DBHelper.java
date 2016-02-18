@@ -23,9 +23,8 @@ import java.util.Map;
 import java.util.concurrent.Callable;
 import java.util.concurrent.atomic.AtomicInteger;
 /**
- * description
+ * description ORM数据库帮助类
  * Created by kenny on 2016/1/26.
- * version 1.0
  */
 public class DBHelper extends OrmLiteSqliteOpenHelper {
 

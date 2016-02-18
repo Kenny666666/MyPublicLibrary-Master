@@ -3,7 +3,6 @@ package com.kenny.baselibrary.event;
 /**
  * description
  * Created by kenny on 2016/2/17.
- * version 1.0
  */
 public class TestEvent {
 

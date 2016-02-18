@@ -35,41 +35,42 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * description app主界面
  * Created by kenny on 2015/6/21.
- * <p/>
- * 开发的时候此目录下有很多可用图片
- * D:\Android\androidstudio\sdk\platforms\android-17\data\res\drawable-hdpi
+ *
+ * ps:开发的时候此目录下有很多可用图片
+ * sdk\platforms\android-17\data\res\drawable-hdpi
  */
 public class MainActivity extends BaseActivity implements View.OnClickListener, ViewPager.OnPageChangeListener {
-
+    /**左侧抽屉*/
     private DrawerLayout mDrawerLayout;
+    /**左侧菜单导航*/
     private NavigationView mNavigationView;
-
+    /**主界面viewpage+fragment风格*/
     private ViewPager mViewPager;
     private List<Fragment> mTabs = new ArrayList<Fragment>();
     private String[] mTitles = new String[]
             {"First Fragment !", "Second Fragment !", "Third Fragment !", "Fourth Fragment !"};
     private FragmentPagerAdapter mAdapter;
-    private List<ChangeColorIconWithText> mTabIndicators = new ArrayList<ChangeColorIconWithText>();
     /**底部4个自定义view*/
     private ChangeColorIconWithText one, two, three, four;
-    /**
-     * 再按一次退出程序
-     */
+    private List<ChangeColorIconWithText> mTabIndicators = new ArrayList<ChangeColorIconWithText>();
+    /** 再按一次退出程序 */
     private long mExitTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //状态栏透明
         setImmersionStatus();
         setContentView(R.layout.activity_main);
         //初始化view
         initViews();
         //初始化toolbar
         initToolbar();
-        //注册事件
+        //注册监听
         setListener();
-        //
+        //初始化数据
         initDatas();
         setOverflowButtonAlways();
     }
@@ -92,7 +93,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         mTabIndicators.add(three);
         four = (ChangeColorIconWithText) findViewById(R.id.id_indicator_four);
         mTabIndicators.add(four);
-
     }
 
     /**
@@ -107,6 +107,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         ab.setDisplayShowHomeEnabled(false);
     }
 
+    /**
+     * 注册监听
+     */
     private void setListener() {
         one.setOnClickListener(this);
         two.setOnClickListener(this);
@@ -146,6 +149,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
                 });
     }
 
+    /**
+     * 初始化数据
+     */
     private void initDatas() {
         //通用架构
         MainOneFragment oneFragment = new MainOneFragment();
@@ -200,9 +206,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
 
     @Override
     public void onClick(View v) {
+        //点击底部4个自定义view切换界面
         clickTab(v);
 
-        //如果主界面还有其它view有点击事件，则在下面代码中添加
+        //如果主界面还有其它view有点击事件，则在下面代码中添加，防止事件冲突
         /*
         switch (v.getId()){
             case R.id.test:

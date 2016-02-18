@@ -29,7 +29,6 @@ import java.io.InputStreamReader;
 /**
  * description
  * Created by kenny on 2016/1/26.
- * version
  */
 public class BaseLibraryApplication extends LitePalApplication {
 

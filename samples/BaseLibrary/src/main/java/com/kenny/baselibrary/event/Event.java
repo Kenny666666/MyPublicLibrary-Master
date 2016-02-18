@@ -5,7 +5,6 @@ import java.util.List;
 /**
  * description 推荐大家在使用EventBus的时候，创建一个事件类，把你的每一个参数（或者可能发生冲突的参数），封装成一个类
  * Created by kenny on 2015/8/2.
- * version 1.0
  */
 public class Event {
 

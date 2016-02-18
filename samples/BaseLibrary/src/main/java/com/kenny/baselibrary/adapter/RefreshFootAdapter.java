@@ -12,15 +12,6 @@ import com.kenny.baselibrary.R;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * 当前类注释:
- * 项目名：FastDev4Android
- * 包名：com.chinaztt.fda.adapter
- * 作者：江清清 on 15/11/21 21:43
- * 邮箱：jiangqqlmj@163.com
- * QQ： 781931404
- * 公司：江苏中天科技软件技术有限公司
- */
 public class RefreshFootAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
     //上拉加载更多
     public static final int  PULLUP_LOAD_MORE=0;
