@@ -45,7 +45,7 @@
 ===
 现已集成
 =
-1、首页初步完成，MD设计风格，Toolbar、DrawerLayout/NavigationView左侧菜单、viewPage+fragment
+1、首页初步完成，MD设计风格，Toolbar、DrawerLayout/NavigationView左侧菜单、viewPage+fragment、沉寝式状态栏。
 
 2、网络模块volley(功能待完善)
 
