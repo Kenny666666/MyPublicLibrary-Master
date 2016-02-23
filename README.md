@@ -64,4 +64,6 @@
 9、通用工具等。
 效果图
 =
-![](https://github.com/Kenny666666/MyPublicLibrary-Master/blob/master/1.gif) 
+![](https://github.com/Kenny666666/MyPublicLibrary-Master/blob/master/1.gif) ![](https://github.com/Kenny666666/MyPublicLibrary-Master/blob/master/2.gif) 
+![](https://github.com/Kenny666666/MyPublicLibrary-Master/blob/master/3.gif) 
+![](https://github.com/Kenny666666/MyPublicLibrary-Master/blob/master/4.gif) 
