@@ -21,20 +21,26 @@ import com.kenny.baselibrary.utils.network.StringNetWorkResponse;
  */
 public class BaseFragment extends Fragment implements Template,Response.ErrorListener,Response.Listener<StringNetWorkResponse> {
 
-    public RequestHelp requestHelp;
+    /**
+     * 接口请求帮助类
+     */
+    public RequestHelp mRequestHelp;
 
-    protected View view;
+    protected View mView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestHelp = new RequestHelp(getFragmentManager(), this, this);
+        mRequestHelp = new RequestHelp(getFragmentManager(), this, this);
     }
 
+    /**
+     * 初始view
+     */
     @Override
     public void initView() {
-        if (view != null) {
-            view.setOnTouchListener(new View.OnTouchListener() {
+        if (mView != null) {
+            mView.setOnTouchListener(new View.OnTouchListener() {
                 @Override
                 public boolean onTouch(View v, MotionEvent event) {
                     return false;
@@ -43,14 +49,24 @@ public class BaseFragment extends Fragment implements Template,Response.ErrorLis
         }
     }
 
+    /**
+     * 设置view监听
+     */
     @Override
     public void setListener() {
     }
 
+    /**
+     * 初始化数据
+     */
     @Override
     public void initData() {
     }
 
+    /**
+     * 接口请求异常回调
+     * @param e
+     */
     @Override
     public void onErrorResponse(VolleyError e) {
             if (e instanceof TimeoutError) {
@@ -64,6 +80,10 @@ public class BaseFragment extends Fragment implements Template,Response.ErrorLis
             }
     }
 
+    /**
+     * 接口请求正常回调
+     * @param stringNetWorkResponse
+     */
     @Override
     public void onResponse(StringNetWorkResponse stringNetWorkResponse) {
 
@@ -80,6 +100,7 @@ public class BaseFragment extends Fragment implements Template,Response.ErrorLis
         }
         return true;
     }
+
     public String createXmlItem(String tagName, String tagValue) {
         StringBuffer buffer = new StringBuffer();
         if (TextUtils.isEmpty(tagValue)) {
@@ -106,10 +127,10 @@ public class BaseFragment extends Fragment implements Template,Response.ErrorLis
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        if(null!=view){
-            ViewGroup viewParent = (ViewGroup) view.getParent();
+        if(null!=mView){
+            ViewGroup viewParent = (ViewGroup) mView.getParent();
             if(null!=viewParent){
-                viewParent.removeView(view);
+                viewParent.removeView(mView);
             }
         }
     }

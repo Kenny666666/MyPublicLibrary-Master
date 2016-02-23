@@ -50,10 +50,10 @@ import org.greenrobot.eventbus.ThreadMode;
  */
 public class EvenBusActivity1 extends BaseActivity implements OnClickListener{
 
-    private Button bt_one;
-    private TextView tv_one;
-    private TextView tv_two;
-    private TextView tv_three;
+    private Button btOne;
+    private TextView tvOne;
+    private TextView tvTwo;
+    private TextView tvThree;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,14 +68,14 @@ public class EvenBusActivity1 extends BaseActivity implements OnClickListener{
     }
 
     private void initView(){
-        bt_one = (Button) this.findViewById(R.id.bt_one);
-        tv_one = (TextView) this.findViewById(R.id.tv_one);
-        tv_two = (TextView) this.findViewById(R.id.tv_two);
-        tv_three = (TextView) this.findViewById(R.id.tv_three);
+        btOne = (Button) this.findViewById(R.id.bt_one);
+        tvOne = (TextView) this.findViewById(R.id.tv_one);
+        tvTwo = (TextView) this.findViewById(R.id.tv_two);
+        tvThree = (TextView) this.findViewById(R.id.tv_three);
     }
 
     private void setListener(){
-        bt_one.setOnClickListener(this);
+        btOne.setOnClickListener(this);
     }
 
     @Override
@@ -95,7 +95,7 @@ public class EvenBusActivity1 extends BaseActivity implements OnClickListener{
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void helloEventMainThread(Event.ItemListEvent1 event) {
         L.e(TAG, "helloEventMainThread收到消息:" + event.getMsg());
-        tv_one.setText(event.getMsg());
+        tvOne.setText(event.getMsg());
         T.showShort(EvenBusActivity1.this,event.getMsg());
     }
 
@@ -122,7 +122,7 @@ public class EvenBusActivity1 extends BaseActivity implements OnClickListener{
     public void helloEventSticky(TestEvent event) {
 
         Log.e(TAG, "helloEventSticky收到消息:" + event.getMsg());
-        tv_three.setText(event.getMsg());
+        tvThree.setText(event.getMsg());
         T.showShort(EvenBusActivity1.this, event.getMsg());
     }
 

@@ -1,5 +1,6 @@
 package com.kenny.baselibrary.activity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -26,6 +27,7 @@ import com.kenny.baselibrary.fragment.MainOneFragment;
 import com.kenny.baselibrary.fragment.MainThreeFragment;
 import com.kenny.baselibrary.fragment.MainTwoFragment;
 import com.kenny.baselibrary.fragment.MainfourFragment;
+import com.kenny.baselibrary.utils.common.T;
 import com.kenny.baselibrary.utils.crash.ExitAppUtils;
 import com.kenny.baselibrary.view.ChangeColorIconWithText;
 
@@ -42,6 +44,8 @@ import java.util.List;
  * sdk\platforms\android-17\data\res\drawable-hdpi
  */
 public class MainActivity extends BaseActivity implements View.OnClickListener, ViewPager.OnPageChangeListener {
+
+    private Context mContext;
     /**左侧抽屉*/
     private DrawerLayout mDrawerLayout;
     /**左侧菜单导航*/
@@ -64,6 +68,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         //状态栏透明
         setImmersionStatus();
         setContentView(R.layout.activity_main);
+        mContext = this;
         //初始化view
         initViews();
         //初始化toolbar
@@ -137,11 +142,18 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
 
                         }else if("ORM".equals(menuItem.getTitle())) {
 
+                            T.showShort(mContext,"工具正在开发中......");
+
                         }else if("JNI".equals(menuItem.getTitle())) {
+
+                            T.showShort(mContext,"工具正在开发中......");
 
                         }else if("Http".equals(menuItem.getTitle())) {
 
+                            T.showShort(mContext,"工具正在开发中......");
+
                         }else if("屏幕适配".equals(menuItem.getTitle())) {
+
                             startActivity(new Intent(MainActivity.this,AutoLayoutActivity.class));
                         }
                         return true;
@@ -218,7 +230,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
     }
 
     /**
-     * 点击Tab按钮
+     * 点击Tab按钮，切换界面
      *
      * @param v
      */
@@ -322,6 +334,12 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         }
     }
 
+    /**
+     * 回退
+     * @param keyCode
+     * @param event
+     * @return
+     */
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
             if ((System.currentTimeMillis() - mExitTime) > 2000) {

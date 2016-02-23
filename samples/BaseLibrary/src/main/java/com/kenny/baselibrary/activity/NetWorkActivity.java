@@ -18,9 +18,9 @@ public class NetWorkActivity extends BaseActivity implements View.OnClickListene
 
     private final String TAG = NetWorkActivity.this.getClass().getName();
     private Context mContext;
-    private Button bt_str_request_get;
-    private Button bt_str_request_post;
-    private Button bt_gson_request_post;
+    private Button btStrRequestGet;
+    private Button btStrRequestPost;
+    private Button btGsonRequestPost;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,15 +32,15 @@ public class NetWorkActivity extends BaseActivity implements View.OnClickListene
     }
 
     private void initViews(){
-        bt_str_request_get = (Button) findViewById(R.id.bt_str_request_get);
-        bt_str_request_post = (Button) findViewById(R.id.bt_str_request_post);
-        bt_gson_request_post = (Button) findViewById(R.id.bt_gson_request_post);
+        btStrRequestGet = (Button) findViewById(R.id.bt_str_request_get);
+        btStrRequestPost = (Button) findViewById(R.id.bt_str_request_post);
+        btGsonRequestPost = (Button) findViewById(R.id.bt_gson_request_post);
     }
 
     private void setListener(){
-        bt_str_request_get.setOnClickListener(this);
-        bt_str_request_post.setOnClickListener(this);
-        bt_gson_request_post.setOnClickListener(this);
+        btStrRequestGet.setOnClickListener(this);
+        btStrRequestPost.setOnClickListener(this);
+        btGsonRequestPost.setOnClickListener(this);
     }
 
 
@@ -59,6 +59,10 @@ public class NetWorkActivity extends BaseActivity implements View.OnClickListene
         }
     }
 
+    /**
+     * 接口回调
+     * @param response
+     */
     @Override
     public void onResponse(StringNetWorkResponse response) {
         super.onResponse(response);

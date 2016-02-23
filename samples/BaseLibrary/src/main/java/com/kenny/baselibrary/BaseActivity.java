@@ -27,17 +27,21 @@ public abstract  class BaseActivity extends AutoLayoutActivity implements Respon
 
     public final String TAG = this.getClass().getName();
 
-    public RequestHelp requestHelp;
+    public RequestHelp mRequestHelp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //初始化请求帮助类
-        requestHelp = new RequestHelp(getSupportFragmentManager(),this,this);
+        mRequestHelp = new RequestHelp(getSupportFragmentManager(),this,this);
         //将activity加入到维护队列
         ExitAppUtils.getInstance().addActivity(this);
     }
 
+    /**
+     * 接口回调出现异常
+     * @param e
+     */
     @Override
     public void onErrorResponse(VolleyError e) {
         if (e instanceof TimeoutError){
@@ -53,6 +57,10 @@ public abstract  class BaseActivity extends AutoLayoutActivity implements Respon
         }
     }
 
+    /**
+     * 接口正常回调
+     * @param response
+     */
     @Override
     public void onResponse(StringNetWorkResponse response) {
 
@@ -75,7 +83,7 @@ public abstract  class BaseActivity extends AutoLayoutActivity implements Respon
     protected void onPause() {
         super.onPause();
         //activity被暂停时取消请求
-        requestHelp.cancelTag(this);
+        mRequestHelp.cancelTag(this);
     }
 
     public void show(String str){

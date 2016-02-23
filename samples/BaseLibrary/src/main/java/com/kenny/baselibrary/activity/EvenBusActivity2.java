@@ -19,9 +19,9 @@ import org.greenrobot.eventbus.EventBus;
  */
 public class EvenBusActivity2 extends BaseActivity implements OnClickListener{
 
-    private Button bt_one;
-    private Button bt_two;
-    private Button bt_three;
+    private Button btOne;
+    private Button btTwo;
+    private Button btThree;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,15 +33,15 @@ public class EvenBusActivity2 extends BaseActivity implements OnClickListener{
     }
 
     private void initView(){
-        bt_one = (Button) this.findViewById(R.id.bt_one);
-        bt_two = (Button) this.findViewById(R.id.bt_two);
-        bt_three = (Button) this.findViewById(R.id.bt_three);
+        btOne = (Button) this.findViewById(R.id.bt_one);
+        btTwo = (Button) this.findViewById(R.id.bt_two);
+        btThree = (Button) this.findViewById(R.id.bt_three);
     }
 
     private void setListener(){
-        bt_one.setOnClickListener(this);
-        bt_two.setOnClickListener(this);
-        bt_three.setOnClickListener(this);
+        btOne.setOnClickListener(this);
+        btTwo.setOnClickListener(this);
+        btThree.setOnClickListener(this);
     }
 
     @Override

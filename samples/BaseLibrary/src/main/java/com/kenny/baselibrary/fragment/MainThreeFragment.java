@@ -35,11 +35,11 @@ public class MainThreeFragment extends LazyFragment{
     public static final String TITLE = "title";
     /** 标志位，标志界面view已经初始化完成。 */
     private boolean mIsPrepared;
-    private SwipeRefreshLayout demo_swiperefreshlayout;
-    private RecyclerView demo_recycler;
-    private RefreshFootAdapter adapter;
-    private LinearLayoutManager linearLayoutManager;
-    private int lastVisibleItem;
+    private SwipeRefreshLayout mSwiperefreshlayout;
+    private RecyclerView mRecyclerView;
+    private RefreshFootAdapter mAdapter;
+    private LinearLayoutManager mLinearLayoutManager;
+    private int mLastVisibleItem;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -58,26 +58,25 @@ public class MainThreeFragment extends LazyFragment{
     @Override
     public void initView() {
         super.initView();
-        demo_swiperefreshlayout=(SwipeRefreshLayout)mView.findViewById(R.id.demo_swiperefreshlayout);
-        demo_recycler=(RecyclerView)mView.findViewById(R.id.demo_recycler);
+        mSwiperefreshlayout=(SwipeRefreshLayout)mView.findViewById(R.id.demo_swiperefreshlayout);
+        mRecyclerView=(RecyclerView)mView.findViewById(R.id.demo_recycler);
         //设置刷新时动画的颜色，可以设置4个
-        demo_swiperefreshlayout.setProgressBackgroundColorSchemeResource(android.R.color.white);
-        demo_swiperefreshlayout.setColorSchemeResources(
+        mSwiperefreshlayout.setProgressBackgroundColorSchemeResource(android.R.color.white);
+        mSwiperefreshlayout.setColorSchemeResources(
                 android.R.color.holo_blue_light,
                 android.R.color.holo_red_light,
                 android.R.color.holo_orange_light,
                 android.R.color.holo_green_light);
-        demo_swiperefreshlayout.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
-        linearLayoutManager=new LinearLayoutManager(getActivity());
-        linearLayoutManager.setOrientation(OrientationHelper.VERTICAL);
-        demo_recycler.setLayoutManager(linearLayoutManager);
+        mSwiperefreshlayout.setProgressViewOffset(false, 0, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 24, getResources().getDisplayMetrics()));
+        mLinearLayoutManager=new LinearLayoutManager(getActivity());
+        mLinearLayoutManager.setOrientation(OrientationHelper.VERTICAL);
+        mRecyclerView.setLayoutManager(mLinearLayoutManager);
         //添加分隔线
-        demo_recycler.addItemDecoration(new AdvanceDecoration(getActivity(), OrientationHelper.VERTICAL));
-        demo_recycler.setAdapter(adapter = new RefreshFootAdapter(getActivity()));
-        demo_swiperefreshlayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+        mRecyclerView.addItemDecoration(new AdvanceDecoration(getActivity(), OrientationHelper.VERTICAL));
+        mRecyclerView.setAdapter(mAdapter = new RefreshFootAdapter(getActivity()));
+        mSwiperefreshlayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                Log.d("zttjiangqq", "invoke onRefresh...");
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
@@ -86,20 +85,20 @@ public class MainThreeFragment extends LazyFragment{
                             int index = i + 1;
                             newDatas.add("new item" + index);
                         }
-                        adapter.addItem(newDatas);
-                        demo_swiperefreshlayout.setRefreshing(false);
-                        Toast.makeText(getActivity(), "更新了五条数据...", Toast.LENGTH_SHORT).show();
+                        mAdapter.addItem(newDatas);
+                        mSwiperefreshlayout.setRefreshing(false);
+                        T.showShort(getActivity(), "更新了五条数据...");
                     }
                 }, 5000);
             }
         });
         //RecyclerView滑动监听
-        demo_recycler.setOnScrollListener(new RecyclerView.OnScrollListener() {
+        mRecyclerView.setOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
                 super.onScrollStateChanged(recyclerView, newState);
-                if (newState == RecyclerView.SCROLL_STATE_IDLE && lastVisibleItem + 1 == adapter.getItemCount()) {
-                    adapter.changeMoreStatus(RefreshFootAdapter.LOADING_MORE);
+                if (newState == RecyclerView.SCROLL_STATE_IDLE && mLastVisibleItem + 1 == mAdapter.getItemCount()) {
+                    mAdapter.changeMoreStatus(RefreshFootAdapter.LOADING_MORE);
                     new Handler().postDelayed(new Runnable() {
                         @Override
                         public void run() {
@@ -108,8 +107,8 @@ public class MainThreeFragment extends LazyFragment{
                                 int index = i + 1;
                                 newDatas.add("more item" + index);
                             }
-                            adapter.addMoreItem(newDatas);
-                            adapter.changeMoreStatus(RefreshFootAdapter.PULLUP_LOAD_MORE);
+                            mAdapter.addMoreItem(newDatas);
+                            mAdapter.changeMoreStatus(RefreshFootAdapter.PULLUP_LOAD_MORE);
                         }
                     }, 2500);
                 }
@@ -117,7 +116,7 @@ public class MainThreeFragment extends LazyFragment{
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
-                lastVisibleItem = linearLayoutManager.findLastVisibleItemPosition();
+                mLastVisibleItem = mLinearLayoutManager.findLastVisibleItemPosition();
             }
         });
     }

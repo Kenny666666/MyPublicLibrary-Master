@@ -22,6 +22,7 @@
     <string name="revert_database_suc">数据库已还原</string>
     <string name="revert_database_fail">数据库还原失败</string>
 
+    <!--菜单popupwindow-->
     <string name="action_search">查找</string>
     <string name="action_add">添加</string>
     <string name="menu_group_chat">发起群聊</string>
@@ -31,7 +32,7 @@
     <string name="tab_contact">通讯录</string>
     <string name="tab_found">发现</string>
     <string name="tab_me">我</string>
-
+    <!--上下拉刷新-->
     <string name="pull_to_refresh_pull_label">下拉刷新…</string>
     <string name="pull_to_refresh_release_label">放开以刷新…</string>
     <string name="pull_to_refresh_refreshing_label">正在载入…</string>

@@ -20,14 +20,14 @@ import java.util.Map;
 
 
 /**
- * 缺陷数据访问类--本类中有很多ORM数据库增删改查的案例（实际项目中抽取）
+ * 缺陷数据访问类--本类中有很多ORM数据库增删改查的案例（之前项目中抽取）
  * 
  * @author kenny
  * 
  */
 public class DefectDao {
 
-	private Context context;
+	private Context mContext;
 
 	/** 自动化专业*/
 	private final String AUTO_TYPE = "2";
@@ -35,7 +35,7 @@ public class DefectDao {
 	private final String RELAY_TYPE = "3";
 
 	public DefectDao(Context context) {
-		this.context = context;
+		this.mContext = context;
 	}
 
 	/**
@@ -55,7 +55,7 @@ public class DefectDao {
 		DBHelper dbHelper;
 		SQLiteDatabase db = null;
 		try {
-			dbHelper = DBHelper.getHelper(context);
+			dbHelper = DBHelper.getHelper(mContext);
 			db = dbHelper.getWritableDatabase();
 			db.beginTransaction();
 			String[] args={
@@ -73,7 +73,7 @@ public class DefectDao {
 					obj.get("ID")
 			};
 			// 再插入到中间表
-			db.execSQL(context.getResources().getString(R.string.sql_update_defect_by_id), args);
+			db.execSQL(mContext.getResources().getString(R.string.sql_update_defect_by_id), args);
 		} catch (Exception e) {
 			--operateCount;
 		}
@@ -122,7 +122,7 @@ public class DefectDao {
 						obj.get("FACTORY_SUPPORT_ABILITY"),
 						obj.get("REWARD")
 				        };
-				sqlStr = context.getResources().getString(R.string.sql_insert_autoInfo);
+				sqlStr = mContext.getResources().getString(R.string.sql_insert_autoInfo);
 				db.execSQL(sqlStr, args);
 			}else if(autoList.size()==1){
 				HashMap<String, String> autoMap = autoList.get(0);
@@ -137,13 +137,13 @@ public class DefectDao {
 						obj.get("REWARD"),
 						autoMap.get("ID")
 				};
-				sqlStr = context.getResources().getString(R.string.sql_update_autoInfo_by_defectId);
+				sqlStr = mContext.getResources().getString(R.string.sql_update_autoInfo_by_defectId);
 				db.execSQL(sqlStr, args);
 			}
 
 		} catch (Exception e) {
 			--operateCount;
-			L.saveExceptionToFile(context, "保存自动化差异信息出错:"+sqlStr, e);
+			L.saveExceptionToFile(mContext, "保存自动化差异信息出错:"+sqlStr, e);
 		}
 		return operateCount;
 	}
@@ -176,7 +176,7 @@ public class DefectDao {
 						obj.get("PROTECT_RUN_TIME"),
 						obj.get("PROTECT_TIME")
 				};
-				sqlStr = context.getResources().getString(R.string.sql_insert_relayInfo);
+				sqlStr = mContext.getResources().getString(R.string.sql_insert_relayInfo);
 				db.execSQL(sqlStr, args);
 			}else if(relayList.size()==1){
 				HashMap<String, String> relayMap = relayList.get(0);
@@ -189,13 +189,13 @@ public class DefectDao {
 						obj.get("PROTECT_TIME"),
 						relayMap.get("ID")
 				};
-				sqlStr = context.getResources().getString(R.string.sql_update_relayInfo_by_defectId);
+				sqlStr = mContext.getResources().getString(R.string.sql_update_relayInfo_by_defectId);
 				db.execSQL(sqlStr, args);
 			}
 
 		} catch (Exception e) {
 			--operateCount;
-			L.saveExceptionToFile(context, "保存继保差异信息出错:"+sqlStr, e);
+			L.saveExceptionToFile(mContext, "保存继保差异信息出错:"+sqlStr, e);
 		}
 		return operateCount;
 	}
@@ -208,7 +208,7 @@ public class DefectDao {
 	 */
 	public int queryRecordCount() throws Exception {
 		int result = 0;
-		DBHelper dbHelper = DBHelper.getHelper(context);
+		DBHelper dbHelper = DBHelper.getHelper(mContext);
 		List<?> list = dbHelper.getAllModel(DefectModel.class);
 		if (!Utility.isEmpty(list)) {
 			result = list.size();
@@ -224,14 +224,14 @@ public class DefectDao {
 	 * @throws Exception
 	 */
 	public int insertDefect(DefectModel obj, String planId) throws Exception {
-//		DBHelper dbHelper = DBHelper.getHelper(context);
+//		DBHelper dbHelper = DBHelper.getHelper(mContext);
 //		SQLiteDatabase db = dbHelper.getWritableDatabase();
 //		db.beginTransaction();
 //		// 先插入缺陷信息表
 //		dbHelper.insertOneModel(DefectModel.class, obj);
 //
 //		// 再插入到中间表
-//		db.execSQL(context.getResources().getString(R.string.sql_insert_defect_to_rel), new String[] { UUIDUtil.generateHexUUID(), obj.getDefectId(),
+//		db.execSQL(mContext.getResources().getString(R.string.sql_insert_defect_to_rel), new String[] { UUIDUtil.generateHexUUID(), obj.getDefectId(),
 //				planId, CommonHelper.getSystemDate("") });
 //		db.setTransactionSuccessful();
 //		db.endTransaction();
@@ -247,7 +247,7 @@ public class DefectDao {
 	 */
 	public List<?> queryAllDefect(){
 		try {
-			DBHelper dbHelper = DBHelper.getHelper(context);
+			DBHelper dbHelper = DBHelper.getHelper(mContext);
 			return dbHelper.getAllModel(DefectModel.class);
 		}catch (Exception e){
 			e.printStackTrace();
@@ -262,7 +262,7 @@ public class DefectDao {
 	 * @throws Exception
 	 */
 	public int updateDefect(DefectModel obj) throws Exception {
-		DBHelper dbHelper = DBHelper.getHelper(context);
+		DBHelper dbHelper = DBHelper.getHelper(mContext);
 		return dbHelper.updateOneModel(DefectModel.class, obj);
 	}
 
@@ -274,15 +274,15 @@ public class DefectDao {
 	 * @throws Exception
 	 */
 //	public boolean deleteDefect(DefectModel obj) throws Exception {
-//		DBHelper dbHelper = DBHelper.getHelper(context);
+//		DBHelper dbHelper = DBHelper.getHelper(mContext);
 //		SQLiteDatabase db = dbHelper.getWritableDatabase();
 //		db.beginTransaction();
 //		// 先删除缺陷关联的附件数据
-//		dbHelper.executeRawSql(AttachmentModel.class, context.getResources().getString(R.string.sql_delete_attachment_by_defect_id),
+//		dbHelper.executeRawSql(AttachmentModel.class, mContext.getResources().getString(R.string.sql_delete_attachment_by_defect_id),
 //				new String[] { obj.getDefectId() });
 //
 //		// 再刪除缺陷关联的计划业务表数据
-//		db.execSQL(context.getResources().getString(R.string.sql_delete_defect_to_rel), new String[] { obj.getDefectId() });
+//		db.execSQL(mContext.getResources().getString(R.string.sql_delete_defect_to_rel), new String[] { obj.getDefectId() });
 //
 //		// 最后删除缺陷信息数据
 //		boolean ret = dbHelper.deleteOneModel(DefectModel.class, obj) > 0 ? true : false;
@@ -303,7 +303,7 @@ public class DefectDao {
 	 */
 	public List<DefectModel> queryDefectByDeviceId(String deviceId) throws Exception {
 		List<DefectModel> list;
-		DBHelper dbHelper = DBHelper.getHelper(context);
+		DBHelper dbHelper = DBHelper.getHelper(mContext);
 		Map<Object, Object> map = new HashMap<Object, Object>();
 		map.put("DEVICE_ID", deviceId);
 		list = (List<DefectModel>) dbHelper.queryByField(DefectModel.class, map);
@@ -322,9 +322,9 @@ public class DefectDao {
 		List<HashMap<String,String>> list = new ArrayList<HashMap<String,String>>();
 		DBHelper dbHelper;
 		try {
-			dbHelper = DBHelper.getHelper(context);
+			dbHelper = DBHelper.getHelper(mContext);
 			SQLiteDatabase db = dbHelper.getReadableDatabase();
-			Cursor cursor = db.rawQuery(context.getResources().getString(R.string.sql_get_defect_by_id), new String[] { id });
+			Cursor cursor = db.rawQuery(mContext.getResources().getString(R.string.sql_get_defect_by_id), new String[] { id });
 			if (null != cursor) {
 				while (cursor.moveToNext()) {
 					HashMap<String,String> defectMap = new HashMap<String,String>();
@@ -358,9 +358,9 @@ public class DefectDao {
 		List<HashMap<String,String>> list = new ArrayList<HashMap<String,String>>();
 		DBHelper dbHelper;
 		try {
-			dbHelper = DBHelper.getHelper(context);
+			dbHelper = DBHelper.getHelper(mContext);
 			SQLiteDatabase db = dbHelper.getReadableDatabase();
-			Cursor cursor = db.rawQuery(context.getResources().getString(R.string.sql_get_autoInfo_by_defectId), new String[] { id });
+			Cursor cursor = db.rawQuery(mContext.getResources().getString(R.string.sql_get_autoInfo_by_defectId), new String[] { id });
 			if (null != cursor) {
 				while (cursor.moveToNext()) {
 					HashMap<String,String> defectMap = new HashMap<String,String>();
@@ -392,9 +392,9 @@ public class DefectDao {
 		List<HashMap<String,String>> list = new ArrayList<HashMap<String,String>>();
 		DBHelper dbHelper;
 		try {
-			dbHelper = DBHelper.getHelper(context);
+			dbHelper = DBHelper.getHelper(mContext);
 			SQLiteDatabase db = dbHelper.getReadableDatabase();
-			Cursor cursor = db.rawQuery(context.getResources().getString(R.string.sql_get_relayInfo_by_defectId), new String[] { id });
+			Cursor cursor = db.rawQuery(mContext.getResources().getString(R.string.sql_get_relayInfo_by_defectId), new String[] { id });
 			if (null != cursor) {
 				while (cursor.moveToNext()) {
 					HashMap<String,String> defectMap = new HashMap<String,String>();
@@ -422,8 +422,8 @@ public class DefectDao {
 	 * @throws Exception
 	 */
 	public List<String[]> queryAddAndHistoryCountByDeviceId(String deviceId) throws Exception {
-		DBHelper dbHelper = DBHelper.getHelper(context);
-		String sql = String.format(context.getResources().getString(R.string.sql_get_add_history_count), deviceId);
+		DBHelper dbHelper = DBHelper.getHelper(mContext);
+		String sql = String.format(mContext.getResources().getString(R.string.sql_get_add_history_count), deviceId);
 		List<String[]> ret = dbHelper.queryRaw(DefectModel.class, sql);
 		return ret;
 	}
@@ -439,9 +439,9 @@ public class DefectDao {
 		String sql=null;
 		String[] sqlArgs={instanceId};
 		try {
-			 dbHelper = DBHelper.getHelper(context);
+			 dbHelper = DBHelper.getHelper(mContext);
 			 db=dbHelper.getWritableDatabase();
-			 sql=context.getResources().getString(R.string.sql_update_defect_client_state);			 
+			 sql=mContext.getResources().getString(R.string.sql_update_defect_client_state);			 
 			 db.execSQL(sql, sqlArgs);			 
 		} catch (Exception e) {
 			return -1;

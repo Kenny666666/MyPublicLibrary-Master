@@ -36,7 +36,7 @@ public class DBHelper extends OrmLiteSqliteOpenHelper {
 										 * getExternalStorageDirectory
 										 * ().getAbsolutePath() + File.separator
 										 * + "workfrom" + File.separator +
-										 * "platform.db";
+										 * "xxx.db";
 										 */
 
 	/**
@@ -47,10 +47,14 @@ public class DBHelper extends OrmLiteSqliteOpenHelper {
 	/**
 	 * 数据库操作实例
 	 */
-	private static DBHelper helper;
-
-	public static DatabaseUpdate databaseUpdate;
-	
+	private static DBHelper mHelper;
+	/**
+	 * 数据库升级或更新接口
+	 */
+	public static DatabaseUpdate mDatabaseUpdate;
+	/**
+	 * db
+	 */
 	private SQLiteDatabase mDatabase;
 
 	/**
@@ -78,7 +82,7 @@ public class DBHelper extends OrmLiteSqliteOpenHelper {
 	 * @throws Exception
 	 */
 	public static void initDBHelper(Context context, int databaseVersion, String databasePath, DatabaseUpdate databaseUpdateIPL) throws Exception {
-		if (helper == null) {
+		if (mHelper == null) {
 			if (databasePath == null || "".equals(databasePath)) {
 				throw new Exception(context.getString(R.string.lib_database_no_name_exception2));
 			} else if (databaseVersion <= 0) {
@@ -88,14 +92,14 @@ public class DBHelper extends OrmLiteSqliteOpenHelper {
 			}
 			DATABASE_VERSION = databaseVersion;
 			DATABASE_NAME = databasePath;
-			databaseUpdate = databaseUpdateIPL;
+			mDatabaseUpdate = databaseUpdateIPL;
 		}
 	}
 
 	public synchronized SQLiteDatabase openDatabase() {
         if(mOpenCounter.incrementAndGet() == 1) {
             // Opening new database
-            mDatabase = helper.getWritableDatabase();
+            mDatabase = mHelper.getWritableDatabase();
         }
         return mDatabase;
     }
@@ -111,21 +115,21 @@ public class DBHelper extends OrmLiteSqliteOpenHelper {
 	 * @since 当第一次使用之前需要设置数据库的版本、数据库的存在路径、数据库版本升级时的回调接口。 后续可以不用。
 	 */
 	public static synchronized DBHelper getHelper(Context context) throws Exception {
-		if (helper == null) {
+		if (mHelper == null) {
 			if (DATABASE_NAME == null) {
 				throw new Exception(context.getString(R.string.lib_database_no_name_exception));
 			} else if (DATABASE_VERSION <= 0) {
 				throw new Exception(context.getString(R.string.lib_database_no_version_exception));
-			} else if (databaseUpdate == null) {
+			} else if (mDatabaseUpdate == null) {
 				throw new Exception(context.getString(R.string.lib_database_no_ipl_exception));
 			} else {
-				helper = new DBHelper(context);
+				mHelper = new DBHelper(context);
 			}
 		}
-		if(!helper.isOpen()){
-			helper.getWritableDatabase();
+		if(!mHelper.isOpen()){
+			mHelper.getWritableDatabase();
 		}
-		return helper;
+		return mHelper;
 	}
 
     public synchronized void closeDatabase() {
@@ -138,12 +142,12 @@ public class DBHelper extends OrmLiteSqliteOpenHelper {
 
 	@Override
 	public void onCreate(SQLiteDatabase db, ConnectionSource connectionSource) {
-		databaseUpdate.onCreate(db, connectionSource);
+		mDatabaseUpdate.onCreate(db, connectionSource);
 	}
 
 	@Override
 	public void onUpgrade(SQLiteDatabase db, ConnectionSource connectionSource, int oldVersion, int newVersion) {
-		databaseUpdate.onUpgrade(db, connectionSource, oldVersion, newVersion);
+		mDatabaseUpdate.onUpgrade(db, connectionSource, oldVersion, newVersion);
 
 	}
 
@@ -190,9 +194,9 @@ public class DBHelper extends OrmLiteSqliteOpenHelper {
 	 */
 	public static void releaseDabaHelper() {
 
-		if (helper != null) {
+		if (mHelper != null) {
 			OpenHelperManager.releaseHelper();
-			helper = null;
+			mHelper = null;
 		}
 	}
 
@@ -475,8 +479,8 @@ public class DBHelper extends OrmLiteSqliteOpenHelper {
 	 * 还原初始值
 	 */
 	public static void revert(){
-		helper = null;
-		databaseUpdate = null;
+		mHelper = null;
+		mDatabaseUpdate = null;
 		DATABASE_NAME = null;
 		DATABASE_VERSION = 0;
 	}

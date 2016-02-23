@@ -8,8 +8,7 @@ import android.view.KeyEvent;
 import java.util.ArrayList;
 
 /**
- * 此activity用于activity中存在多个fragment成队列式切换时使用
- * Created by kenny on 15/4/23.
+ * 此activity用于activity中存在多个fragment成队列式切换时使用，现工程中暂未使用
  */
 public abstract  class ManagerFragmentActivity extends BaseActivity {
 
