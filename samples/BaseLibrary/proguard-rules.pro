@@ -113,8 +113,25 @@
   -keep class org.apache.qpid.management.common.sasl.** { *;}
   -keep class org.jivesoftware.** { *;}
   -keep class org.xbill.DNS.** { *;}
+  #不混淆eventbus
+  -dontwarn org.greenrobot.eventbus.meta.**
+  -keep class org.greenrobot.eventbus.meta.** { *;}
+  -dontwarn org.greenrobot.eventbus.util.**
+  -keep class org.greenrobot.eventbus.util.** { *;}
+  -dontwarn org.greenrobot.eventbus.**
+  -keep class org.greenrobot.eventbus.** { *;}
+  -keepclassmembers class ** {
+    public void onEvent*(**);
+  }
+  #所有监听的方法都要列在这里
+  -keepclassmembers class ** {
+    public void helloEventMainThread(**);
+    public void helloEventBackgroundThread(**);
+    public void helloEventSticky(**);
+  }
   #腾讯bugly
   -keep public class com.tencent.bugly.**{*;}
+
 # Add any project specific keep options here:
 
 # If your project uses WebView with JS, uncomment the following
