@@ -62,3 +62,6 @@
 8、PullToRefresh、RecyclerView 上下拉刷新，加载更多。案例等。
 
 9、通用工具等。
+效果图
+=
+![](https://github.com/Kenny666666/MyPublicLibrary-Master/1.gif) 
