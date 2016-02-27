@@ -10,9 +10,6 @@ import android.view.WindowManager;
 
 /**
  * 获得屏幕相关的辅助类
- * 
- * @author kenny
- * @2015-7
  */
 public class ScreenUtils {
 	private ScreenUtils() {

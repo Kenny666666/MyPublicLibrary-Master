@@ -9,7 +9,9 @@ import android.view.ViewGroup;
 
 import com.kenny.baselibrary.R;
 
-
+/**
+ * 屏幕百分比自动适配案例展示界面
+ */
 public class PayFragment extends Fragment
 {
 

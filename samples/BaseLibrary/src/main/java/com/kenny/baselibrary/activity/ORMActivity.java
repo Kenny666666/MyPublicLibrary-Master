@@ -5,7 +5,7 @@ import android.os.Bundle;
 import com.kenny.baselibrary.BaseActivity;
 import com.kenny.baselibrary.R;
 import com.kenny.baselibrary.dao.DefectDao;
-import com.kenny.baselibrary.model.DefectModel;
+import com.kenny.baselibrary.entity.DefectModel;
 import com.kenny.baselibrary.utils.common.T;
 import com.kenny.baselibrary.utils.common.Utility;
 
@@ -16,6 +16,7 @@ import java.util.List;
  * Created by kenny on 2016/1/26.
  */
 public class ORMActivity extends BaseActivity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

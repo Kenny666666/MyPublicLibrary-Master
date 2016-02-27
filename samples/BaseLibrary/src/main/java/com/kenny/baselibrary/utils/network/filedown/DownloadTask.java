@@ -11,6 +11,7 @@ import java.net.URL;
 import java.net.URLConnection;
 
 /**
+ * 下载任务线程
  * Created by kenny on 15/5/5.
  */
 public class DownloadTask extends Thread {
@@ -35,25 +36,45 @@ public class DownloadTask extends Thread {
      */
     private int blockSize;
 
+    /**
+     * 回调接口（成功，出错，下载进度）
+     */
     private final Listener listener;
 
-
+    /**
+     *
+     */
     private int count = 0;
 
-    private Handler mainHandler = new Handler(Looper.getMainLooper());
-
-
+    /**
+     * 文件线程
+     */
     private FileDownloadThread fileDownloadThread;
 
-
+    /**
+     * 是否完成
+     */
     private boolean isfinished = false;
 
+    /**
+     * 下载文件的信息
+     */
     private DownFileInfo downFileInfo;
 
-
+    /**
+     * 保存的文件
+     */
     private File file;
 
+    /**
+     * 文件名
+     */
     private String realFileName;
+
+    /**
+     * handler更新UI，下载进度
+     */
+    private Handler mainHandler = new Handler(Looper.getMainLooper());
 
     public DownloadTask(String downloadUrl, String fileptah, Listener listener) {
         this.downloadUrl = downloadUrl;
@@ -63,7 +84,9 @@ public class DownloadTask extends Thread {
 
     }
 
-
+    /**
+     * 下载文件
+     */
     @Override
     public void run() {
 
@@ -154,17 +177,14 @@ public class DownloadTask extends Thread {
 
         private DownFileInfo downFileInfo;
 
-
         public ResponseDeliveryRunnable(DownFileInfo downFileInfo) {
             this.downFileInfo = downFileInfo;
         }
-
 
         @Override
         public void run() {
             if (listener == null)
                 return;
-            ;
 
             switch (downFileInfo.getState()) {
                 case success:
@@ -184,10 +204,22 @@ public class DownloadTask extends Thread {
 
     public interface Listener {
 
+        /**
+         * 下载成功
+         */
         public void success();
 
+        /**
+         * 下载出错
+         * @param error
+         */
         public void error(VolleyError error);
 
+        /**
+         * 下载进度
+         * @param total 文件总长
+         * @param current 文件当前下载进度
+         */
         public void progress(int total, int current);
     }
 

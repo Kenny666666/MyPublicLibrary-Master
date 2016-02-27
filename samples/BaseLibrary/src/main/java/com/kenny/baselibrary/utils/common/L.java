@@ -14,9 +14,6 @@ import java.util.TimeZone;
 
 /**
  * Log统一管理类
- * 
- * @author kenny
- * @2015-7
  */
 public class L {
 

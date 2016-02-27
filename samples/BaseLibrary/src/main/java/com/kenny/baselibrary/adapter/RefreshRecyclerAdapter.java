@@ -12,6 +12,9 @@ import com.kenny.baselibrary.R;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * RecyclerView的适配器
+ */
 public class RefreshRecyclerAdapter extends RecyclerView.Adapter<RefreshRecyclerAdapter.ViewHolder>{
     private LayoutInflater mInflater;
     private List<String> mTitles=null;

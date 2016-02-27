@@ -5,13 +5,15 @@ package com.kenny.baselibrary;
  */
 public interface Template {
 
+    /**
+     * 初始化view
+     */
     public void initView();
 
     /***
      * 绑定控件事件
      */
     public void setListener();
-
 
     /**
      * 初始化数据

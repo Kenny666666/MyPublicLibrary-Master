@@ -6,8 +6,7 @@ import java.io.File;
 
 /**
  * 存放在SDCard里资源常量
- * 
- * @author kenny
+ * Created by kenny on 2016/2/17.
  * 
  */
 public class ResourcesConstant {

@@ -1,6 +1,5 @@
 package com.kenny.baselibrary.fragment;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -9,25 +8,22 @@ import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.util.TypedValue;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.kenny.baselibrary.LazyFragment;
 import com.kenny.baselibrary.R;
-import com.kenny.baselibrary.adapter.RefreshFootAdapter;
 import com.kenny.baselibrary.adapter.RefreshRecyclerAdapter;
-import com.kenny.baselibrary.utils.common.T;
 import com.kenny.baselibrary.view.AdvanceDecoration;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 主界面--通讯录
+ * 主界面--通讯录（本界面展示RecyclerView下拉刷新案例）
+ * Created by kenny on 2015/12/21.
  */
 public class MainTwoFragment extends LazyFragment{
     private View mView;

@@ -1,12 +1,12 @@
-package com.kenny.baselibrary.model;
-
-import java.io.Serializable;
+package com.kenny.baselibrary.entity;
 
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
+import java.io.Serializable;
+
 /**
- * 缺陷信息实体类--实际项目中抽取
+ * 缺陷信息实体类--ORMlite数据库框架实体类配置，之前项目中抽取，
  * 
  * @author kenny
  * 

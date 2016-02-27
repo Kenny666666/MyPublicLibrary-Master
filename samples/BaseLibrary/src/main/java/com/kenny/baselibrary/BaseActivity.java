@@ -10,8 +10,6 @@ import com.android.volley.NoConnectionError;
 import com.android.volley.Response;
 import com.android.volley.TimeoutError;
 import com.android.volley.VolleyError;
-import com.kenny.baselibrary.activity.NetWorkActivity;
-import com.kenny.baselibrary.utils.common.L;
 import com.kenny.baselibrary.utils.common.T;
 import com.kenny.baselibrary.utils.crash.ExitAppUtils;
 import com.kenny.baselibrary.utils.network.RequestHelp;
@@ -66,28 +64,24 @@ public abstract  class BaseActivity extends AutoLayoutActivity implements Respon
 
     }
 
-    public void show(int id){
-        show(getString(id));
-    }
-
+    /**
+     * 销毁时将activity移除应用程序队列
+     */
     @Override
     protected void onDestroy() {
         super.onDestroy();
-//        hideSoft();
-        L.e(this.getLocalClassName()+":onDestroy");
         //将activity移除到维护队列
         ExitAppUtils.getInstance().delActivity(this);
     }
 
+    /**
+     * activity暂停时取消当前请求
+     */
     @Override
     protected void onPause() {
         super.onPause();
         //activity被暂停时取消请求
         mRequestHelp.cancelTag(this);
-    }
-
-    public void show(String str){
-        T.showShort(BaseActivity.this, str);
     }
 
     /**
@@ -108,5 +102,13 @@ public abstract  class BaseActivity extends AutoLayoutActivity implements Respon
             InputMethodManager inputManager = (InputMethodManager) this.getSystemService(Context.INPUT_METHOD_SERVICE);
             inputManager.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_NOT_ALWAYS);
         }
+    }
+
+    public void show(int id){
+        show(getString(id));
+    }
+
+    public void show(String str){
+        T.showShort(BaseActivity.this, str);
     }
 }

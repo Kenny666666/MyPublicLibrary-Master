@@ -6,12 +6,10 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.kenny.baselibrary.R;
 import com.kenny.baselibrary.db.DBHelper;
-import com.kenny.baselibrary.model.DefectModel;
+import com.kenny.baselibrary.entity.DefectModel;
 import com.kenny.baselibrary.utils.common.L;
 import com.kenny.baselibrary.utils.common.UUIDUtil;
 import com.kenny.baselibrary.utils.common.Utility;
-
-import org.litepal.util.LogUtil;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -61,16 +59,6 @@ public class DefectDao {
 			String[] args={
 					obj.get("DEAL_MAN_UID"),
 					obj.get("DEAL_TIME"),
-					obj.get("DEAL_TEAM_OID"),
-					obj.get("DEFECT_CAUSE"),
-					obj.get("TECH_CLASSIFY"),
-					obj.get("DEFECT_POSITION"),
-					obj.get("DEAL_MEASURE"),
-					obj.get("DEAL_RESULT"),
-					obj.get("UNDEAL_REASON"),
-					obj.get("LEGACY"),
-					obj.get("DEAL_DESC"),
-					obj.get("ID")
 			};
 			// 再插入到中间表
 			db.execSQL(mContext.getResources().getString(R.string.sql_update_defect_by_id), args);
@@ -115,11 +103,6 @@ public class DefectDao {
 						UUIDUtil.generateHexUUID(),
 						obj.get("ID"),
 						obj.get("PREVENT_MEASURE"),
-						obj.get("FACTORY_ANA_ABILITY"),
-						obj.get("FACTORY_DEAL_ABILITY"),
-						obj.get("FACTORY_WORK_QUALITY"),
-						obj.get("FACTORY_SERVICE_QUALITY"),
-						obj.get("FACTORY_SUPPORT_ABILITY"),
 						obj.get("REWARD")
 				        };
 				sqlStr = mContext.getResources().getString(R.string.sql_insert_autoInfo);
@@ -129,11 +112,6 @@ public class DefectDao {
 			    // 执行更新操作
 				String[] args={
 						obj.get("PREVENT_MEASURE"),
-						obj.get("FACTORY_ANA_ABILITY"),
-						obj.get("FACTORY_DEAL_ABILITY"),
-						obj.get("FACTORY_WORK_QUALITY"),
-						obj.get("FACTORY_SERVICE_QUALITY"),
-						obj.get("FACTORY_SUPPORT_ABILITY"),
 						obj.get("REWARD"),
 						autoMap.get("ID")
 				};
@@ -171,9 +149,6 @@ public class DefectDao {
 						UUIDUtil.generateHexUUID(),
 						obj.get("ID"),
 						obj.get("IS_NEED_MACHINE_PART"),
-						obj.get("WAIT_TIME"),
-						obj.get("PROTECT_EXIT_TIME"),
-						obj.get("PROTECT_RUN_TIME"),
 						obj.get("PROTECT_TIME")
 				};
 				sqlStr = mContext.getResources().getString(R.string.sql_insert_relayInfo);
@@ -184,9 +159,6 @@ public class DefectDao {
 				String[] args={
 						obj.get("IS_NEED_MACHINE_PART"),
 						obj.get("WAIT_TIME"),
-						obj.get("PROTECT_EXIT_TIME"),
-						obj.get("PROTECT_RUN_TIME"),
-						obj.get("PROTECT_TIME"),
 						relayMap.get("ID")
 				};
 				sqlStr = mContext.getResources().getString(R.string.sql_update_relayInfo_by_defectId);

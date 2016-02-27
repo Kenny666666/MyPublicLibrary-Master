@@ -17,7 +17,8 @@ import com.kenny.baselibrary.R;
 import java.util.LinkedList;
 
 /**
- * 主界面--通用架构
+ * 主界面--通用架构（本界面展示PullToRefresh上下拉刷新框架案例）
+ * Created by kenny on 2015/12/21.
  */
 public class MainOneFragment extends BaseFragment {
 
@@ -26,15 +27,16 @@ public class MainOneFragment extends BaseFragment {
     public static final String TITLE = "title";
 
     /**
-     * 上拉刷新的控件
-     * 自定义下拉指示器文本内容等效果
+     * 上拉刷新的控件使用
+     *
+     * 1、自定义下拉指示器文本内容等效果
      *
        ILoadingLayout startLabels = mPullRefreshListView.getLoadingLayoutProxy();
        startLabels.setPullLabel("你可劲拉，拉...");// 刚下拉时，显示的提示
        startLabels.setRefreshingLabel("好嘞，正在刷新...");// 刷新时
        startLabels.setReleaseLabel("你敢放，我就敢刷新...");// 下来达到一定距离时，显示的提示
 
-       默认是上拉和下拉的字同时改变的，如果我希望单独改变呢？
+       2、默认是上拉和下拉的字同时改变的，如果我希望单独改变呢？
        private void initIndicator(){
         ILoadingLayout startLabels = mPullRefreshListView.getLoadingLayoutProxy(true, false);
         startLabels.setPullLabel("你可劲拉，拉...");// 刚下拉时，显示的提示

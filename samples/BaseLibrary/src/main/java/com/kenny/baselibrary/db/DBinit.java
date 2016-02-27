@@ -22,8 +22,8 @@ public class DBinit {
 	
 	/**
 	 * 删除指定文件
-	 * @param context
-	 * @param dir
+	 * @param context 上下文
+	 * @param dir 文件路径
 	 * @return
 	 */
 	public static boolean deleteFile(Context context,String dir){

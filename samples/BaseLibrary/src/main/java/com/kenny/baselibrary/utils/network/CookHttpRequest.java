@@ -20,6 +20,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * 设置请求弹出的dialog、cookie信息等
  * Created by kenny on 15/6/18.
  */
 public class CookHttpRequest extends Request<StringNetWorkResponse> {

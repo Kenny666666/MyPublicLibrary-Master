@@ -1,9 +1,5 @@
 package com.kenny.baselibrary.utils.network;
 
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-
-
 import com.kenny.baselibrary.BaseLibraryApplication;
 import com.kenny.baselibrary.utils.common.AppUtils;
 
@@ -12,6 +8,7 @@ import java.util.Iterator;
 import java.util.Map;
 
 /**
+ * cookie实体类
  * Created by kenny on 15/6/18.
  */
 public class CookieInfoUnit {

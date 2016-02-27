@@ -17,7 +17,7 @@ import com.kenny.baselibrary.utils.network.RequestHelp;
 import com.kenny.baselibrary.utils.network.StringNetWorkResponse;
 
 /**
- * Created by kenny on 15/4/23.
+ * fragment基类
  */
 public class BaseFragment extends Fragment implements Template,Response.ErrorListener,Response.Listener<StringNetWorkResponse> {
 
@@ -117,11 +117,6 @@ public class BaseFragment extends Fragment implements Template,Response.ErrorLis
         buffer.append(tagName);
         buffer.append(">");
         return buffer.toString();
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
     }
 
     @Override

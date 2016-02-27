@@ -148,7 +148,6 @@ public class DBHelper extends OrmLiteSqliteOpenHelper {
 	@Override
 	public void onUpgrade(SQLiteDatabase db, ConnectionSource connectionSource, int oldVersion, int newVersion) {
 		mDatabaseUpdate.onUpgrade(db, connectionSource, oldVersion, newVersion);
-
 	}
 
 	public AndroidConnectionSource getSource() throws SQLException {
@@ -432,8 +431,6 @@ public class DBHelper extends OrmLiteSqliteOpenHelper {
 	/**
 	 * 事务中处理事务的接口
 	 * 
-	 * @author zhanghaoxin
-	 * 
 	 */
 	public interface DoInTransaction {
 		/**
@@ -442,6 +439,9 @@ public class DBHelper extends OrmLiteSqliteOpenHelper {
 		void doInDB() throws Exception;
 	}
 
+	/**
+	 * 数据库更新接口
+	 */
 	public interface DatabaseUpdate {
 		void onCreate(SQLiteDatabase db, ConnectionSource connectionSource);
 
@@ -484,6 +484,4 @@ public class DBHelper extends OrmLiteSqliteOpenHelper {
 		DATABASE_NAME = null;
 		DATABASE_VERSION = 0;
 	}
-	
-
 }

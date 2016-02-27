@@ -48,13 +48,13 @@ public class NetWorkActivity extends BaseActivity implements View.OnClickListene
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.bt_str_request_get:
-                requestHelp.submitGet("http://www.csdn.net/",null);
+                mRequestHelp.submitGet("http://www.csdn.net/",null);
                 break;
             case R.id.bt_str_request_post:
-                requestHelp.submitPost("http://www.baidu.com", null);
+                mRequestHelp.submitPost("http://www.baidu.com", null);
                 break;
             case R.id.bt_gson_request_post:
-                requestHelp.submitPostNoXml("http://www.csdn.net/",null);
+                mRequestHelp.submitPostNoXml("http://www.csdn.net/",null);
                 break;
         }
     }
@@ -71,7 +71,7 @@ public class NetWorkActivity extends BaseActivity implements View.OnClickListene
             return;
         }
         //在创建请求的时候传入一个url，返回的数据用url区分
-        String currUrl = requestHelp.getRequest().getUrl();
+        String currUrl = mRequestHelp.getRequest().getUrl();
         if (currUrl.equals("http://www.csdn.net/")){
 
         }

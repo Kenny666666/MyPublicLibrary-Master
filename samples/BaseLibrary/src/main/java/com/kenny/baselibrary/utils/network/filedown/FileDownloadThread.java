@@ -10,6 +10,7 @@ import java.net.URL;
 import java.net.URLConnection;
 
 /**
+ * 文件下载线程
  * Created by kenny on 15/5/5.
  */
 public class FileDownloadThread extends Thread {
@@ -34,10 +35,13 @@ public class FileDownloadThread extends Thread {
      * 线程下载数据长度
      */
     private int blockSize;
-
-
+    /**
+     * 是否出错
+     */
     private boolean isError = false;
-
+    /**
+     * 异常
+     */
     public Exception error;
 
     /**
@@ -60,7 +64,6 @@ public class FileDownloadThread extends Thread {
 
     @Override
     public void run() {
-
 
         BufferedInputStream bis = null;
         BufferedOutputStream raf = null;
@@ -116,6 +119,10 @@ public class FileDownloadThread extends Thread {
 
     }
 
+    /**
+     * 重试
+     * @param e
+     */
     public void retry(Exception e) {
         error = e;
         isError = true;
@@ -132,6 +139,10 @@ public class FileDownloadThread extends Thread {
         return isCompleted;
     }
 
+    /**
+     * 下载出现异常
+     * @return
+     */
     public boolean isError() {
         return isError;
     }
@@ -142,6 +153,5 @@ public class FileDownloadThread extends Thread {
     public int getDownloadLength() {
         return downloadLength;
     }
-
 
 }

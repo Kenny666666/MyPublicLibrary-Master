@@ -25,6 +25,9 @@ import java.util.Set;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
+/**
+ * xml解析工具类
+ */
 public class XMLParserUtil {
 
 	/**

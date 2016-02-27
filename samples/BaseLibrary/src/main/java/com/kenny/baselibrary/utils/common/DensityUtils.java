@@ -5,10 +5,7 @@ import android.util.TypedValue;
 
 /**
  * 常用单位转换的辅助类
- * 
- * @author kenny
- * @2015-7
- * 
+ *
  */
 public class DensityUtils {
 	private DensityUtils() {

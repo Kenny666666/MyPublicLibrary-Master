@@ -2,12 +2,10 @@ package com.kenny.baselibrary.fragment;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
 import com.kenny.baselibrary.LazyFragment;
@@ -16,6 +14,7 @@ import com.kenny.baselibrary.utils.common.T;
 
 /**
  * 主界面--我
+ * Created by kenny on 2015/12/21.
  */
 public class MainfourFragment extends LazyFragment{
     private View mView;

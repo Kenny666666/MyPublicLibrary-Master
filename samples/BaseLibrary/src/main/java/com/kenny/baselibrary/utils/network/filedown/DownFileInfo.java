@@ -4,18 +4,27 @@ package com.kenny.baselibrary.utils.network.filedown;
 import com.android.volley.VolleyError;
 
 /**
+ * 下载文件信息类
  * Created by kenny on 15/5/5.
  */
 public class DownFileInfo {
 
-    private VolleyError error;
-
+    /**
+     * 文件总大小
+     */
     private int total;
-
+    /**
+     * 当前进度
+     */
     private int current;
-
+    /**
+     * 文件下载状态
+     */
     private DownState state;
-
+    /**
+     * 异常
+     */
+    private VolleyError error;
 
     public DownFileInfo(DownState state,int total, int current) {
         this.total = total;

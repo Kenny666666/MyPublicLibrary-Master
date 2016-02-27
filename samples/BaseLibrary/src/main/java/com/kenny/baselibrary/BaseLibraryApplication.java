@@ -27,7 +27,7 @@ import java.io.File;
 import java.io.InputStreamReader;
 
 /**
- * description
+ * description 应用程序application，初始化网络请求队列，推送，检测数据库升级，图片管理框架，异常捕获机制等
  * Created by kenny on 2016/1/26.
  */
 public class BaseLibraryApplication extends LitePalApplication {

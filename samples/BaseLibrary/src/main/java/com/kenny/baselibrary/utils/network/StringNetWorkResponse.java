@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import com.android.volley.Request;
 
 /**
+ * 网络请求返回后封装成的数据类
  * Created by kenny on 15/5/14.
  */
 public class StringNetWorkResponse {

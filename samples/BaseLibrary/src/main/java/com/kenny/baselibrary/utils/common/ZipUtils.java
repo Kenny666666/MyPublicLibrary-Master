@@ -23,10 +23,7 @@ import java.util.zip.ZipOutputStream;
 
 /**
  * 功能： 1 、实现把指定文件夹下的所有文件压缩为指定文件夹下指定 zip 文件 2 、实现把指定文件夹下的 zip 文件解压到指定目录下
- * 
- * @author jsx
  */
-
 public class ZipUtils {
 
 	/**

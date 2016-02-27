@@ -12,6 +12,9 @@ import com.kenny.baselibrary.R;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 让RecyclerView支持上拉加载的适配器
+ */
 public class RefreshFootAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
     //上拉加载更多
     public static final int  PULLUP_LOAD_MORE=0;
@@ -91,6 +94,7 @@ public class RefreshFootAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
             return TYPE_ITEM;
         }
     }
+
     @Override
     public int getItemCount() {
         return mTitles.size()+1;
@@ -103,6 +107,7 @@ public class RefreshFootAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
             item_tv = (TextView) view.findViewById(R.id.item_tv);
         }
     }
+
     /**
      * 底部FootView布局
      */

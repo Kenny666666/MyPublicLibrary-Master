@@ -1,8 +1,5 @@
 package com.kenny.baselibrary;
 
-import android.app.Activity;
-import android.support.v4.app.Fragment;
-
 /**
  * 实现fragment懒加载
  * 如界面中的fragment需要先加载完成view后，再加载数据，则可继承LazyFragment就可以实现
@@ -32,7 +29,7 @@ public abstract class LazyFragment extends BaseFragment {
         lazyLoad();
     }
 
-    protected abstract void lazyLoad();
-
     protected void onInvisible(){}
+
+    protected abstract void lazyLoad();
 }

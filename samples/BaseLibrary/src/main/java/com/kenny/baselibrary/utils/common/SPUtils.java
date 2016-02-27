@@ -17,8 +17,6 @@ import java.util.Map;
 
 /**
  * SharedPreferences工具类
- * @author hugs
- * @2015-7-21
  */
 public class SPUtils {
 	/**
