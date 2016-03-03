@@ -64,20 +64,36 @@ import java.util.List;
 public class MainActivity extends BaseActivity implements View.OnClickListener, ViewPager.OnPageChangeListener {
 
     private Context mContext;
-    /**左侧抽屉*/
+    /**
+     * 左侧抽屉
+     */
     private DrawerLayout mDrawerLayout;
-    /**左侧菜单导航*/
+    /**
+     * 左侧菜单导航
+     */
     private NavigationView mNavigationView;
-    /**主界面viewpage+fragment风格*/
+    /**
+     * 主界面viewpage+fragment风格
+     */
     private ViewPager mViewPager;
+    /**
+     * 界面集合
+     */
     private List<Fragment> mTabs = new ArrayList<Fragment>();
     private String[] mTitles = new String[]
             {"First Fragment !", "Second Fragment !", "Third Fragment !", "Fourth Fragment !"};
+    /**
+     * viewPager适配器
+     */
     private FragmentPagerAdapter mAdapter;
-    /**底部4个自定义view*/
+    /**
+     * 底部4个自定义view
+     */
     private ChangeColorIconWithText one, two, three, four;
     private List<ChangeColorIconWithText> mTabIndicators = new ArrayList<ChangeColorIconWithText>();
-    /** 再按一次退出程序 */
+    /**
+     * 再按一次退出程序
+     */
     private long mExitTime;
 
     @Override
@@ -156,23 +172,23 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
                         mPreMenuItem = menuItem;
                         if ("EvenBus".equals(menuItem.getTitle())) {
 
-                            startActivity(new Intent(MainActivity.this,EvenBusActivity1.class));
+                            startActivity(new Intent(MainActivity.this, EvenBusActivity1.class));
 
-                        }else if("ORM".equals(menuItem.getTitle())) {
+                        } else if ("ORM".equals(menuItem.getTitle())) {
 
-                            T.showShort(mContext,"工具正在开发中......");
+                            T.showShort(mContext, "工具正在开发中......");
 
-                        }else if("JNI".equals(menuItem.getTitle())) {
+                        } else if ("JNI".equals(menuItem.getTitle())) {
 
-                            T.showShort(mContext,"工具正在开发中......");
+                            T.showShort(mContext, "工具正在开发中......");
 
-                        }else if("Http".equals(menuItem.getTitle())) {
+                        } else if ("Http".equals(menuItem.getTitle())) {
 
-                            T.showShort(mContext,"工具正在开发中......");
+                            T.showShort(mContext, "工具正在开发中......");
 
-                        }else if("屏幕适配".equals(menuItem.getTitle())) {
+                        } else if ("屏幕适配".equals(menuItem.getTitle())) {
 
-                            startActivity(new Intent(MainActivity.this,AutoLayoutActivity.class));
+                            startActivity(new Intent(MainActivity.this, AutoLayoutActivity.class));
                         }
                         return true;
                     }
@@ -211,6 +227,12 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
                 return mTabs.get(position);
             }
 
+            /**
+             * 重写destroyItem，防止界面被销毁
+             * @param container
+             * @param position
+             * @param object
+             */
             @Override
             public void destroyItem(ViewGroup container, int position, Object object) {
                 //super.destroyItem(container, position, object);
@@ -218,7 +240,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
 
         };
         mViewPager.setAdapter(mAdapter);
-        //缓存4个界面，防止界面被销毁
+        //设置缓存4个界面，防止界面被销毁
         mViewPager.setOffscreenPageLimit(4);
     }
 
