@@ -9,7 +9,6 @@ import android.widget.TextView;
 
 import com.kenny.baselibrary.R;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -18,14 +17,11 @@ import java.util.List;
 public class RefreshRecyclerAdapter extends RecyclerView.Adapter<RefreshRecyclerAdapter.ViewHolder>{
     private LayoutInflater mInflater;
     private List<String> mTitles=null;
-    public  RefreshRecyclerAdapter(Context context){
+    public  RefreshRecyclerAdapter(Context context,List<String> titles){
         this.mInflater=LayoutInflater.from(context);
-        this.mTitles=new ArrayList<String>();
-        for (int i=0;i<20;i++){
-            int index=i+1;
-            mTitles.add("item"+index);
-        }
+        this.mTitles=titles;
     }
+
     /**
      * item显示类型
      * @param parent

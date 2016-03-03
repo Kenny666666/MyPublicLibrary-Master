@@ -9,7 +9,6 @@ import android.widget.TextView;
 
 import com.kenny.baselibrary.R;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -26,14 +25,11 @@ public class RefreshFootAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
     private List<String> mTitles=null;
     private static final int TYPE_ITEM = 0;  //普通Item View
     private static final int TYPE_FOOTER = 1;  //顶部FootView
-    public RefreshFootAdapter(Context context){
+    public RefreshFootAdapter(Context context,List<String> titles){
         this.mInflater=LayoutInflater.from(context);
-        this.mTitles=new ArrayList<String>();
-        for (int i=0;i<20;i++){
-            int index=i+1;
-            mTitles.add("item"+index);
-        }
+        this.mTitles=titles;
     }
+
     /**
      * item显示类型
      * @param parent

@@ -17,6 +17,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewConfiguration;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
@@ -39,6 +40,23 @@ import java.util.List;
 /**
  * description app主界面
  * Created by kenny on 2015/6/21.
+ * ps:ViewPager优化方案
+ *    1.Fragment轻量化（这种还是得看业务情况来）
+ *    2.防止Fragment被销毁
+ *     A:（在PagerAdapter里覆盖destroyItem方法可阻止销毁Fragment），通过PagerAdapter的setOffscreenPageLimit()方法可以设置保留几个Fragment，适当增大参数可防止Fragment频繁地被销毁和创建。
+ *      风险：在Fragment比较多的情况下，部分低端机型容易产生OOM问题。
+ *      ……额，当然不会这么简单就能解决了……%>_<%……
+        测试OK是因为使用的测试数据较少，每个盘存工作薄最多也就十几页—— 在进行大数据量进行测试的问题，问题就出现了：实际使用的时候，工作簿的页数常常是好几百，一下子加载超过100页数据几乎每次都会让程序崩溃。
+
+       B:另一个方法就是手动建立一个缓存表了。
+         在本地建立一个List，用以存储页面视图，每次请求页面视图的时候，首先尝试从List中进行获取，如果获取不到再联网从后台获取数据设置视图，并将其存入到List中。
+
+ *    3.Fragment内容延迟加载（在切换到当前Fragment的时候，并不立刻去加载Fragment的内容，而是先加载一个简单的空布局，然后启动一个延时任务，延时时长为T，当用户在该Fragment停留时间超过T时，继续执行加载任务；而当用户切换到其他Fragment，停留时间低于T，则取消该延时任务。）
+ *
+ *      ViewPager默认会自动加载保存当前页以及左右页的数据，比如：
+ *       当前在第1页时会保存第1页和第2页的数据
+ *       当前在第2页时会保存第1、2、3页的数据
+ *       当前在第3页时会保存第2、3、4页的数据，(注意：第1页被回收了！！！)
  *
  * ps:开发的时候此目录下有很多可用图片
  * sdk\platforms\android-17\data\res\drawable-hdpi
@@ -167,21 +185,12 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
     private void initDatas() {
         //通用架构
         MainOneFragment oneFragment = new MainOneFragment();
-        Bundle oneBundle = new Bundle();
-        oneBundle.putString(MainOneFragment.TITLE, mTitles[0]);
-        oneFragment.setArguments(oneBundle);
         mTabs.add(oneFragment);
         //通讯录
         MainTwoFragment twoFragment = new MainTwoFragment();
-        Bundle twoBundle = new Bundle();
-        twoBundle.putString(MainTwoFragment.TITLE, mTitles[1]);
-        twoFragment.setArguments(twoBundle);
         mTabs.add(twoFragment);
         //发现
         MainThreeFragment threeFragment = new MainThreeFragment();
-        Bundle threeBundle = new Bundle();
-        threeBundle.putString(MainThreeFragment.TITLE, mTitles[2]);
-        threeFragment.setArguments(threeBundle);
         mTabs.add(threeFragment);
         //我
         MainfourFragment fourFragment = new MainfourFragment();
@@ -201,8 +210,16 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
             public Fragment getItem(int position) {
                 return mTabs.get(position);
             }
+
+            @Override
+            public void destroyItem(ViewGroup container, int position, Object object) {
+                //super.destroyItem(container, position, object);
+            }
+
         };
         mViewPager.setAdapter(mAdapter);
+        //缓存4个界面，防止界面被销毁
+        mViewPager.setOffscreenPageLimit(4);
     }
 
     private void setOverflowButtonAlways() {
@@ -316,8 +333,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
     }
     @Override
     public void onPageSelected(int position) {
-    }
+        //在这里可以做取消各fragment中加载数据的操作 mHandler.removeCallbacks(LOAD_DATA);
 
+    }
     @Override
     public void onPageScrollStateChanged(int state) {
     }

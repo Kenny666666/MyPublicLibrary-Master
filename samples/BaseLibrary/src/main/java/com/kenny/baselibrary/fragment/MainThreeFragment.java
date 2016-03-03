@@ -1,6 +1,5 @@
 package com.kenny.baselibrary.fragment;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -8,17 +7,16 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
 import android.util.TypedValue;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.kenny.baselibrary.LazyFragment;
 import com.kenny.baselibrary.R;
 import com.kenny.baselibrary.adapter.RefreshFootAdapter;
 import com.kenny.baselibrary.utils.common.T;
 import com.kenny.baselibrary.view.AdvanceDecoration;
+import com.nostra13.universalimageloader.utils.L;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,17 +26,33 @@ import java.util.List;
  * Created by kenny on 2015/12/21.
  */
 public class MainThreeFragment extends LazyFragment{
-    private View mView;
-    private String mTitle = "Default";
 
-    public static final String TITLE = "title";
-    /** 标志位，标志界面view已经初始化完成。 */
+    private final String TAG = MainThreeFragment.this.getClass().getName();
+    private View mView;
+
+    /**
+     * 标志位，标志界面view已经初始化完成。
+     */
     private boolean mIsPrepared;
-    private SwipeRefreshLayout mSwiperefreshlayout;
+    /**
+     * RecyclerView
+     */
     private RecyclerView mRecyclerView;
+    /**
+     * RecyclerView适配器
+     */
     private RefreshFootAdapter mAdapter;
+    /**
+     * RecyclerView适配器数据
+     */
+    private List<String> mTitles;
+    private SwipeRefreshLayout mSwiperefreshlayout;
     private LinearLayoutManager mLinearLayoutManager;
     private int mLastVisibleItem;
+    /**
+     * handler
+     */
+    private Handler mHandler = new Handler();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -72,7 +86,12 @@ public class MainThreeFragment extends LazyFragment{
         mRecyclerView.setLayoutManager(mLinearLayoutManager);
         //添加分隔线
         mRecyclerView.addItemDecoration(new AdvanceDecoration(getActivity(), OrientationHelper.VERTICAL));
-        mRecyclerView.setAdapter(mAdapter = new RefreshFootAdapter(getActivity()));
+    }
+
+    @Override
+    public void setListener() {
+        super.setListener();
+
         mSwiperefreshlayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -112,6 +131,7 @@ public class MainThreeFragment extends LazyFragment{
                     }, 2500);
                 }
             }
+
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
@@ -120,31 +140,39 @@ public class MainThreeFragment extends LazyFragment{
         });
     }
 
-    @Override
-    public void setListener() {
-        super.setListener();
-    }
-
+    /**
+     * 界面懒加载数据
+     */
     @Override
     protected void lazyLoad() {
         //只在视图可见的时候才加载数据
         if(!mIsPrepared || !mIsVisible) {
             return;
         }
-        //加载数据
-        if (getArguments() != null) {
-            mTitle = getArguments().getString(TITLE);
+        //加载数据，启动任务，这里设置500毫秒后开始加载数据
+        mHandler.postDelayed(LOAD_DATA, 500);
+    }
+
+    /**
+     * 加载数据的任务线程
+     */
+    private Runnable LOAD_DATA = new Runnable() {
+
+        @Override
+        public void run() {
+            //在这里将数据内容加载到Fragment上
+            mTitles = new ArrayList<String>();
+            for (int i=0;i<20;i++){
+                int index=i+1;
+                mTitles.add("item"+index);
+            }
+            mRecyclerView.setAdapter(mAdapter = new RefreshFootAdapter(getActivity(),mTitles));
         }
+    };
 
-        TextView tv = new TextView(getActivity());
-        tv.setTextSize(20);
-        tv.setBackgroundColor(Color.parseColor("#ffffffff"));
-        tv.setText(mTitle);
-        tv.setGravity(Gravity.CENTER);
-
-        T.showShort(getActivity(),"three");
-
-
-
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        L.e(TAG, "界面被销毁");
     }
 }

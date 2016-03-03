@@ -11,15 +11,17 @@ import android.widget.TextView;
 import com.kenny.baselibrary.LazyFragment;
 import com.kenny.baselibrary.R;
 import com.kenny.baselibrary.utils.common.T;
+import com.nostra13.universalimageloader.utils.L;
 
 /**
  * 主界面--我
  * Created by kenny on 2015/12/21.
  */
 public class MainfourFragment extends LazyFragment{
+
+    private final String TAG = MainfourFragment.this.getClass().getName();
     private View mView;
     private String mTitle = "Default";
-
     public static final String TITLE = "title";
     /** 标志位，标志界面view已经初始化完成。 */
     private boolean mIsPrepared;
@@ -66,9 +68,15 @@ public class MainfourFragment extends LazyFragment{
         tv.setText(mTitle);
         tv.setGravity(Gravity.CENTER);
 
-        T.showShort(getActivity(),"four");
+        T.showShort(getActivity(), "four");
 
 
 
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        L.e(TAG, "界面被销毁");
     }
 }
