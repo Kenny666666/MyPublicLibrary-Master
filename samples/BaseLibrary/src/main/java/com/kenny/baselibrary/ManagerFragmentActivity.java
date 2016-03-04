@@ -13,23 +13,42 @@ import java.util.ArrayList;
  */
 public abstract  class ManagerFragmentActivity extends BaseActivity {
 
+    /**
+     * fragment集合
+     */
     private final ArrayList<FragmentInfo> mTabs = new ArrayList<FragmentInfo>();
+    /**
+     * 当前显示的fragment
+     */
     private FragmentInfo mLastInfo;
+    /**
+     * 当前显示的fragment在队列中的位置
+     */
     protected int mCurrentTab = -1;
+    /**
+     * 界面布局id
+     */
     public int mContainerId;
-    /**是否已经添加到窗口*/
+    /**
+     * 是否已经添加到窗口
+     */
     private boolean mAttached;
-    /**当Activity Frament 数量为0的时候是否需要 销毁当前Activity 默认需要 */
+    /**
+     * 当Activity Frament 数量为0的时候是否需要 销毁当前Activity 默认需要
+     */
     private boolean isNeedFinishActivity = true;
 
     public void setContentResourseId(int containerId){
         mContainerId = containerId;
     }
-
+    public void setNeedFinishActivity(boolean isNeedFinishActivity){
+        this.isNeedFinishActivity = isNeedFinishActivity;
+    }
 
     @Override
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
+
         String currentTag = getCurrentTabTag();
 
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
@@ -54,50 +73,35 @@ public abstract  class ManagerFragmentActivity extends BaseActivity {
         mAttached = false;
     }
 
-    /***
-     * 会退到上一个Fragment
+    /**
+     * 获取当前fragment的tag标识
+     * @return
      */
-    public void popBackStack(){
-        if(mTabs.size()>0){
-            getSupportFragmentManager().popBackStack();
-            mTabs.remove(mTabs.size()-1);
-            if (mTabs.size() == 0){
-                mLastInfo = null;
-                mCurrentTab = -1;
-            }else{
-                mLastInfo = mTabs.get(mTabs.size()-1);
-                mCurrentTab = mTabs.size()-1;
-            }
+    public String getCurrentTabTag() {
+        if (mCurrentTab >= 0 && mCurrentTab < mTabs.size()) {
+            return mTabs.get(mCurrentTab).tag;
         }
-        //是否需要结束Activity
-        if (isNeedFinishActivity && mTabs.size()==0){
-            finish();
-            //我改掉了82行代码
-        }
-
+        return null;
     }
 
-    public void setNeedFinishActivity(boolean isNeedFinishActivity){
-        this.isNeedFinishActivity = isNeedFinishActivity;
-    }
-
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if(keyCode == KeyEvent.KEYCODE_BACK){
-            popBackStack();
-        }
-        //返回true表示事件不往下传递
-        return true;
-    }
-
+    /**
+     * 设置当前界面要显示的fragment，未传参数
+     * @param clss
+     */
     public void setCurrentFragmentByClass(Class<? extends  BaseFragment> clss){
         setCurrentFragmentByClass(clss,null);
     }
 
+    /**
+     * 设置当前界面要显示的fragment，有传参数
+     * @param clss fragment类名
+     * @param args 参数
+     */
     public void setCurrentFragmentByClass(Class<? extends  BaseFragment> clss,Bundle args){
         String tag = clss.getName();
         FragmentInfo info = null;
         boolean contains = false;
+        //遍历队列，查看是否已经存在fragment
         for (int i = 0;i<mTabs.size();i++){
             FragmentInfo infoTmp = mTabs.get(i);
             if (infoTmp.tag.equals(tag)){
@@ -106,30 +110,37 @@ public abstract  class ManagerFragmentActivity extends BaseActivity {
                 break;
             }
         }
+        //队列不包含，创建并加入到队列
         if (!contains){
             info = new FragmentInfo(clss);
             mTabs.add(info);
         }
-
+        //传入参数
         if (args != null){
             info.args = args;
         }
-
+        //如果当前界面已经显示的是此fragment则不再往下走
         if (mLastInfo == info){
             return;
         }
-
+        //如果此fragment已经加入到窗口
         if (mAttached){
             info.fragment = (BaseFragment) getSupportFragmentManager().findFragmentByTag(info.tag);
+            //非空并且未与界面脱离，则先与界面脱离
             if (info.fragment != null && !info.fragment.isDetached()){
                 FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
                 ft.detach(info.fragment);
                 ft.commit();
             }
         }
+        //设置
         setCurrentFragmentByTag(tag);
     }
 
+    /**
+     * 通过tag设置当前要显示的fragment
+     * @param tag
+     */
     private void setCurrentFragmentByTag(String tag){
         int i ;
         for (i = 0;i<mTabs.size();i++){
@@ -178,6 +189,10 @@ public abstract  class ManagerFragmentActivity extends BaseActivity {
         ft.commit();
     }
 
+    /**
+     * activity因某些原因被回收或销毁时保存当前fragment信息
+     * @param outState
+     */
     @Override
     public void onSaveInstanceState(Bundle outState) {
         if (mLastInfo != null){
@@ -186,6 +201,10 @@ public abstract  class ManagerFragmentActivity extends BaseActivity {
         super.onSaveInstanceState(outState);
     }
 
+    /**
+     * activity恢复时获取前面保存的fragment显示
+     * @param savedInstanceState
+     */
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
@@ -193,7 +212,51 @@ public abstract  class ManagerFragmentActivity extends BaseActivity {
         setCurrentFragmentByTag(tag);
     }
 
+    /**
+     * 系统回退按钮监听
+     * @param keyCode
+     * @param event
+     * @return
+     */
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if(keyCode == KeyEvent.KEYCODE_BACK){
+            //回退fragment
+            popBackStack();
+        }
+        //返回true表示事件不往下传递
+        return true;
+    }
 
+    /***
+     * 会退到上一个Fragment
+     */
+    public void popBackStack(){
+        //队列中存在fragment
+        if(mTabs.size()>0){
+            //回退fragment
+            getSupportFragmentManager().popBackStack();
+            //将回退的fragment从队列中移除
+            mTabs.remove(mTabs.size()-1);
+            //回退一个fragment后设置下一个
+            if (mTabs.size() == 0){
+                mLastInfo = null;
+                mCurrentTab = -1;
+            }else{
+                mLastInfo = mTabs.get(mTabs.size()-1);
+                mCurrentTab = mTabs.size()-1;
+            }
+        }
+        //是否需要结束Activity
+        if (isNeedFinishActivity && mTabs.size()==0){
+            finish();
+            //我改掉了82行代码
+        }
+    }
+
+    /**
+     * fragment实体信息类
+     */
     public class FragmentInfo {
 
         /**Fragment的Tag 可以通过FindFragmentByTag 查找Fragment*/
@@ -218,13 +281,5 @@ public abstract  class ManagerFragmentActivity extends BaseActivity {
             this.clss = clss;
             this.args = args;
         }
-
-    }
-
-    public String getCurrentTabTag() {
-        if (mCurrentTab >= 0 && mCurrentTab < mTabs.size()) {
-            return mTabs.get(mCurrentTab).tag;
-        }
-        return null;
     }
 }
