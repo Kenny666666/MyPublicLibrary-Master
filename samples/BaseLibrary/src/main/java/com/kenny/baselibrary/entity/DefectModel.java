@@ -5,11 +5,11 @@ import com.j256.ormlite.table.DatabaseTable;
 
 import java.io.Serializable;
 
+
 /**
  * 缺陷信息实体类--ORMlite数据库框架实体类配置，之前项目中抽取，
- * 
  * @author kenny
- * 
+ * @time 2015/6/21 22:34
  */
 @DatabaseTable(tableName = "SP_PD_DEFECT")
 public class DefectModel implements Serializable {

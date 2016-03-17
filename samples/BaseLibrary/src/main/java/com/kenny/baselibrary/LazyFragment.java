@@ -1,9 +1,11 @@
 package com.kenny.baselibrary;
 
+
 /**
  * 实现fragment懒加载，（这是工程中第2种fragment懒加载方案）
  * 如界面中的fragment需要先加载完成view后，再加载数据，则可继承LazyFragment就可以实现
- * Created by kenny on 2015/6/21.
+ * @author kenny
+ * @time 2015/6/21 22:50
  */
 public abstract class LazyFragment extends BaseFragment {
 

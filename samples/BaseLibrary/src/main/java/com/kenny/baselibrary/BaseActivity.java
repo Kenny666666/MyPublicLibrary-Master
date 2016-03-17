@@ -17,9 +17,11 @@ import com.kenny.baselibrary.utils.network.StringNetWorkResponse;
 import com.zhy.autolayout.AutoLayoutActivity;
 
 
+
 /**
  * 所有activity的基类,继承自动适配activity
- * Created by kenny on 2015/12/21.
+ * @author kenny
+ * @time 2015/12/21 22:49
  */
 public abstract  class BaseActivity extends AutoLayoutActivity implements Response.ErrorListener,Response.Listener<StringNetWorkResponse> {
 

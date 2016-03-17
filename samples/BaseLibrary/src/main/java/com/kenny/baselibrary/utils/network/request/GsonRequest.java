@@ -9,9 +9,11 @@ import com.google.gson.Gson;
 
 import java.io.UnsupportedEncodingException;
 
+
 /**
  * 自定义json请求
- * Created by kenny on 2015/6/21.
+ * @author kenny
+ * @time 2015/6/21 22:43
  */
 public class GsonRequest<T> extends Request<T> {
 

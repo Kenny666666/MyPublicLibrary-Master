@@ -10,9 +10,11 @@ import java.io.File;
 import java.net.URL;
 import java.net.URLConnection;
 
+
 /**
  * 下载任务线程
- * Created by kenny on 15/5/5.
+ * @author kenny
+ * @time 2015/5/5 22:42
  */
 public class DownloadTask extends Thread {
 

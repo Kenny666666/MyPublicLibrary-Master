@@ -23,7 +23,8 @@ import java.util.List;
 
 /**
  * 主界面--发现（本界面展示RecyclerView上下拉刷新案例）
- * Created by kenny on 2015/12/21.
+ * @author kenny
+ * @time 2015/12/21 22:36
  */
 public class MainThreeFragment extends LazyFragment{
 

@@ -9,9 +9,11 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+
 /**
  * 通用ViewHolder
- * Created by kenny on 2016/2/17.
+ * @author kenny
+ * @time 2016/2/17 22:39
  */
 public class CommonViewHolder {
 	/**android提供的键值对map，它的key必须是int，比hashMap效率高，*/

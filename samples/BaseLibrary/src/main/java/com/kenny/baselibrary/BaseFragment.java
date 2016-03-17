@@ -16,8 +16,11 @@ import com.kenny.baselibrary.utils.common.T;
 import com.kenny.baselibrary.utils.network.RequestHelp;
 import com.kenny.baselibrary.utils.network.StringNetWorkResponse;
 
+
 /**
  * fragment基类
+ * @author kenny
+ * @time 2015/12/21 22:50
  */
 public class BaseFragment extends Fragment implements Template,Response.ErrorListener,Response.Listener<StringNetWorkResponse> {
 

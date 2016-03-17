@@ -5,8 +5,11 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 
+
 /**
  * 跟App相关的辅助类
+ * @author kenny
+ * @time 2016/2/17 22:38
  */
 public class AppUtils {
 

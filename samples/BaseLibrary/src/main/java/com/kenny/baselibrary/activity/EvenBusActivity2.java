@@ -14,8 +14,9 @@ import com.kenny.baselibrary.event.TestEvent;
 import org.greenrobot.eventbus.EventBus;
 
 /**
- * description 此activity中包含evenBus框架的介绍
- * Created by kenny on 2016/1/26.
+ * evenBus框架测试案例
+ * @author kenny
+ * @time 2016/1/31 22:29
  */
 public class EvenBusActivity2 extends BaseActivity implements OnClickListener{
 

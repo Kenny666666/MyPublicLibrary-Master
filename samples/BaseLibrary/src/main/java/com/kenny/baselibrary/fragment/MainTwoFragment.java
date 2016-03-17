@@ -22,9 +22,11 @@ import com.nostra13.universalimageloader.utils.L;
 import java.util.ArrayList;
 import java.util.List;
 
+
 /**
  * 主界面--通讯录（本界面展示RecyclerView下拉刷新案例）
- * Created by kenny on 2015/12/21.
+ * @author kenny
+ * @time 2015/12/21 22:37
  */
 public class MainTwoFragment extends LazyFragment{
 

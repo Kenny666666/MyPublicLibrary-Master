@@ -16,8 +16,11 @@ import com.zhy.autolayout.utils.AutoUtils;
 import java.util.ArrayList;
 import java.util.List;
 
+
 /**
  * 屏幕百分比自动适配案例展示界面
+ * @author kenny
+ * @time 2015/12/21 22:36
  */
 public class ListFragment extends Fragment {
     private View mView;

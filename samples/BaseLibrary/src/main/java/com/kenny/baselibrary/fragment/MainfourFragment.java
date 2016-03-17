@@ -13,9 +13,11 @@ import com.kenny.baselibrary.R;
 import com.kenny.baselibrary.utils.common.T;
 import com.nostra13.universalimageloader.utils.L;
 
+
 /**
  * 主界面--我
- * Created by kenny on 2015/12/21.
+ * @author kenny
+ * @time 2015/12/21 22:36
  */
 public class MainfourFragment extends LazyFragment{
 

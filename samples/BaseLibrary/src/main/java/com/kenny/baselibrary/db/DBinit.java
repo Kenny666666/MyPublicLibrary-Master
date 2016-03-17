@@ -14,9 +14,11 @@ import com.kenny.baselibrary.utils.common.T;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
+
 /**
- * description 数据库工具类
- * Created by kenny on 2016/1/26.
+ * 数据库工具类
+ * @author kenny
+ * @time 2016/1/26 22:34
  */
 public class DBinit {
 	

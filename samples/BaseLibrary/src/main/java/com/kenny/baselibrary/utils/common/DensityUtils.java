@@ -3,9 +3,11 @@ package com.kenny.baselibrary.utils.common;
 import android.content.Context;
 import android.util.TypedValue;
 
+
 /**
  * 常用单位转换的辅助类
- *
+ * @author kenny
+ * @time 2016/2/17 22:39
  */
 public class DensityUtils {
 	private DensityUtils() {

@@ -3,8 +3,11 @@ package com.kenny.baselibrary.utils.network.filedown;
 
 import com.android.volley.VolleyError;
 
+
 /**
- * Created by kenny on 15/5/18.
+ *
+ * @author kenny
+ * @time 2015/5/18 22:43
  */
 public interface Listener<T> {
 

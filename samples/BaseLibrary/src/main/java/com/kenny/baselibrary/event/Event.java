@@ -1,8 +1,10 @@
 package com.kenny.baselibrary.event;
 
+
 /**
- * description 推荐大家在使用EventBus的时候，创建一个事件类，把你的每一个参数（或者可能发生冲突的参数），封装成一个类
- * Created by kenny on 2015/8/2.
+ * 推荐大家在使用EventBus的时候，创建一个事件类，把你的每一个参数（或者可能发生冲突的参数），封装成一个类
+ * @author kenny
+ * @time 2015/8/2 22:35
  */
 public class Event {
 

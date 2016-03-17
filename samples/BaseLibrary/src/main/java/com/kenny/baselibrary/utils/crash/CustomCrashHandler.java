@@ -25,7 +25,7 @@ import java.util.TimeZone;
  * 自定义系统的Crash捕捉类，用Toast替换系统的对话框
  * 将软件版本信息，设备信息，出错信息保存在sd卡中，你可以上传到服务器中
  * @author kenny
- *
+ * @time 2015/12/21 22:41
  */
 public class CustomCrashHandler implements UncaughtExceptionHandler {
 	private static final String TAG = "Activity";

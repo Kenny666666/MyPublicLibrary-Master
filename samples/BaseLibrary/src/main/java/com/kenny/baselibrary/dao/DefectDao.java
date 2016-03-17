@@ -19,9 +19,8 @@ import java.util.Map;
 
 /**
  * 缺陷数据访问类--本类中有很多ORM数据库增删改查的案例（之前项目中抽取）
- * 
  * @author kenny
- * 
+ * @time 2016/1/22 22:32
  */
 public class DefectDao {
 

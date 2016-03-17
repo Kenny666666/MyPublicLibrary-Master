@@ -7,9 +7,11 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
+
 /**
  * cookie实体类
- * Created by kenny on 15/6/18.
+ * @author kenny
+ * @time 2015/6/18 22:44
  */
 public class CookieInfoUnit {
 

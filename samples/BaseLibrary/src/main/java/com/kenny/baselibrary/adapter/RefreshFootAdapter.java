@@ -13,6 +13,8 @@ import java.util.List;
 
 /**
  * 让RecyclerView支持上拉加载的适配器
+ * @author kenny
+ * @time 2016/1/31 22:31
  */
 public class RefreshFootAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
     //上拉加载更多

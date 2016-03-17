@@ -11,8 +11,9 @@ import com.kenny.baselibrary.utils.common.T;
 import com.kenny.baselibrary.utils.network.StringNetWorkResponse;
 
 /**
- * description 网络模块测试界面
- * Created by kenny on 2016/1/30.
+ * 网络测试界面
+ * @author kenny
+ * @time 2016/1/31 22:25
  */
 public class NetWorkActivity extends BaseActivity implements View.OnClickListener{
 

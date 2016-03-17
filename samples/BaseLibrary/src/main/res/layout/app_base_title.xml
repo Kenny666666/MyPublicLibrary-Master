@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="130px"
     android:background="#ff6600" >
-
+    <!--部分界面title-->
     <TextView
         android:id="@+id/title_lefttextview"
         android:layout_width="wrap_content"

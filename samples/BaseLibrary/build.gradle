@@ -56,7 +56,6 @@ android {
         }
     }
 }
-
 dependencies {
     //Android Studio中有六种依赖
     //        compile：是对所有的build type以及favlors都会参与编译并且打包到最终的apk文件中。

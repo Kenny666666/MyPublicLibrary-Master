@@ -10,8 +10,13 @@ import java.net.URL;
 import java.net.URLConnection;
 
 /**
- * 文件下载线程
+ *
  * Created by kenny on 15/5/5.
+ */
+/**
+ * 文件下载线程
+ * @author kenny
+ * @time 2015/5/5 22:42
  */
 public class FileDownloadThread extends Thread {
 

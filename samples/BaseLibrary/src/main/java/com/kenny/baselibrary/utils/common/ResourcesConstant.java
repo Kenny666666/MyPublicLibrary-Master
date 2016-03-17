@@ -4,10 +4,11 @@ import android.os.Environment;
 
 import java.io.File;
 
+
 /**
  * 存放在SDCard里资源常量
- * Created by kenny on 2016/2/17.
- * 
+ * @author kenny
+ * @time 2016/2/17 22:40
  */
 public class ResourcesConstant {
 

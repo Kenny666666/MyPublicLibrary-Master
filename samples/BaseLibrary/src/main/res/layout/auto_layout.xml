@@ -10,7 +10,7 @@
               android:layout_height="match_parent"
               android:background="#ff6600"
               android:orientation="vertical" >
-
+    <!--最强适配界面-->
     <include layout="@layout/app_base_title" />
 
     <android.support.v4.view.ViewPager

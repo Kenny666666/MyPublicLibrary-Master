@@ -38,9 +38,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * description app主界面
- * Created by kenny on 2015/6/21.
- * ps:ViewPager优化方案
+ *  * ps:ViewPager优化方案
  *    1.Fragment轻量化（这种还是得看业务情况来）
  *    2.防止Fragment被销毁
  *     A:（在PagerAdapter里覆盖destroyItem方法可阻止销毁Fragment），通过PagerAdapter的setOffscreenPageLimit()方法可以设置保留几个Fragment，适当增大参数可防止Fragment频繁地被销毁和创建。
@@ -60,6 +58,9 @@ import java.util.List;
  *
  * ps:开发的时候此目录下有很多可用图片
  * sdk\platforms\android-17\data\res\drawable-hdpi
+ *
+ * @author kenny
+ * @time 2016/1/31 22:30
  */
 public class MainActivity extends BaseActivity implements View.OnClickListener, ViewPager.OnPageChangeListener {
 

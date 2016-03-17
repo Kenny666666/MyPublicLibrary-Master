@@ -1,8 +1,10 @@
 package com.kenny.baselibrary.entity;
 
+
 /**
  * 天气信息类
- * Created by kenny on 2015/6/21.
+ * @author kenny
+ * @time 2015/6/21 22:35
  */
 public class WeatherInfo {
     private String city;

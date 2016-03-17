@@ -12,8 +12,9 @@ import com.kenny.baselibrary.utils.common.Utility;
 import java.util.List;
 
 /**
- * description ORM数据库框架测试界面
- * Created by kenny on 2016/1/26.
+ * ORM数据库框架测试界面
+ * @author kenny
+ * @time 2016/1/31 22:31
  */
 public class ORMActivity extends BaseActivity {
 

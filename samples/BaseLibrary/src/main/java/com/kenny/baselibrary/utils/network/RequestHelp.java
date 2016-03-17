@@ -14,9 +14,11 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
+
 /**
  * 网络请求帮助类
- * Created by kenny on 15/6/24.
+ * @author kenny
+ * @time 2015/6/24 22:44
  */
 public class RequestHelp {
 

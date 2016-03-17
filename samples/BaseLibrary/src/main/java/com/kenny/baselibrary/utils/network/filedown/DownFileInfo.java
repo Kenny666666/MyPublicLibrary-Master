@@ -3,9 +3,11 @@ package com.kenny.baselibrary.utils.network.filedown;
 
 import com.android.volley.VolleyError;
 
+
 /**
  * 下载文件信息类
- * Created by kenny on 15/5/5.
+ * @author kenny
+ * @time 2015/5/5 22:42
  */
 public class DownFileInfo {
 

@@ -2,9 +2,11 @@ package com.kenny.baselibrary.test;
 
 import android.test.InstrumentationTestCase;
 
+
 /**
- * description 单元测试案例
- * Created by kenny on 2016/2/17.
+ * 单元测试案例
+ * @author kenny
+ * @time 2016/2/17 22:38
  */
 public class ExampleTest extends InstrumentationTestCase {
 

@@ -1,8 +1,10 @@
 package com.kenny.baselibrary.event;
 
+
 /**
- * description
- * Created by kenny on 2016/2/17.
+ * eventbus测试类
+ * @author kenny
+ * @time 2016/2/17 22:35
  */
 public class TestEvent {
 

@@ -1,7 +1,10 @@
 package com.kenny.baselibrary.utils.network.filedown;
 
+
 /**
- * Created by kenny on 15/6/3.
+ *
+ * @author kenny
+ * @time 2015/5/5 22:43
  */
 public interface KeyAndValue<V>{
 

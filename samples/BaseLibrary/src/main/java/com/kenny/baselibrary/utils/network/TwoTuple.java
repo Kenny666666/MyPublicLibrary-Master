@@ -1,7 +1,10 @@
 package com.kenny.baselibrary.utils.network;
 
+
 /**
- * Created by kenny on 15/6/15.
+ *
+ * @author kenny
+ * @time 2016/3/17 22:45
  */
 public class TwoTuple<A,B> {
 

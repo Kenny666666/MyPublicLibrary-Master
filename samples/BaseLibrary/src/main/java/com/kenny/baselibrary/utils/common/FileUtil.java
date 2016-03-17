@@ -32,6 +32,8 @@ import java.util.zip.ZipOutputStream;
 
 /**
  * 文件操作工具类
+ * @author kenny
+ * @time 2016/2/17 22:39
  */
 public class FileUtil {
 

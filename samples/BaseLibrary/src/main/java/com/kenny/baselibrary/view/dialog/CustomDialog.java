@@ -11,8 +11,11 @@ import android.widget.TextView;
 import com.kenny.baselibrary.R;
 
 
+
 /**
- * Created by kenny on 15/5/22.
+ * 自定义dialog
+ * @author kenny
+ * @time 2015/5/22 22:45
  */
 public class CustomDialog extends DialogFragment {
 

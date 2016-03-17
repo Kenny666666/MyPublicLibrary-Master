@@ -5,14 +5,15 @@ import android.app.Activity;
 import java.util.LinkedList;
 import java.util.List;
 
+
 /**
  * android退出程序的工具类，使用单例模式
  * 1.在Activity的onCreate()的方法中调用addActivity()方法添加到mActivityList
  * 2.你可以在Activity的onDestroy()的方法中调用delActivity()来删除已经销毁的Activity实例
- * 这样避免了mActivityList容器中有多余的实例而影响程序退出速度
- * 如果你的应用中activity比较多，可以写一个BaseActivity，然后其它activity都继承他。在BaseActivity的onCreate()和onDestroy()中调用对应的方法就行了
+ *   这样避免了mActivityList容器中有多余的实例而影响程序退出速度
+ *   如果你的应用中activity比较多，可以写一个BaseActivity，然后其它activity都继承他。在BaseActivity的onCreate()和onDestroy()中调用对应的方法就行了
  * @author kenny
- *
+ * @time 2015/12/21 22:41
  */
 public class ExitAppUtils {
 	/**

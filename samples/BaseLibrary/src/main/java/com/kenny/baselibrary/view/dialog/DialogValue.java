@@ -7,9 +7,11 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+
 /**
  *
- * Created by kenny on 2015/6/21.
+ * @author kenny
+ * @time 2015/6/21 22:46
  */
 public class DialogValue implements Serializable {
 

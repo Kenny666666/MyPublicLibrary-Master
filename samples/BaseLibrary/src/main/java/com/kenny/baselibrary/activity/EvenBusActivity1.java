@@ -21,16 +21,15 @@ import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
 /**
- * description 此activity中包含evenBus框架的介绍
- * Created by kenny on 2016/1/26.
+ * 此activity中包含evenBus框架的介绍
  *
  * 总结一下：register会把当前类中匹配的方法，存入一个map，而post会根据实参去map查找进行反射调用。分析这么久，一句话就说完了~~
 
-   其实不用发布者，订阅者，事件，总线这几个词或许更好理解，以后大家问了EventBus，可以说，就是在一个单例内部维持着一个map对象存储了一堆的方法；post无非就是根据参数去查找方法，进行反射调用。
+     其实不用发布者，订阅者，事件，总线这几个词或许更好理解，以后大家问了EventBus，可以说，就是在一个单例内部维持着一个map对象存储了一堆的方法；post无非就是根据参数去查找方法，进行反射调用。
 
- * 什么是EventBus
+     什么是EventBus
 
-    EventBus是一个Android端优化的publish/subscribe消息总线，简化了应用程序内各组件间、组件与后台线程间的通信。比如请求网络，等网络返回时通过Handler或Broadcast通知UI，两个Fragment之间需要通过Listener通信，这些需求都可以通过 EventBus 实现。
+     EventBus是一个Android端优化的publish/subscribe消息总线，简化了应用程序内各组件间、组件与后台线程间的通信。比如请求网络，等网络返回时通过Handler或Broadcast通知UI，两个Fragment之间需要通过Listener通信，这些需求都可以通过 EventBus 实现。
      其中ThreadMode提供了四个常量：
 
      MainThread 首先去判断当前如果是UI线程，则直接调用；否则： mainThreadPoster.enqueue(subscription, event);把当前的方法加入到队列，然后直接通过handler去发送一个消息，在handler的handleMessage中，去执行我们的方法。说白了就是通过Handler去发送消息，然后执行的。
@@ -47,6 +46,8 @@ import org.greenrobot.eventbus.ThreadMode;
      sticky = true
 
      默认情况下，其为false。什么情况下使用sticky呢？看  helloEventSticky() 方法
+ * @author kenny
+ * @time 2016/1/31 22:28
  */
 public class EvenBusActivity1 extends BaseActivity implements OnClickListener{
 

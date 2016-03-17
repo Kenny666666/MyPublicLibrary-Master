@@ -15,7 +15,8 @@ import java.io.UnsupportedEncodingException;
 
 /**
  * 自定义xml请求
- * Created by kenny on 2015/6/21.
+ * @author kenny
+ * @time 2015/6/21 22:43
  */
 public class XMLRequest extends Request<XmlPullParser> {
 

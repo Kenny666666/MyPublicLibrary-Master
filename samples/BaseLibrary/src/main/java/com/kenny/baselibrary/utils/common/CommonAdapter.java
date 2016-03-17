@@ -8,10 +8,11 @@ import android.widget.BaseAdapter;
 
 import java.util.List;
 
+
 /**
  * listview/gridview通用adapter
- * Created by kenny on 2016/2/17.
- * @param <T>
+ * @author kenny
+ * @time 2016/2/17 22:39
  */
 public abstract class CommonAdapter<T> extends BaseAdapter {
 
