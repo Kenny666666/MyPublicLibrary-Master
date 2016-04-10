@@ -82,8 +82,7 @@ public abstract  class BaseActivity extends AutoLayoutActivity implements Respon
     @Override
     protected void onPause() {
         super.onPause();
-        //activity被暂停时取消请求
-        mRequestHelp.cancelTag(this);
+        
     }
 
     /**

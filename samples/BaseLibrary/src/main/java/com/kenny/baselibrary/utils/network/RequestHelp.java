@@ -106,8 +106,8 @@ public class RequestHelp {
         }else{
             request = new CookHttpRequest(method, url, listener, errorListener);
         }
-
-        request.setRetryPolicy( new DefaultRetryPolicy(
+        request.setShouldCache(false);//默认不缓存，因为数据发生变化，而缓存又没变不好处理
+        request.setRetryPolicy(new DefaultRetryPolicy(
                 200000,//默认超时时间，应设置一个稍微大点儿的，例如本处的200000 == 200秒
                 1,//默认最大尝试次数
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT

@@ -77,7 +77,8 @@ public class BaseLibraryApplication extends LitePalApplication {
         //  ImageLoaderConfiguration.createDefault(this);
         // method.
         ImageLoaderConfiguration.Builder config = new ImageLoaderConfiguration.Builder(context);
-        config.threadPriority(Thread.NORM_PRIORITY - 2);
+        config.threadPoolSize(3);//线程池个数
+        config.threadPriority(Thread.NORM_PRIORITY - 2);// default 设置当前线程的优先级
         config.denyCacheImageMultipleSizesInMemory();
         config.diskCacheFileNameGenerator(new Md5FileNameGenerator());
         config.diskCacheSize(50 * 1024 * 1024); // 50 MiB

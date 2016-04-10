@@ -26,7 +26,6 @@ public class NetWorkActivity extends BaseActivity implements View.OnClickListene
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.network_test);
-
         mContext = this;
         initViews();
         setListener();
