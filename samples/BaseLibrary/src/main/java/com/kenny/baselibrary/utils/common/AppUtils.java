@@ -88,4 +88,5 @@ public class AppUtils {
 		}
 		return versionCode;
 	}
+
 }

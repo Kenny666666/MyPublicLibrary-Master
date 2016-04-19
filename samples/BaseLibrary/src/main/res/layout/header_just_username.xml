@@ -27,7 +27,7 @@
         android:layout_height="72dp"
         android:layout_above="@id/id_username"
         android:layout_marginBottom="16dp"
-        android:src="@mipmap/icon"/>
+        android:src="@mipmap/header_icon"/>
 
 
 </RelativeLayout>

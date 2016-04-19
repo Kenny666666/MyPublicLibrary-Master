@@ -1,0 +1,1791 @@
+						/*******************************************
+					     *               链接
+					     *******************************************/
+
+a{
+	CURSOR: hand; COLOR: #0066cc; TEXT-DECORATION: none
+}
+a.menulink {
+	FONT-SIZE: 100%; COLOR: #000000; TEXT-DECORATION: none
+}
+a.menulink:link {
+	FONT-SIZE: 100%; COLOR: #000000; TEXT-DECORATION: underline
+}
+a.menulink:hover {
+	FONT-SIZE: 100%; COLOR: #000000; TEXT-DECORATION: underline
+}
+a.divParent {
+	FONT-SIZE: 13pt; COLOR: #3355cc; TEXT-DECORATION: none
+}
+a.divRow {
+	FONT-SIZE: 12pt; COLOR: #0099ff; TEXT-DECORATION: none
+}
+a:hover {
+	COLOR: #ee0000; TEXT-DECORATION: none
+}
+a:visited {
+	TEXT-DECORATION: none
+}
+a.head {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+form{margin:0;}
+
+						/*******************************************
+					     *               主体
+					     *******************************************/
+
+body {
+	SCROLLBAR-FACE-COLOR: rgb(234,242,255);
+	SCROLLBAR-HIGHLIGHT-COLOR: rgb(124,165,233);
+	SCROLLBAR-SHADOW-COLOR: rgb(124,165,233);
+	SCROLLBAR-ARROW-COLOR: blue;
+	SCROLLBAR-TRACK-COLOR: rgb(234,242,255);
+	SCROLLBAR-DARKSHADOW-COLOR: white;
+	SCROLLBAR-BASE-COLOR: rgb(234,242,255);
+	MARGIN-LEFT: 0px;
+	MARGIN-TOP: 0px;
+	MARGIN-RIGHT: 0px;
+	MARGIN-BOTTOM: 0px;
+	font-size: 12pt;
+	overflow: auto;
+}
+
+.body_main{
+	MARGIN-TOP: 2px;
+	MARGIN-LEFT: 5px;
+	SCROLLBAR-TRACK-COLOR: #d6e3f7;
+	SCROLLBAR-BASE-COLOR: #d6e3f7
+}
+
+						/*******************************************
+					     *               表格
+					     *******************************************/
+
+.table_page {
+	BORDER-RIGHT: #000000 0px solid;
+	BORDER-TOP: #000000 0px solid;
+	BORDER-LEFT: #000000 0px solid;
+	WIDTH: 100%;
+	BORDER-BOTTOM: #000000 0px solid;
+	BORDER-COLLAPSE: collapse
+}
+.td {
+	VERTICAL-ALIGN: top;
+	TEXT-ALIGN: left
+}
+.td_menu {
+	VERTICAL-ALIGN: top;
+	WIDTH: 15%;
+	TEXT-ALIGN: left
+}
+.td_mainpage {
+	VERTICAL-ALIGN: top;
+	WIDTH: 85%;
+	TEXT-ALIGN: left
+}
+.td_guide {
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 13pt;
+	VERTICAL-ALIGN: bottom;
+	FONT-FAMILY: 宋体;
+	TEXT-ALIGN: left
+}
+.table_button {
+	BORDER-RIGHT: #000000 0px;
+	BORDER-TOP: #000000 0px;
+	BORDER-LEFT: #000000 0px;
+	WIDTH: 100%;
+	BORDER-BOTTOM: #000000 0px;
+	BORDER-COLLAPSE: separate
+	LINE-HEIGHT: 20px
+}
+.table_button TD {
+	TEXT-ALIGN: center;
+	border:0px !important;
+}
+.td_button {
+	WIDTH: 50%;
+	TEXT-ALIGN: center
+}
+.td_page {
+	FONT-SIZE: 12pt;
+	WIDTH: 50%;
+	TEXT-ALIGN: right
+}
+.table_button_other {
+	WIDTH: 180%;
+	BORDER-TOP-STYLE: none;
+	BORDER-RIGHT-STYLE: none;
+	BORDER-LEFT-STYLE: none;
+	BORDER-COLLAPSE: separate;
+	BORDER-BOTTOM-STYLE: none;
+	empty-cells: show
+	LINE-HEIGHT: 20px
+}
+.td_layer {
+	FONT-SIZE: 13pt;
+	WIDTH: 50%
+}
+.td_guide {
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 13pt;
+	VERTICAL-ALIGN: bottom;
+	FONT-FAMILY: Arial,宋体;
+	TEXT-ALIGN: left
+}
+.table_prjDetail {
+	BORDER-LEFT-COLOR: #BEC2CD;
+	BORDER-BOTTOM-COLOR: #BEC2CD;
+	WIDTH: 100%;
+	BORDER-TOP-COLOR: #BEC2CD;
+	BORDER-COLLAPSE: collapse;
+	BACKGROUND-COLOR: #cbcbcb;
+	BORDER-RIGHT-COLOR: #BEC2CD
+}
+.td_title {
+	FONT-SIZE: 12pt;
+	BORDER-LEFT-COLOR: #BEC2CD;
+	BORDER-BOTTOM-COLOR: #BEC2CD;
+	BORDER-TOP-COLOR: #BEC2CD;
+	LINE-HEIGHT: 1.6;
+	FONT-FAMILY: Verdana;
+	BORDER-COLLAPSE: separate;
+	BACKGROUND-COLOR:#e3f2ff;
+	BORDER-RIGHT-COLOR: #BEC2CD;
+	EMPTY-CELLS: show
+}
+.td_content {
+	FONT-SIZE: 12pt;
+	BORDER-LEFT-COLOR: #BEC2CD;
+	BORDER-BOTTOM-COLOR: #BEC2CD;
+	COLOR: #000000;
+	WORD-BREAK: break-all;
+	BORDER-TOP-COLOR: #BEC2CD;
+	LINE-HEIGHT: 1.6;
+	FONT-FAMILY: Verdana;
+	BORDER-COLLAPSE: separate;
+	BACKGROUND-COLOR: #edecec;
+	BORDER-RIGHT-COLOR: #BEC2CD
+}
+.td_empty{
+	FONT-SIZE: 12pt;
+	BORDER-LEFT-COLOR: #BEC2CD;
+	BORDER-BOTTOM-COLOR: #BEC2CD;
+	COLOR: #000000;
+	WORD-BREAK: break-all;
+	BORDER-TOP-COLOR: #BEC2CD;
+	LINE-HEIGHT: 1.6;
+	FONT-FAMILY: Verdana;
+	BORDER-COLLAPSE: separate;
+	BACKGROUND-COLOR: #ffffff;
+	BORDER-RIGHT-COLOR: #BEC2CD
+}
+.td_note {
+	FONT-SIZE: 12pt;
+	COLOR: #000000;
+	WORD-BREAK: break-all;
+	LINE-HEIGHT: 1.6;
+	FONT-FAMILY: Verdana;
+	BACKGROUND-COLOR: #edecec;
+	padding:0 8px
+}
+.td_tool {
+	background-color:#ffffff;
+	COLOR: #000000;
+	WORD-BREAK: break-all;
+	LINE-HEIGHT: 1.6;
+	FONT-FAMILY: Verdana;
+	BORDER-RIGHT-COLOR: #BEC2CD;
+	padding:0 5px;
+	font-size:12px;
+}
+.edit_maindiv{
+	overflow: auto;
+	height: 100%;
+	padding:0 5px;
+	BACKGROUND-COLOR: #f2f2f2;
+}
+div.sep {
+	LINE-HEIGHT: 18pt
+}
+
+div#tabpage_area {
+	clear:			both;
+	border-left:		1px solid rgb( 145, 155, 156 );
+	border-bottom:		1px solid rgb( 145, 155, 156 );
+	border-right:		1px solid rgb( 145, 155, 156 );
+	background:		rgb( 252, 252, 254 );
+	z-index:		2;
+	position:		relative;
+	top:			-2px;
+	left:			1px;
+	padding:		0px 0 0px 0;
+}
+
+.table_split {
+	BACKGROUND-COLOR: #E9E9E9;
+	BORDER-LEFT-COLOR: #BEC2CD;
+	BORDER-BOTTOM-COLOR: #BEC2CD;
+	VERTICAL-ALIGN: top;
+	WIDTH: 100%;
+	BORDER-TOP-COLOR: #BEC2CD;
+	BORDER-COLLAPSE: collapse;
+	BORDER-RIGHT-COLOR: #BEC2CD
+}
+.table_split td {
+	FONT-SIZE: 12pt;
+	BORDER-LEFT-COLOR: #BEC2CD;
+	BORDER-BOTTOM-COLOR: #BEC2CD;
+	BORDER-TOP-COLOR: #BEC2CD;
+	HEIGHT: 26px;
+	FONT-FAMILY: Verdana;
+	BORDER-COLLAPSE: separate;
+	BORDER-RIGHT-COLOR: #BEC2CD;
+	EMPTY-CELLS: show
+}
+
+.table_list_locked {
+	VERTICAL-ALIGN: top;
+	WIDTH: 100%;
+	BORDER-COLLAPSE: separate;
+	background:#ffffff;
+	word-break:break-all;
+}
+.table_list_locked th {
+	HEIGHT:30px;
+	text-align:center;
+	FONT-SIZE: 12pt;
+	font-weight: bold;
+	COLOR: #000;
+	LINE-HEIGHT: 20px;
+	BACKGROUND-COLOR: #e3f2ff;
+	BORDER-RIGHT: 1px solid #BEC2CD;
+	BORDER-TOP: 1px solid #BEC2CD;
+	BORDER-bottom: 1px solid #BEC2CD;
+	position:relative;
+	top: expression(document.getElementById("lockedLayer").scrollTop); /* IE5+ only */
+	z-index: 20;
+}
+
+.table_list_locked td {
+	border-right:1px solid #BEC2CD;
+	border-bottom:1px solid #BEC2CD;
+	border-left:0px solid #BEC2CD;
+	FONT-SIZE: 12pt;
+	HEIGHT: 26px;
+	FONT-FAMILY: Verdana;
+	EMPTY-CELLS: show
+}
+div#lockedLayer {
+	width:100%;
+	height:100%;
+	z-index:1;
+	overflow-x: auto;
+	overflow-y: auto;
+	visibility: visible;
+	padding:0px;
+	background:#f2f2f2;
+	border:1px solid #BEC2CD;
+}
+
+.table_n1_locked {
+	VERTICAL-ALIGN: top;
+	WIDTH: 100%;
+	BORDER-COLLAPSE: collapse;
+}
+.table_n1_locked th {
+	BORDER-RIGHT: 1px solid #BEC2CD;
+	HEIGHT:26px;
+	position:relative;
+	top: expression(document.getElementById("lockedLayerN1").scrollTop-1); /* IE5+ only */
+	z-index: 20;
+}
+
+.table_n1_locked td {
+	BORDER-LEFT: 1px solid #BEC2CD;
+	BORDER-RIGHT: 1px solid #BEC2CD;
+	BORDER-BOTTOM: 1px solid #BEC2CD;
+	FONT-SIZE: 12pt;
+	HEIGHT: 22px;
+	FONT-FAMILY: Verdana;
+	EMPTY-CELLS: show
+}
+div#lockedLayerN1 {
+	width:100%;
+	height:100%;
+	z-index:1;
+	overflow-x: auto;
+	overflow-y: auto;
+	visibility: visible;
+	padding:0px;
+	border:1px solid #BEC2CD;
+}
+
+.table_n2_locked {
+	VERTICAL-ALIGN: top;
+	WIDTH: 100%;
+	BORDER-COLLAPSE: collapse;
+}
+.table_n2_locked th {
+	BORDER-RIGHT: 1px solid #BEC2CD;
+	HEIGHT:26px;
+	position:relative;
+	top: expression(document.getElementById("lockedLayerN2").scrollTop-1); /* IE5+ only */
+	z-index: 20;
+}
+
+.table_n2_locked td {
+	BORDER-LEFT: 1px solid #BEC2CD;
+	BORDER-RIGHT: 1px solid #BEC2CD;
+	BORDER-BOTTOM: 1px solid #BEC2CD;
+	FONT-SIZE: 12pt;
+	HEIGHT: 22px;
+	FONT-FAMILY: Verdana;
+	EMPTY-CELLS: show
+}
+div#lockedLayerN2 {
+	width:100%;
+	height:100%;
+	z-index:1;
+	overflow-x: auto;
+	overflow-y: auto;
+	visibility: visible;
+	padding:0px;
+	border:1px solid #BEC2CD;
+}
+
+div#tabpage_area {
+	clear:			both;
+	border-left:		1px solid rgb( 145, 155, 156 );
+	border-bottom:		1px solid rgb( 145, 155, 156 );
+	border-right:		1px solid rgb( 145, 155, 156 );
+	background:		rgb( 252, 252, 254 );
+	z-index:		2;
+	position:		relative;
+	top:			-2px;
+	left:			1px;
+	padding:		0px 0 0px 0;
+}
+
+.table_list {
+	BORDER-LEFT-COLOR: #BEC2CD;
+	BORDER-BOTTOM-COLOR: #BEC2CD;
+	VERTICAL-ALIGN: top;
+	WIDTH: 100%;
+	BORDER-TOP-COLOR: #BEC2CD;
+	BORDER-COLLAPSE: collapse;
+	BORDER-RIGHT-COLOR: #BEC2CD
+}
+.table_list th {
+	HEIGHT:30
+}
+
+.table_list td {
+	FONT-SIZE: 12pt;
+	BORDER-LEFT-COLOR: #BEC2CD;
+	BORDER-BOTTOM-COLOR: #BEC2CD;
+	BORDER-TOP-COLOR: #BEC2CD;
+	HEIGHT: 26px;
+	FONT-FAMILY: Verdana;
+	BORDER-COLLAPSE: separate;
+	BORDER-RIGHT-COLOR: #BEC2CD;
+	EMPTY-CELLS: show
+}
+.option_icon_add{
+	width:16px;
+	height:16px;
+	display:block;
+	float:left;
+	background-image:url(../../images/addItem.gif);
+	cursor:pointer;
+	margin-left:5px;
+}
+.option_icon_delete{
+	width:16px;
+	height:16px;
+	display:block;
+	float:left;
+	background-image:url(../../images/deleteItem.gif);
+	cursor:pointer;
+	margin-left:5px;
+}
+.table_list_other {
+	BORDER-LEFT-COLOR: #BEC2CD;
+	BORDER-BOTTOM-COLOR: #BEC2CD;
+	VERTICAL-ALIGN: top;
+	WIDTH: 180%;
+	BORDER-TOP-COLOR: #BEC2CD;
+	BORDER-COLLAPSE: collapse;
+	BORDER-RIGHT-COLOR: #BEC2CD
+}
+.table_list_other td {
+	FONT-SIZE: 8pt;
+	BORDER-LEFT-COLOR: #BEC2CD;
+	BORDER-BOTTOM-COLOR: #BEC2CD;
+	BORDER-TOP-COLOR: #BEC2CD;
+	LINE-HEIGHT: 24px;
+	FONT-FAMILY: Verdana;
+	BORDER-COLLAPSE: separate;
+	BORDER-RIGHT-COLOR: #BEC2CD;
+	EMPTY-CELLS: show
+}
+.tr_odd {
+	FONT-SIZE: 12pt;
+	LINE-HEIGHT: 24px;
+}
+.tr_even {
+	FONT-SIZE: 12pt;
+	LINE-HEIGHT: 24px
+}
+
+.tr_mouseOver {
+	FONT-SIZE: 12pt;
+	LINE-HEIGHT: 24px;
+	background-color: #e9eef9;
+}
+
+.tr_bottom {
+	FONT-SIZE: 12pt;
+	BACKGROUND-COLOR: #cad4ee;
+	TEXT-ALIGN: right;
+	border-bottom: 1px solid #BEC2CD;
+    border-left: 1px solid #BEC2CD;
+    border-right: 1px solid #BEC2CD;
+    background: url("../images/bg-panel1.gif") repeat-x scroll center top transparent;
+}
+
+.th_bkcolor {
+	FONT-WEIGHT: normal; FONT-SIZE: 12pt;
+	BORDER-LEFT-COLOR: #BEC2CD;
+	BORDER-BOTTOM-COLOR: #BEC2CD;
+	COLOR: #0000ff;
+	BORDER-TOP-COLOR: #BEC2CD;
+	LINE-HEIGHT: 20px;
+	BACKGROUND-COLOR: #8caae7;
+	BORDER-RIGHT-COLOR: #BEC2CD
+}
+
+.table_list th{
+	text-align:center;
+	HEIGHT:30px;
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 12pt;
+	BORDER-LEFT-COLOR: #BEC2CD;
+	BORDER-BOTTOM-COLOR: #BEC2CD;
+	COLOR: #000;
+	BORDER-TOP-COLOR: #BEC2CD;
+	LINE-HEIGHT: 20px;
+	BACKGROUND-COLOR: #e3f2ff;
+	BORDER-RIGHT-COLOR: #BEC2CD;
+}
+.table_list .td_first_colume {
+	WIDTH: 3%; TEXT-ALIGN: center
+}
+/**一个没有锁定提头的列表样式**/
+.table_list_nolock{
+	VERTICAL-ALIGN: top;
+	WIDTH: 100%;
+	BORDER-COLLAPSE: collapse;
+	BORDER: 1px solid #BEC2CD;
+}
+.table_list_nolock th{
+	text-align:center;
+	HEIGHT:30px;
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 12pt;
+	BORDER:1px solid #BEC2CD;
+	COLOR: #000;
+	LINE-HEIGHT: 20px;
+}
+.table_list_nolock td{
+	FONT-SIZE: 12pt;
+	BORDER:1px solid #BEC2CD;
+	HEIGHT: 26px;
+	FONT-FAMILY: Verdana;
+	BORDER-COLLAPSE: separate;
+	EMPTY-CELLS: show;
+}
+table.tabletoolbar {
+	BORDER-RIGHT: #253e82 0px double;
+	BORDER-TOP: #253e82 0px double;
+	MARGIN-TOP: 2px;
+	MARGIN-BOTTOM: 2px;
+	PADDING-BOTTOM: 3px;
+	BORDER-LEFT: #253e82 0px double;
+	BORDER-BOTTOM: #253e82 1px double;
+	BORDER-COLLAPSE: collapse
+}
+table.tableframe {
+	BORDER-RIGHT: #7c9ccf 1px solid;
+	BORDER-TOP: #7c9ccf 1px solid;
+	MARGIN-TOP: 5px;
+	BORDER-LEFT: #7c9ccf 1px solid;
+	BORDER-BOTTOM: #7c9ccf 1px solid;
+	BORDER-COLLAPSE: collapse;
+	BACKGROUND-COLOR: #ffffff
+}
+.table_query{ /* 图表查询表格 */
+   width:100%;
+   border-spacing:0;
+   border-collapse:collapse;
+   border-padding: 0px;
+}
+.fontbold {
+	FONT-WEIGHT: bold
+}
+.fontbolditalic {
+  FONT-STYLE:italic;
+  FONT-SIZE: 13pt;
+}
+
+						/*******************************************
+					     *               背景
+					     *******************************************/
+
+.bg_gray {
+	BACKGROUND-COLOR: #CCD2D6
+}
+
+.bg_deep_gray {
+	BACKGROUND-COLOR: #999999
+}
+
+.bg_yellow {
+	BACKGROUND-COLOR: #E9E9E9
+}
+
+.bg_blue {
+	BACKGROUND-COLOR: #00538D
+}
+.bg_navi {
+	BACKGROUND-COLOR: #97c9eb;
+	color:#333;
+	font-size:12px;
+	height:20px;
+	line-height:20px;
+}
+.bg_navi img {
+	margin-bottom:-3px;
+}
+
+.bg_title {
+	BACKGROUND-COLOR: #00538D;
+	HEIGHT:33;
+}
+
+.bg_white {
+	BACKGROUND-COLOR: #FFFFFF
+}
+
+.bg_black {
+	BACKGROUND-COLOR: #000000
+}
+
+.bg_qian_gray {
+	/*BACKGROUND-COLOR: #CCD2D6;*/
+	BACKGROUND-COLOR: #f2f2f2;
+}
+
+						/*******************************************
+					     *               文本框
+					     *******************************************/
+.borderImage { 
+              -webkit-tap-highlight-color:rgba(0,0,0,0);
+              } 
+.blueBack{
+         color:blue;
+         font-size:x-large;
+         background-color:red;
+         border:5px solid blue;
+  }
+.blackBack{
+         color:black;
+         font-size:x-large;
+         background-color:red;
+         border:5px solid blue;
+  }
+
+input.flat_u {
+	PADDING-RIGHT: 1px;
+	PADDING-LEFT: 1px;
+	FONT-SIZE: 12pt;
+	PADDING-BOTTOM: 1px;
+	WIDTH: auto;
+	HEIGHT:22;
+	PADDING-TOP: 3px;
+	FONT-FAMILY: Verdana;
+	BACKGROUND-COLOR: #ffffff;
+	BORDER: 1px solid #C0BEBE;
+}
+
+input.flat_u_right {
+	PADDING-RIGHT: 1px;
+	PADDING-LEFT: 1px;
+	FONT-SIZE: 12pt;
+	PADDING-BOTTOM: 1px;
+	WIDTH: auto;
+	HEIGHT:22;
+	PADDING-TOP: 3px;
+	FONT-FAMILY: Verdana;
+	BACKGROUND-COLOR: #ffffff;
+	BORDER: 1px solid #C0BEBE;
+	TEXT-ALIGN:right;
+}
+
+input.flat_u_ro_right {
+	PADDING-RIGHT: 1px;
+	PADDING-LEFT: 1px;
+	FONT-SIZE: 12pt;
+	PADDING-BOTTOM: 1px;
+	WIDTH: auto;
+	HEIGHT:22;
+	PADDING-TOP: 3px;
+	FONT-FAMILY: Verdana;
+	BACKGROUND-COLOR: #E4E4E4;
+	BORDER: 1px solid #C0BEBE;
+	TEXT-ALIGN:right;
+}
+
+input.flat_w {
+	PADDING-RIGHT: 1px;
+	PADDING-LEFT: 1px;
+	FONT-SIZE: 12pt;
+	PADDING-BOTTOM: 1px;
+	WIDTH: auto;
+	HEIGHT:22;
+	PADDING-TOP: 3px;
+	FONT-FAMILY: Verdana;
+	BACKGROUND-COLOR: #ffffff;
+	BORDER: 1px solid #C0BEBE;
+}
+
+/*不能编辑的输入框 背景为灰色*/
+input.flat_u_ro {
+	PADDING-RIGHT: 1px;
+	PADDING-LEFT: 1px;
+	FONT-SIZE: 12pt;
+	PADDING-BOTTOM: 1px;
+	WIDTH: auto;
+	HEIGHT:22;
+	PADDING-TOP: 3px;
+	FONT-FAMILY: Verdana;
+	BACKGROUND-COLOR: #E4E4E4;
+	BORDER: 1px solid #C0BEBE;
+}
+
+/*不能编辑的输入框 背景为灰色 字体是斜体*/
+input.flat_u_ro_italic {
+	PADDING-RIGHT: 1px;
+	PADDING-LEFT: 1px;
+	FONT-SIZE: 12pt;
+	PADDING-BOTTOM: 1px;
+	WIDTH: auto;
+	HEIGHT:22;
+	PADDING-TOP: 3px;
+	FONT-FAMILY: Verdana;
+	BACKGROUND-COLOR: #E4E4E4;
+	BORDER: 1px solid #C0BEBE;
+	FONT-STYLE:italic;
+}
+
+/*带下划线 输入框*/
+input.flat_u_list{
+	BACKGROUND-COLOR: #E4E4E4;
+	BORDER-BOTTOM: #999999 1px solid;
+	BORDER-LEFT: #008080 0px solid;
+	BORDER-RIGHT: #008080 0px solid;
+	BORDER-TOP: #008080 0px solid;
+	PADDING-BOTTOM: 1px;
+	PADDING-LEFT: 1px;
+	PADDING-RIGHT: 1px;
+	PADDING-TOP: 1px;
+	FONT-SI E:12pt;
+	TEXT-ALIGN:left;
+	WIDTH:auto;
+}
+
+/*带下划线 输入框*/
+input.flat_u_list_right{
+	BACKGROUND-COLOR: #E4E4E4;
+	BORDER-BOTTOM: #999999 1px solid;
+	BORDER-LEFT: #008080 0px solid;
+	BORDER-RIGHT: #008080 0px solid;
+	BORDER-TOP: #008080 0px solid;
+	PADDING-BOTTOM: 1px;
+	PADDING-LEFT: 1px;
+	PADDING-RIGHT: 1px;
+	PADDING-TOP: 1px;
+	FONT-SI E:12pt;
+	TEXT-ALIGN:right;
+	WIDTH:auto;
+}
+
+/*带下划线 输入框 居中*/
+input.flat_u_list_c{
+	BACKGROUND-COLOR: #E4E4E4;
+	BORDER-BOTTOM: #999999 1px solid;
+	BORDER-LEFT: #008080 0px solid;
+	BORDER-RIGHT: #008080 0px solid;
+	BORDER-TOP: #008080 0px solid;
+	PADDING-BOTTOM: 1px;
+	PADDING-LEFT: 1px;
+	PADDING-RIGHT: 1px;
+	PADDING-TOP: 1px;
+	FONT-SI E:12pt;
+	TEXT-ALIGN:center;
+	WIDTH:auto;
+}
+
+/*不能编辑的输入框 背景为灰色(无边框)*/
+input.flat_u_ronb {
+	PADDING-RIGHT: 1px;
+	PADDING-LEFT: 1px;
+	FONT-SIZE: 12pt;
+	PADDING-BOTTOM: 1px;
+	WIDTH: auto;
+	HEIGHT:22;
+	PADDING-TOP: 3px;
+	FONT-FAMILY: Verdana;
+	BACKGROUND-COLOR: #E4E4E4;
+	BORDER: 0px solid #C0BEBE;
+}
+
+/* 红色边框提示 */
+input.flat_u_red {
+	PADDING-RIGHT: 1px;
+	PADDING-LEFT: 1px;
+	FONT-SIZE: 12pt;
+	PADDING-BOTTOM: 1px;
+	WIDTH: auto;
+	HEIGHT:22;
+	PADDING-TOP: 3px;
+	FONT-FAMILY: Verdana;
+	BACKGROUND-COLOR: #ffffff;
+	BORDER: 1px solid red;
+}
+
+input.flat {
+	BORDER-RIGHT: #008080 0px solid;
+	BORDER-TOP: #008080 0px solid;
+	FONT-SIZE: 12pt;
+	BORDER-LEFT: #008080 0px solid;
+	WIDTH: auto;
+	BORDER-BOTTOM: #fffff7 1px solid;
+	FONT-FAMILY: Verdana;
+	BACKGROUND-COLOR: #ffffff
+}
+
+input.flat_red {
+	PADDING-RIGHT: 1px;
+	PADDING-LEFT: 1px;
+	FONT-SIZE: 12pt;
+	PADDING-BOTTOM: 1px;
+	WIDTH: auto;
+	HEIGHT:22;
+	PADDING-TOP: 3px;
+	FONT-FAMILY: Verdana;
+	BACKGROUND-COLOR: #ffffff;
+	BORDER: 1px solid #C0BEBE;
+	COLOR:#FF0000;
+}
+
+input.flat_a{	/*只有下划线大字体的输入框*/
+	BACKGROUND-COLOR: #ffffff;
+	BORDER-BOTTOM:  2px solid;
+	BORDER-LEFT:  0px solid;
+	BORDER-RIGHT:  0px solid;
+	BORDER-TOP:  0px solid;
+	padding: 1px;
+	font-size:18pt;
+	text-align:center;
+    font-weight:bold;
+}
+input.flat_a1{	/*无边框的输入框*/
+	BACKGROUND-COLOR: #ffffff;
+	BORDER-BOTTOM:  0px solid;
+	BORDER-LEFT:  0px solid;
+	BORDER-RIGHT:  0px solid;
+	BORDER-TOP:  0px solid;
+	padding: 0px;
+	font-size:13pt;
+	text-align:left;
+	text-valign:middle;
+}
+
+input.flat_a2{	/*只有下划线的输入框*/
+	BACKGROUND-COLOR: #ffffff;
+	BORDER-BOTTOM:  1px solid;
+	BORDER-LEFT:  0px solid;
+	BORDER-RIGHT:  0px solid;
+	BORDER-TOP:  0px solid;
+	padding: 1px;
+	font-size:13pt;
+	text-align:center;
+    font-weight:normal;
+	border-bottom-color:blue;
+	border-bottom-style:double;
+}
+
+input.flat_a3{	/*只有下划线的输入框*/
+	BACKGROUND-COLOR: #ffffff;
+	BORDER-BOTTOM:  1px solid;
+	BORDER-LEFT:  0px solid;
+	BORDER-RIGHT:  0px solid;
+	BORDER-TOP:  0px solid;
+	padding: 1px;
+	font-size:13pt;
+	text-align:center;
+    font-weight:normal;
+	border-bottom-color:red;
+	border-bottom-style:double;
+}
+
+input.flat_u_l{	/*只有下划线为黑色输入框居左*/
+	BACKGROUND-COLOR: #ffffff;
+	BORDER-BOTTOM:  1px solid;
+	BORDER-LEFT:  0px solid;
+	BORDER-RIGHT:  0px solid;
+	BORDER-TOP:  0px solid;
+	padding: 1px;
+	font-size:13pt;
+	text-align:left;
+    font-weight:normal;
+	border-bottom-color:black;
+	border-bottom-style:double;
+}
+
+input.flat_u_c{	/*只有下划线为黑色输入框居中*/
+	BACKGROUND-COLOR: #ffffff;
+	BORDER-BOTTOM:  1px solid;
+	BORDER-LEFT:  0px solid;
+	BORDER-RIGHT:  0px solid;
+	BORDER-TOP:  0px solid;
+	padding: 1px;
+	font-size:13pt;
+	text-align:center;
+    font-weight:normal;
+	border-bottom-color:black;
+	border-bottom-style:double;
+}
+
+input.counter{ /*尚能输入多少字符*/
+	font-size:12pt;
+	color:red;
+	border-width: 0;
+	BACKGROUND-COLOR: transparent;
+}
+
+
+						/*******************************************
+					     *               大文本框
+					     *******************************************/
+
+.textarea {
+	BORDER-RIGHT: #C0BEBE 1px solid;
+	BORDER-TOP: #C0BEBE 1px solid;
+	FONT-SIZE: 12px;
+	BORDER-LEFT: #C0BEBE 1px solid;
+	COLOR: #000000;
+	LINE-HEIGHT: 15pt;
+	BORDER-BOTTOM: #C0BEBE 1px solid;
+	FONT-FAMILY: Verdana
+}
+
+.textarea_ro {
+	BORDER-RIGHT: #C0BEBE 1px solid;
+	BORDER-TOP: #C0BEBE 1px solid;
+	FONT-SIZE: 12px;
+	BORDER-LEFT: #C0BEBE 1px solid;
+	COLOR: #000000; LINE-HEIGHT: 15pt;
+	SCROLLBAR-ARROW-COLOR: #C0BEBE;
+	BORDER-BOTTOM: #C0BEBE 1px solid;
+	FONT-FAMILY: Verdana;
+	BACKGROUND-COLOR: #E4E4E4;
+}
+
+textarea.sep {
+	LINE-HEIGHT: 18pt
+}
+textarea.ta_noscroll {
+	OVERFLOW: hidden;
+	LINE-HEIGHT: 18pt;
+	SCROLLING: no
+}
+textarea.ta_scrollcolor {
+	BORDER-RIGHT: #999999 1px solid;
+	BORDER-TOP: #999999 1px solid;
+	OVERFLOW: hidden;
+	BORDER-LEFT: #999999 1px solid;
+	LINE-HEIGHT: 15pt;
+	BORDER-BOTTOM: #999999 1px solid
+}
+
+
+						/*******************************************
+					     *               下拉框
+					     *******************************************/
+
+select {
+	SCROLLBAR-FACE-COLOR: rgb(234,242,255);
+	FONT-SIZE: 13px;
+	SCROLLBAR-HIGHLIGHT-COLOR: rgb(124,165,233);
+	SCROLLBAR-SHADOW-COLOR: rgb(124,165,233);
+	COLOR: navy; SCROLLBAR-ARROW-COLOR: blue;
+	SCROLLBAR-TRACK-COLOR: rgb(234,242,255);
+	SCROLLBAR-DARKSHADOW-COLOR: white;
+	SCROLLBAR-BASE-COLOR: rgb(234,242,255);
+	BACKGROUND-COLOR: #eff5fe;
+	MARGIN:0;/*margin为1的话会导致可能有的页面出现上边框不出现的情况*/
+}
+
+						/*******************************************
+					     *               FRAME
+					     *******************************************/
+
+/*frame边框,右边显示竖条*/
+.frame {
+    BORDER-TOP: #000000 0px solid;
+	BORDER-BOTTOM: #000000 0px solid;
+	BORDER-LEFT: #000000 0px solid;
+	BORDER-RIGHT: #7B8185 3px solid
+}
+
+/*frame边框,下边显示横条*/
+.framebottom {
+    BORDER-TOP: #000000 0px solid;
+	BORDER-BOTTOM: #7B8185 3px solid;
+	BORDER-LEFT: #000000 0px solid;
+	BORDER-RIGHT: #000000 0px solid
+}
+
+						/*******************************************
+					     *               按钮
+					     *******************************************/
+
+.btn_href {
+	BORDER: #7b9ebd 1px solid;
+	PADDING:0
+	FONT-SIZE: 12px;
+	FILTER: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr=#ffffff, EndColorStr=#cecfde);
+	CURSOR: hand;
+	COLOR: black;
+	height:auto;
+	background: none ;
+	/*line-height:normal ;*/
+}
+
+.btn_href_filter {
+	BORDER: #002D96 1px solid;
+	PADDING:0
+	FONT-SIZE: 12px;
+	FILTER: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr=#FFFFFF, EndColorStr=#9DBCEA);
+	CURSOR: hand;
+	COLOR: black;
+	height:auto;
+	background: none ;
+	/*line-height:normal ;
+	font-family:Times New Roman;*/
+}
+
+						/*******************************************
+					     *               字体
+					     *******************************************/
+
+.font1 {
+	FONT-SIZE: 12pt;
+	FONT-STYLE: normal
+}
+
+/** 此样式同上面的font1 **/
+.font_normal {
+	FONT-SIZE: 12pt;
+	FONT-STYLE: normal
+}
+
+.font_white_arial {
+	FONT-FAMILY: Arial, Helvetica, sans-serif;
+	FONT-SIZE: 12px;
+	COLOR: #FFFFFF;
+}
+
+.readonly {
+	BACKGROUND-COLOR: #edecec
+}
+
+.title_bar {
+	FONT-SIZE: 12pt;
+	BACKGROUND: #4970ce;
+	COLOR: #ffffff;
+	LINE-HEIGHT: 1.6;
+	FONT-FAMILY: Arial,宋体;
+	HEIGHT: 24px
+}
+
+/* tab页面背景颜色*/
+.table_tab_bgcolor {
+	BACKGROUND-COLOR: #ccd2d6
+}
+
+.mm_style1 {
+	FONT-FAMILY: Arial, Helvetica, sans-serif;
+	FONT-SIZE: 12px;
+	COLOR: #333;
+}
+
+.mm_style2 {
+	FONT-SIZE: 14px;
+	COLOR: #00538D;
+	FONT-WEIGHT: bold;
+	FONT-FAMILY: "楷体_GB2312";
+}
+
+/** 此样式同上面的mm_style2 **/
+.font_gray_kai {
+	FONT-SIZE: 14px;
+	COLOR: #00538D;
+	FONT-WEIGHT: bold;
+	FONT-FAMILY: "楷体_GB2312";
+}
+
+.mm_style_comment {
+	FONT-FAMILY: Arial, Helvetica, sans-serif;
+	FONT-SIZE: 13px;
+	COLOR: #000000
+}
+
+/** 此样式同上面的mm_style_comment **/
+.font_white_big_arial {
+	FONT-FAMILY: Arial, Helvetica, sans-serif;
+	FONT-SIZE: 13px;
+	COLOR: #000000
+}
+
+.mm_style_comment_red {
+	FONT-FAMILY: Arial, Helvetica, sans-serif;
+	FONT-SIZE: 13px;
+	COLOR: red
+}
+
+/** 此样式同上面的mm_style_comment_red **/
+.font_red_big_arial {
+	FONT-FAMILY: Arial, Helvetica, sans-serif;
+	FONT-SIZE: 13px;
+	COLOR: red
+}
+
+/*页面说明字体 mmproject.css里要一起修改*/
+.mm_note_font {
+	FONT-SIZE: 12px;
+	COLOR: #00538D;
+}
+
+/** 此样式同上面的mm_note_font **/
+.font_note {
+	FONT-SIZE: 12px;
+	COLOR: #00538D;
+}
+
+/*页面备注字体 mmproject.css里要一起修改*/
+.mm_remark_font {
+	FONT-SIZE: 12px;
+	COLOR: #00538D;
+}
+
+/** 此样式同上面的 mm_remark_font **/
+.font_remark {
+	FONT-SIZE: 12px;
+	COLOR: #00538D;
+}
+
+.table_edit_bg {
+	BACKGROUND-COLOR: #a3a3a3
+}
+
+.table_edit_bg td{
+	 FONT-SIZE: 12pt;
+}
+
+.tabpane_bg {
+	BACKGROUND-COLOR: #E9E9E9
+}
+
+.font8 {
+	color: #666666;
+	font-size: 14px;
+}
+
+.font9 {
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+	FONT-SIZE: 12px;
+	PADDING-TOP: 5px;
+}
+
+.font11{
+    FONT-FAMILY: Arial, Helvetica, sans-serif,宋体;
+	FONT-SIZE: 12pt;
+}
+.font10{
+    FONT-FAMILY: Arial, Helvetica, sans-serif,宋体;
+	FONT-SIZE: 13pt;
+}
+.font11_white{
+    FONT-FAMILY: Arial, Helvetica, sans-serif,宋体;
+    FONT-SIZE: 12pt;
+    COLOR: #FFFFFF;
+}
+.font10_white{
+    FONT-FAMILY: Arial, Helvetica, sans-serif,宋体;
+    FONT-SIZE: 13pt;
+    COLOR: #FFFFFF;
+}
+/** 此样式同上面的 font9 **/
+.font_arial_top {
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+	FONT-SIZE: 12px;
+	PADDING-TOP: 5px;
+}
+
+.tabpane_style {
+	FONT-FAMILY: Arial, Helvetica, sans-serif;
+	FONT-SIZE: 12px;
+	COLOR: #017ed1;
+	FONT-WEIGHt: bold;
+}
+
+/*tab页面选中字体*/
+.tab_selected_font{
+    FONT-FAMILY: Arial, Helvetica, sans-serif;
+	FONT-SIZE: 12px;
+	PADDING-TOP: 5px;
+	COLOR: #017ed1;
+	FONT-WEIGHT: bold
+}
+
+/*图片连接风格--added by caiyi*/
+.img_href {
+    cursor:hand;
+    color:#C000FF;
+    text-decoration:none
+}
+
+.prompt_style{
+	 FONT-SIZE: 13pt;
+}
+.message {
+    font-family: Arial, Helvetica, sans-serif;
+	FONT-SIZE: 12px;
+	color:red;
+}
+#msg-div {
+    position:absolute;
+    top:10px;
+    width:250px;
+    z-index:20000;
+}
+/*********上下选择控件：start*********/
+.table_updown
+{
+	height: 18px;
+	border: solid 1px #7F9DB9;
+	border-collapse: collapse;
+	table-layout: fixed;
+}
+.table_updown_disabled
+{
+	height: 18px;
+	border: solid 1px #DBDBDB;
+	border-collapse: collapse;
+	table-layout: fixed;
+}
+.tr_updown
+{
+	height: 18px;
+}
+
+.td_updown
+{
+	margin: 0px;
+	vertical-align: top;
+}
+
+.input_updown
+{
+	overflow: hidden;
+	text-align: right;
+	vertical-align: middle;
+	border-width: 0px;
+	height: 100%;
+	width: 100%;
+	font-family: 宋体;
+	font-size: 13pt;
+	margin-right: 4px;
+}
+
+.image_updown
+{
+	width: 18px;
+}
+/*********上下选择控件：end*********/
+
+th{
+	HEIGHT:30px;
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 12pt;
+	BORDER-LEFT-COLOR: #BEC2CD;
+	BORDER-BOTTOM-COLOR: #BEC2CD;
+	COLOR: #000;
+	BORDER-TOP-COLOR: #BEC2CD;
+	LINE-HEIGHT: 20px;
+	BACKGROUND-COLOR: #e3f2ff;
+	BORDER-RIGHT-COLOR: #BEC2CD
+}
+
+.mouseover {
+	background-color: #FFD563;
+	color: #000;
+}
+
+.boldfont {
+	font-weight: bold;
+}
+
+.textFont{
+	text-decoration: none;
+	cursor: default;
+	border:0px;
+}
+
+.dataListTable {
+	color: #000000;
+	font-size: 12px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	padding-top: 1px;
+	padding-bottom: 2px;
+	height: 100%;
+}
+
+.dataListTd {
+	height:20px;
+}
+
+div#autocomplete_content{
+	width: 410px;
+}
+
+div.common {
+	BACKGROUND-COLOR: #ffffff;
+	BORDER-BOTTOM: #c0bebe 1px solid;
+	BORDER-LEFT: #c0bebe 1px solid;
+	BORDER-RIGHT: #c0bebe 1px solid;
+	BORDER-TOP: #c0bebe 1px solid;
+	PADDING-BOTTOM: 1px;
+	PADDING-LEFT: 1px;
+	PADDING-RIGHT: 1px;
+	PADDING-TOP: 1px;
+	font-size:12pt;
+	font-family:Verdana;
+	height:23;
+	width:170px;
+	padding-top:3px;
+	display: inline;
+}
+
+div.flat_u {
+	BACKGROUND-COLOR: #ffffff;
+	BORDER-BOTTOM: #c0bebe 1px solid;
+	BORDER-LEFT: #c0bebe 1px solid;
+	BORDER-RIGHT: #c0bebe 1px solid;
+	BORDER-TOP: #c0bebe 1px solid;
+	PADDING-BOTTOM: 1px;
+	PADDING-LEFT: 1px;
+	PADDING-RIGHT: 1px;
+	PADDING-TOP: 1px;
+	font-size:12pt;
+	font-family:Verdana;
+	height:23;
+	width:170px;
+	padding-top:3px;
+	display: inline;
+}
+
+/*****
+ *	增加第二种表格头锁住方式，解决第一种方式闪动的问题，by赖剑崇
+ *	start
+ ******/
+div#scrollDiv {
+	BORDER: 1px solid #BEC2CD;
+	DISPLAY: inline;
+	OVERFLOW: auto;
+	WIDTH: 100%;
+	HEIGHT: 100%;
+}
+.table_list_locked_v2 {
+	VERTICAL-ALIGN: top;
+	WIDTH: 100%;
+	BORDER-COLLAPSE: separate;
+	background:#ffffff;
+	word-break:break-all;
+	/*border-top:1px solid #BEC2CD;*/
+}
+
+.table_list_locked_v2 th{
+	HEIGHT:30px;
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 12pt;
+	COLOR: #000;
+	LINE-HEIGHT: 20px;
+	BACKGROUND-COLOR: #e3f2ff;
+	BORDER-RIGHT: 1px solid #BEC2CD;
+	BORDER-LEFT: 0px solid #BEC2CD;
+	BORDER-BOTTOM: 1px solid #BEC2CD;
+	BORDER-TOP: 1px solid #BEC2CD;
+	Z-INDEX: 5;
+	POSITION: relative;
+	TOP: expression(document.getElementById("scrollDiv").scrollTop);
+}
+
+td#totalTd {
+	HEIGHT:30px;
+	FONT-WEIGHT: normal;
+	FONT-SIZE: 12pt;
+	COLOR: #ffffff;
+	LINE-HEIGHT: 20px;
+	BACKGROUND-COLOR: #6a88c6;
+	BORDER-RIGHT-COLOR: #BEC2CD;
+	BORDER-LEFT: 1px solid #BEC2CD;
+	BORDER-BOTTOM-COLOR: #BEC2CD;
+	BORDER-TOP: 1px solid #BEC2CD;
+	Z-INDEX: 5;
+	POSITION: relative;
+}
+
+.table_list_locked_v2 td {
+	BORDER-LEFT: 0px solid #BEC2CD;
+	BORDER-RIGHT: 1px solid #BEC2CD;
+	BORDER-BOTTOM: 1px solid #BEC2CD;
+	PADDING-LEFT: 4px;
+	FONT-SIZE: 12pt;
+	HEIGHT: 26px;
+	FONT-FAMILY: Verdana;
+	EMPTY-CELLS: show
+}
+.td_empty td {
+	BORDER-LEFT: 0px solid #BEC2CD;
+	BORDER-RIGHT: 1px solid #BEC2CD;
+	BORDER-BOTTOM: 1px solid #BEC2CD;
+	BORDER-left: 1px solid #BEC2CD;
+	PADDING-LEFT: 4px;
+	FONT-SIZE: 12pt;
+	HEIGHT: 26px;
+	FONT-FAMILY: Verdana;
+	EMPTY-CELLS: show
+}
+/*****
+ *	增加第二种表格头锁住方式，解决第一种方式闪动的问题，by赖剑崇
+ *	end
+ ******/
+
+.datafilter {
+	font-size: 13pt;
+	width: 100%;
+	display:inline;
+	float:left;
+	background-repeat: repeat-x;
+}
+
+.titleouter {
+	width: 100%;
+	background-repeat: repeat-x;
+}
+
+.datafiltertitleleft{
+	float:left;
+	margin-right:-22px;
+	width:100% ;
+	text-align: center;
+	height: 18px;
+}
+
+.datafiltertitleright {
+	float:right;
+	width:22px;
+	text-align: center;
+	height: 18px;
+}
+
+.datafiltertitleimg {
+	display: none;
+}
+
+.datafilterItem {
+	display: none;
+	background-color: white;
+	border: solid 1px #00538D;
+	overflow-y: auto;
+	font-size: 13pt;
+	padding: 4px 0 4px 4px;
+	color: #000000;
+	text-align: left;
+	overflow-x: auto;
+	meizz:expression(this.noWrap=true);
+}
+.x-expend {
+	background-color:#ADD8E6
+	background-image:url(../images/ns-expand.gif) no-repeat;
+	height:12px;
+	width:11px;
+}
+
+.x-collapse {
+	background-color:#ADD8E6
+	background:url(../images/ns-collapse.gif) no-repeat;
+	height:12px;
+	width:11px;
+}
+
+/*
+ tab页样式
+*/
+.tab_table{
+	width:100%;
+	border:0;
+	cellPadding:0;
+	cellSpacing:5px;
+}
+.tab_table_area{
+	text-align:center;
+  text-valign:center;
+}
+.tab_table_frame{
+	width:98%;
+	height:650px;
+	marginHeight:0;
+	frameBorder:0;
+	scrolling:no;
+}
+
+/*****
+ *	增加第三种表格头锁住方式，提供题头和滚动条显示区域最大化锁定效果，by马聪
+ *	start
+ ******/
+.table_list_locked_v3 {
+	VERTICAL-ALIGN: top;
+	WIDTH: 100%;
+	BORDER-COLLAPSE: separate;
+	background:#ffffff;
+	/*border-top:1px solid #BEC2CD;*/
+	border-left:1px solid #BEC2CD;
+	border-right:1px solid #BEC2CD;
+	word-break:break-all;
+}
+.table_list_locked_v3 th {
+	HEIGHT:30px;
+	text-align:center;
+	FONT-SIZE: 12pt;
+	font-weight: bold;
+	COLOR: #000;
+	LINE-HEIGHT: 20px;
+	BACKGROUND-COLOR: #e3f2ff;
+	border-top:1px solid #BEC2CD;
+	border-right:1px solid #BEC2CD;
+	border-bottom:1px solid #BEC2CD;
+	position:relative;
+	top: expression(document.body.scrollTop>document.getElementById("lockedLayer_v3").parentNode.offsetTop?document.body.scrollTop-document.getElementById("lockedLayer_v3").parentNode.offsetTop-2:0);
+	z-index: 20;
+	EMPTY-CELLS: show
+}
+.table_list_locked_v3 td {
+	border-right:1px solid #BEC2CD;
+	border-bottom:1px solid #BEC2CD;
+	FONT-SIZE: 12pt;
+	HEIGHT: 26px;
+	FONT-FAMILY: Verdana;
+	EMPTY-CELLS: show
+}
+table#table_button_lock {
+	background-color:white;
+	position:absolute;
+	left:0;
+	width:100%;
+	height:25px;
+	top: expression(document.body.scrollTop>document.getElementById("lockedLayer_v3").parentNode.offsetTop?document.body.scrollTop-document.getElementById("lockedLayer_v3").parentNode.offsetTop-2:0);
+	z-index: 24;
+	background-color: #f2f2f2;
+}
+table#table_bottom_lock {
+	background-color:white;
+	position:absolute;
+	left:0;
+	/*top: expression((document.body.clientHeight+document.body.scrollTop-this.parentNode.offsetTop)>(this.parentNode.clientHeight)?this.parentNode.clientHeight-this.clientHeight:(document.body.clientHeight+document.body.scrollTop-this.parentNode.offsetTop-this.clientHeight+2));*/
+	top: expression(this.parentNode.clientHeight+document.getElementById("lockedLayer_v3").parentNode.offsetTop>document.body.clientHeight+document.body.scrollTop?(document.body.clientHeight+document.body.scrollTop-this.clientHeight-document.getElementById("lockedLayer_v3").parentNode.offsetTop):(this.parentNode.clientHeight-this.clientHeight-2));
+	z-index: 23;
+}
+.scroller_tr {
+	height:17px;
+	display:expression(document.getElementById("table_list").clientWidth>document.getElementById("lockedLayer_v3").clientWidth?"":"none");
+}
+td.locked
+{
+	background-color: #FFF68F;
+	position: relative;
+	left: expression(document.getElementById("lockedLayer_v3").scrollLeft);
+	z-index: 21;
+}
+th.locked
+{
+	background-color: inherit;
+	position: relative;
+	left: expression(document.getElementById("lockedLayer_v3").scrollLeft);
+	z-index: 22;
+}
+div.div_bottom_temp {
+	position: relative;
+	width:100%;
+	top:-3px;
+	/*height:expression(document.getElementById("table_bottom_lock").clientHeight+document.getElementById("lockedLayer_v3").parentNode.clientHeight-document.getElementById("lockedLayer_v3").clientHeight);*/
+	height:expression(document.getElementById("table_bottom_lock").clientHeight);
+}
+div.div_button_temp {
+	position: relative;
+	width:100%;
+	height:27;
+}
+.scroller_td {
+	height:17px !important;
+	padding:0;
+}
+
+div#lockedLayer_v3{
+	width:expression(document.body.offsetWidth-(document.body.scrollHeight>document.body.offsetHeight?24:6));/*如果是100%的话其实也是ok的只是在table列非常多的时候可能会将100%的宽度撑大*/
+	z-index:1;
+	overflow: hidden;
+	padding:0px;
+	background:#f2f2f2;
+	/*margin-left:3px;
+	margin-right:3px;
+	border-left:1px solid #BEC2CD;
+	border-right:1px solid #BEC2CD;*/
+	left:0px;
+}
+.scroller_css
+{
+	overflow-x: auto;
+	overflow-y: hidden;
+	background: transparent none repeat scroll 0% 0%;
+	height: 18px;
+	width: 100%;
+	position: absolute;
+	top:0px;
+	z-index: 4;
+}
+.scroller_css_inner
+{
+	width:expression(document.getElementById("table_list").clientWidth);
+	line-height: 17px;
+}
+/*****
+ *	增加第三种表格头锁住方式，提供题头和滚动条显示区域最大化锁定效果
+ *	end
+ ******/
+.table_layout {
+	background-color: #fff;
+	border: 1px solid #D8DDE5;
+	font-size: 12pt;
+}
+/*.table_condition {
+	border-left: 1px solid #D8DDE5;
+	border-right: 1px solid #D8DDE5;
+	border-top: 1px solid #D8DDE5;
+}
+ .table_condition {
+	border-left: 1px solid #D8DDE5;
+	border-right: 1px solid #D8DDE5;
+	border-top: 1px solid #D8DDE5;
+}*/
+.table_condition td{
+}
+.table_foot{
+	background-color: #F2F2F2;
+	font-size: 12pt;
+}
+
+/**
+  * 以下为普通表头的样式(--by tsl 解决页面锁住题头后，页面填写数据缓慢的问题,支持页面横向滚动条长度不固定)
+  */
+/**  适应 grid 的id 是scrollDiv的自适应样式 ***/
+div#scrollDiv_v2 {
+	BORDER: 1px solid #b0c4de;
+	DISPLAY: inline;
+	overflow-x: auto;
+	overflow-y:auto;
+	WIDTH: expression(document.body.clientWidth-10);
+	HEIGHT: 100%;
+	z-index:1;
+	visibility: visible;
+	padding:0px;
+}
+
+
+.table_list_v2 {
+	VERTICAL-ALIGN: top;
+	WIDTH: 100%;
+	BORDER-COLLAPSE: collapse;
+	background:#ffffff;
+}
+
+.table_list_v2 th{
+	HEIGHT:30px;
+	FONT-WEIGHT: normal;
+	FONT-SIZE: 12pt;
+	COLOR: #ffffff;
+	LINE-HEIGHT: 20px;
+	BACKGROUND-COLOR: #6a88c6;
+	BORDER-RIGHT-COLOR: #b0c4de;
+	BORDER-LEFT: 1px solid #b0c4de;
+	BORDER-BOTTOM-COLOR: #b0c4de;
+	BORDER-TOP: 1px solid #b0c4de;
+	Z-INDEX: 5;
+	POSITION: relative;
+	TOP: expression(function(){if(lockedDiv != null) return lockedDiv.scrollTop}(this));
+}
+
+.table_list_v2 td {
+	BORDER-LEFT: 1px solid #b0c4de;
+	BORDER-RIGHT: 1px solid #b0c4de;
+	BORDER-BOTTOM: 1px solid #b0c4de;
+	PADDING-LEFT: 4px;
+	FONT-SIZE: 12pt;
+	FONT-FAMILY: Verdana;
+	EMPTY-CELLS: show;
+	WORD-BREAK: break-all;
+}
+
+/**数据列锁定**/
+.dateColLock{position: relative; left:expression(function(){if(lockedDiv != null) return lockedDiv.scrollLeft}(this)); Z-INDEX: 1;}
+
+/*******************************************
+  *       分页组件<common:page/>新增的样式
+  *******************************************/
+/**
+*每页记录数输入框可选div样式
+*/
+.divCustonPageSizeStyle{
+ display:none;
+ position:absolute;
+ border:1px solid #b0c4de;
+ background-Color:#eff5fe;
+ z-index:5;
+ font-family: Verdana;
+ font-size: 12pt;
+ float:right;
+}
+
+/**
+*每页记录数td onmouseover样式
+*/
+.tdStyle_over{
+ background-Color:#316AC5;
+ font-size: 12pt;
+ color:#eff5fe;
+}
+
+/**
+*每页记录数td onmouseout样式
+*/
+.tdStyle_out{
+ font-size: 12pt;
+ background-Color:#eff5fe;
+}
+/**字符截取样式*/
+.table_list_text_cut {
+	TABLE-LAYOUT: fixed
+}
+.table_list_text_cut td {
+	OVERFLOW: hidden;
+	TEXT-OVERFLOW: ellipsis;
+	-O-TEXT-OVERFLOW: ellipsis;
+	WHITE-SPACE: nowrap
+}
+/*覆盖过滤器中样式，解决题头对不齐的问题*/
+#lockedLayerFreeze {
+	BORDER: 1px solid #bec2cd;
+}
+#lockedLayerFreeze .table_list_locked_freeze {
+	BORDER-COLLAPSE: separate !important;
+}
+#lockedLayerFreeze .table_list_locked_freeze th{
+	BORDER-BOTTOM: 1px solid #bec2cd !important;
+}
+#lockedLayerFreeze .table_list_locked_freeze td{
+	BORDER-LEFT: 0px !important;
+}
+/**
+ * 更多条件 按钮的样式
+ */
+.ext_botton{
+	background: url(../themes/default/images/cardstyle/ext_con.gif) no-repeat 0px center;
+	width:70px;
+	height:15px;
+	border: 0px;
+	cursor:pointer;
+}
+.ext_botton_hl{
+	background: url(../themes/default/images/cardstyle/ext_con.gif) no-repeat bottom;
+	width:70px;
+	height:15px;
+	border: 0px;
+	cursor:pointer;
+}
+.ext_botton_expand{
+	background: url(../themes/default/images/cardstyle/ext_con.gif) no-repeat top;
+	width:70px;
+	height:15px;
+	border: 0px;
+	cursor:pointer;
+}
+/** dropMenu组件*/
+.menu-warp{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	width: 120px;
+	border-top: 1px solid #7b9ebd;
+	border-left: 1px solid #7b9ebd;
+	position: absolute;
+	left:-100;
+	top:-2000;
+	z-index: 10000;
+	background-color:#f1f1f1;
+	display: none;
+}
+.menu-warp li{
+	height: 25px;
+	line-height: 25px;
+	font-size: 12px;
+	white-space: nowrap;
+	margin: 0;
+	padding: 0;
+	border-bottom: 1px solid #7b9ebd;
+	border-right: 1px solid #7b9ebd;
+}
+.menu-warp a{
+	/*color: #00c;*/
+	color:#000;
+	display: block;
+	margin: 0;
+	padding: 0 5px;
+	text-decoration: none;
+}
+.menu-warp a:hover {
+	/*background-color:#ebebeb;
+	color: #00c; */
+	color: #fff;
+	background-color:#55a0ff; 
+	text-decoration: none;
+}
+.menu-warp .sp {
+	border-top: 1px solid #7b9ebd;
+	height: 3px;
+	line-height: 0px;
+}

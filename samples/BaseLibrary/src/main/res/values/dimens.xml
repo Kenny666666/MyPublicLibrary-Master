@@ -10,4 +10,6 @@
     <dimen name="px20">20px</dimen>
     <dimen name="px020">020px</dimen>
     <dimen name="dp20">20dp</dimen>
+    <!--首页字体-->
+    <dimen name="splash_copy_right">11sp</dimen>
 </resources>
