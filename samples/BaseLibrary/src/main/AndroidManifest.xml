@@ -54,6 +54,10 @@
         <activity android:name=".activity.MainActivity"
                   android:theme="@style/Theme.DesignDemo"
             />
+        <!-- 指引界面 -->
+        <activity android:name=".activity.GuideActivity"
+                  android:theme="@style/Theme.DesignDemo"
+            />
         <!-- ORM数据库测试界面 -->
         <activity android:name=".activity.ORMActivity"/>
         <!-- 网络请求测试界面 -->

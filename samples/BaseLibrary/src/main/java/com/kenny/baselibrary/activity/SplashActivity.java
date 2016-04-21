@@ -32,8 +32,9 @@ import java.io.File;
 import java.util.HashMap;
 
 /**
- * 程序欢迎界面-检测版本更新
- *
+ * 启动画面 (0)检测版本更新
+ *         (1)判断是否是首次加载应用--采取读取SharedPreferences的方法
+ *         (2)是，则进入GuideActivity；否，则进入MainActivity (3)3s后执行(2)操作
  * @author kenny
  * @time 2016/4/18 16:59
  */
@@ -64,15 +65,33 @@ public class SplashActivity extends BaseActivity implements DownloadTask.Listene
      */
     private String mVersiontext;
     /**
+     * 进入主界面
+     */
+    private static final int GO_HOME = 1000;
+    /**
+     * 进入指引界面
+     */
+    private static final int GO_GUIDE = 1001;
+    /**
+     * 延迟3秒
+     */
+    private static final long SPLASH_DELAY_MILLIS = 3000;
+    /**
      * handler
      */
     private Handler mHandler = new Handler() {
 
         @Override
         public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case GO_HOME:
+                    goHome();
+                    break;
+                case GO_GUIDE:
+                    goGuide();
+                    break;
+            }
             super.handleMessage(msg);
-            //请求服务端版本号
-            requestVersionUpdate();
         }
 
     };
@@ -122,16 +141,15 @@ public class SplashActivity extends BaseActivity implements DownloadTask.Listene
 
             @Override
             public void run() {
-                super.run();
                 try {
                     sleep(2000);
-                    mHandler.sendEmptyMessage(0);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
         }.start();
-
+        //请求服务端版本号
+        requestVersionUpdate();
         //设置版本号信息
         tvSplashVersion.setText("版本号" + mVersiontext + " by kenny 出品");
 
@@ -244,19 +262,31 @@ public class SplashActivity extends BaseActivity implements DownloadTask.Listene
     private void loadMainUI() {
         //是否第一次使用此app
         boolean isFirstUSE = (boolean) SPUtils.get(mContext,"isFirstUSE",true);
-        Intent intent;
-        //第一次使用进入欢迎界面
-        if (isFirstUSE){
-            intent = new Intent(this, MainActivity.class);
-            SPUtils.put(mContext,"isFirstUSE",false);
+        // 判断程序与第几次运行，如果是第一次运行则跳转到引导界面，否则跳转到主界面
+        if (!isFirstUSE) {
+            // 使用Handler的postDelayed方法，3秒后执行跳转到MainActivity
+            mHandler.sendEmptyMessageDelayed(GO_HOME, SPLASH_DELAY_MILLIS);
+        } else {
+            mHandler.sendEmptyMessageDelayed(GO_GUIDE, SPLASH_DELAY_MILLIS);
         }
-        //非第一次使用直接进入主界面
-        else {
-            intent = new Intent(this, MainActivity.class);
-        }
-        startActivity(intent);
-        //把当前activity从任务栈里面移除，如果不移除，用户想退出这个应用点下后退还会回到这个界面，所以finish掉
-        finish();
+    }
+
+    /**
+     * 进入主界面
+     */
+    private void goHome() {
+        Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+        SplashActivity.this.startActivity(intent);
+        SplashActivity.this.finish();
+    }
+
+    /**
+     * 进入指引界面
+     */
+    private void goGuide() {
+        Intent intent = new Intent(SplashActivity.this, GuideActivity.class);
+        SplashActivity.this.startActivity(intent);
+        SplashActivity.this.finish();
     }
 
     /**
