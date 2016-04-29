@@ -17,6 +17,9 @@ public class DialogValue implements Serializable {
 
     public static final String TAG = "DialogValue";
 
+    /**
+     *
+     */
     public boolean showProgress = true;
     /***
      * 标题

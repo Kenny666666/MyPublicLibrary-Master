@@ -1,16 +1,13 @@
 package com.kenny.baselibrary.activity;
 
-import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.DialogFragment;
-import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.WindowManager;
 import android.view.animation.AlphaAnimation;
@@ -27,6 +24,9 @@ import com.kenny.baselibrary.utils.common.SPUtils;
 import com.kenny.baselibrary.utils.common.T;
 import com.kenny.baselibrary.utils.network.StringNetWorkResponse;
 import com.kenny.baselibrary.utils.network.filedown.DownloadTask;
+import com.kenny.baselibrary.view.dialog.CustomDialog;
+import com.kenny.baselibrary.view.dialog.DialogListener;
+import com.kenny.baselibrary.view.dialog.DialogValue;
 
 import java.io.File;
 import java.util.HashMap;
@@ -163,61 +163,43 @@ public class SplashActivity extends BaseActivity implements DownloadTask.Listene
      * 升级的对话框
      */
     private void showDialogFragment(String message,String positiveButtonText,String negativeButtonText) {
-        VersionUpdateDialogFragment dialog = new VersionUpdateDialogFragment();
-        Bundle bundle = new Bundle();
-        bundle.putString("message",message);
-        bundle.putString("positiveButtonText",positiveButtonText);
-        bundle.putString("negativeButtonText",negativeButtonText);
-        dialog.setArguments(bundle);
-        dialog.show(getSupportFragmentManager(),"");
-    }
+        DialogValue dialogValue = new DialogValue(getSupportFragmentManager());
+        dialogValue.setMessage(message);
+        dialogValue.setTitle("温馨提示");
+        //马上升级
+        dialogValue.addButton(positiveButtonText, new DialogListener() {
+            @Override
+            public void listener(DialogFragment dialog) {
 
-    /**
-     * 推荐使用dialogFragment弹对话框
-     * @author kenny
-     * @time 2016/4/19 14:26
-     */
-    public class VersionUpdateDialogFragment extends DialogFragment {
-        @Override
-        public Dialog onCreateDialog(Bundle savedInstanceState) {
-            Bundle bundle = getArguments();
-            String message = bundle.getString("message");
-            String positiveButtonText = bundle.getString("positiveButtonText");
-            String negativeButtonText = bundle.getString("negativeButtonText");
+//                Log.i(TAG, "下载apk文件" + mInfo.getApkurl());
+                //先判断SDK是否可用
+                if (SDCardUtils.isSDCardEnable()) {
+                    //下载文件
+                    DownloadTask task = new DownloadTask(mInfo.getApkurl(), "/sdcard/newapk.apk", SplashActivity.this);
+                    //因为是耗时操作，所以弹个对话框
+                    pd.setMax(100);
+                    pd.show();
+                    task.start();
+                } else {
+                    T.showShort(getApplicationContext(), "sd卡不可用");
+                    //不可用照样进入主界面
+                    loadMainUI();
+                }
+            }
+        });
+        //以后再说
+        dialogValue.addButton(negativeButtonText, new DialogListener() {
+            @Override
+            public void listener(DialogFragment dialog) {
+                //用户取消，进入主界面
+                loadMainUI();
+            }
+        });
 
-            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-            builder.setMessage(message + mInfo.getDescription())
-                    .setPositiveButton(positiveButtonText,
-                            new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int id) {
+        CustomDialog customDialog = new CustomDialog();
+        customDialog.setDialogValue(dialogValue);
 
-//                                    Log.i(TAG, "下载apk文件" + mInfo.getApkurl());
-                                    //先判断SDK是否可用
-                                    if (SDCardUtils.isSDCardEnable()) {
-                                        //下载文件
-                                        DownloadTask task = new DownloadTask(mInfo.getApkurl(), "/sdcard/newapk.apk", SplashActivity.this);
-                                        //因为是耗时操作，所以弹个对话框
-                                        pd.setMax(100);
-                                        pd.show();
-                                        task.start();
-                                    } else {
-                                        T.showShort(getApplicationContext(), "sd卡不可用");
-                                        //不可用照样进入主界面
-                                        loadMainUI();
-                                    }
-                                }
-                            })
-                    .setNegativeButton(negativeButtonText,
-                            new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int id) {
-
-//                                    Log.i(TAG, "用户取消进入程序主界面");
-                                    //用户取消，进入主界面
-                                    loadMainUI();
-                                }
-                            });
-            return builder.create();
-        }
+        dialogValue.showConfirmAndCancle();
     }
 
     /**
@@ -361,6 +343,11 @@ public class SplashActivity extends BaseActivity implements DownloadTask.Listene
                 showDialogFragment("本次更新了非常牛B的功能哦，赶紧下载体验吧...","马上更新","下次再说");
             }
         }
+    }
+
+    @Override
+    protected void handler(Message msg) {
+
     }
 
     /**

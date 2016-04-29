@@ -54,7 +54,9 @@ public class CustomDialog extends DialogFragment {
 
         try {
             initData();
-        }catch (Exception e){e.printStackTrace();}
+        }catch (Exception e){
+            e.printStackTrace();
+        }
 
         return dialog;
     }

@@ -1,6 +1,10 @@
 apply plugin: 'com.android.application'
 apply plugin: 'bugly'
 
+def releaseTime() {
+    return new Date().format("yyyyMMdd", TimeZone.getTimeZone("UTC"))
+}
+
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.3"
@@ -30,6 +34,7 @@ android {
 
     }
 
+    // 移除lint检查的error
     lintOptions {
         abortOnError false
     }
@@ -45,7 +50,7 @@ android {
                 productFlavor = variant.productFlavors[0].name.toUpperCase()
             }
             def versionCode = "V" + variant.versionCode
-            def currDate = getCurrDate()
+            def currDate = releaseTime()
             def buildType = variant.buildType.name.toUpperCase()
             def split = "_"
 
@@ -69,8 +74,8 @@ dependencies {
     compile('com.android.support:appcompat-v7:23.1.1') {
         exclude module: 'support-v4'
     }
-    compile 'com.android.support:design:23.1.1'
-    compile 'com.android.support:cardview-v7:23.1.1'
+    compile 'com.android.support:design:23.2.1'
+    compile 'com.android.support:cardview-v7:23.2.1'
     compile files('libs/universal-image-loader-1.9.4.jar')
     compile files('libs/commons-io-1.4.jar')
     compile files('libs/commons-lang-2.5.jar')
@@ -88,6 +93,17 @@ dependencies {
     //其在编译的时候为注册类构建了一个索引，而不是在运行时，这样的结果是其让EventBus 3.0的性能提升了一倍，相比2.4来说，其会是它的3到6倍
     provided 'de.greenrobot:eventbus-annotation-processor:3.0.0-beta1'
 
+}
+
+// 移除警告
+// 有关详细信息, 请使用 -Xlint:deprecation 重新编译。
+// 有关详细信息, 请使用 -Xlint:unchecked 重新编译。
+allprojects {
+    gradle.projectsEvaluated {
+        tasks.withType(JavaCompile) {
+            options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
+        }
+    }
 }
 
 //腾讯bugly

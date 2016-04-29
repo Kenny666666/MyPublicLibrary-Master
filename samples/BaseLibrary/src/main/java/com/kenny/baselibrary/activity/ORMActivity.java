@@ -1,6 +1,7 @@
 package com.kenny.baselibrary.activity;
 
 import android.os.Bundle;
+import android.os.Message;
 
 import com.kenny.baselibrary.BaseActivity;
 import com.kenny.baselibrary.R;
@@ -30,4 +31,10 @@ public class ORMActivity extends BaseActivity {
             T.showShort(this,defectModel.toString());
         }
     }
+
+    @Override
+    protected void handler(Message msg) {
+
+    }
+
 }

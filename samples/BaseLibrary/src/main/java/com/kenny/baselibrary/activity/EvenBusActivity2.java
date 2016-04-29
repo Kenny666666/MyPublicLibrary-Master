@@ -1,6 +1,7 @@
 package com.kenny.baselibrary.activity;
 
 import android.os.Bundle;
+import android.os.Message;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -9,7 +10,6 @@ import com.kenny.baselibrary.BaseActivity;
 import com.kenny.baselibrary.R;
 import com.kenny.baselibrary.event.Event;
 import com.kenny.baselibrary.event.TestEvent;
-
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -31,6 +31,11 @@ public class EvenBusActivity2 extends BaseActivity implements OnClickListener{
 
         initView();
         setListener();
+    }
+
+    @Override
+    protected void handler(Message msg) {
+
     }
 
     private void initView(){

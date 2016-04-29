@@ -3,6 +3,7 @@ package com.kenny.baselibrary.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Looper;
+import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -68,6 +69,11 @@ public class EvenBusActivity1 extends BaseActivity implements OnClickListener{
         EventBus.getDefault().register(this);
     }
 
+    @Override
+    protected void handler(Message msg) {
+
+    }
+
     private void initView(){
         btOne = (Button) this.findViewById(R.id.bt_one);
         tvOne = (TextView) this.findViewById(R.id.tv_one);
@@ -125,12 +131,5 @@ public class EvenBusActivity1 extends BaseActivity implements OnClickListener{
         Log.e(TAG, "helloEventSticky收到消息:" + event.getMsg());
         tvThree.setText(event.getMsg());
         T.showShort(EvenBusActivity1.this, event.getMsg());
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        //取消事件(将当前类中所有方法在总线中的map中移除)
-        EventBus.getDefault().unregister(this);
     }
 }

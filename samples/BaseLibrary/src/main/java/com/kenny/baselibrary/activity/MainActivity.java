@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Message;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -113,6 +114,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         //初始化数据
         initDatas();
         setOverflowButtonAlways();
+    }
+
+    @Override
+    protected void handler(Message msg) {
+
     }
 
     /**

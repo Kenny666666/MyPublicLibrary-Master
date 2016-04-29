@@ -2,6 +2,7 @@ package com.kenny.baselibrary.activity;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Message;
 import android.view.View;
 import android.widget.Button;
 
@@ -75,5 +76,10 @@ public class NetWorkActivity extends BaseActivity implements View.OnClickListene
         if (currUrl.equals("http://www.csdn.net/")){
 
         }
+    }
+
+    @Override
+    protected void handler(Message msg) {
+
     }
 }

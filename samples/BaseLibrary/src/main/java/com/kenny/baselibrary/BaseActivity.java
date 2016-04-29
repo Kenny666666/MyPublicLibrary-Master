@@ -2,6 +2,8 @@ package com.kenny.baselibrary;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Looper;
+import android.os.Message;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 
@@ -16,6 +18,7 @@ import com.kenny.baselibrary.utils.network.RequestHelp;
 import com.kenny.baselibrary.utils.network.StringNetWorkResponse;
 import com.zhy.autolayout.AutoLayoutActivity;
 
+import org.greenrobot.eventbus.EventBus;
 
 
 /**
@@ -23,20 +26,30 @@ import com.zhy.autolayout.AutoLayoutActivity;
  * @author kenny
  * @time 2015/12/21 22:49
  */
-public abstract  class BaseActivity extends AutoLayoutActivity implements Response.ErrorListener,Response.Listener<StringNetWorkResponse> {
+public abstract class BaseActivity extends AutoLayoutActivity implements Response.ErrorListener,Response.Listener<StringNetWorkResponse> {
 
     public final String TAG = this.getClass().getName();
-
+    /**
+     * 网络请求帮助类
+     */
     public RequestHelp mRequestHelp;
+
+    /**
+     * 全局handler
+     */
+    protected UIHandler mHandler = new UIHandler(Looper.getMainLooper());
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //初始化请求帮助类
         mRequestHelp = new RequestHelp(getSupportFragmentManager(),this,this);
+        //
+        setHandler();
         //将activity加入到维护队列
         ExitAppUtils.getInstance().addActivity(this);
     }
+
 
     /**
      * 接口回调出现异常
@@ -63,15 +76,26 @@ public abstract  class BaseActivity extends AutoLayoutActivity implements Respon
      */
     @Override
     public void onResponse(StringNetWorkResponse response) {
-
     }
 
+    private void setHandler() {
+        mHandler.setHandler(new UIHandler.IHandler() {
+            @Override
+            public void handleMessages(Message msg) {
+                handler(msg);//有消息就提交给子类实现的方法
+            }
+        });
+    }
+
+    protected abstract void handler(Message msg);
     /**
      * 销毁时将activity移除应用程序队列
      */
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        //取消事件(将当前类中所有方法在总线中的map中移除)
+        EventBus.getDefault().unregister(this);
         //将activity移除到维护队列
         ExitAppUtils.getInstance().delActivity(this);
     }

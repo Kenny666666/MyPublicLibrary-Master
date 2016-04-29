@@ -1,6 +1,7 @@
 package com.kenny.baselibrary.activity;
 
 import android.os.Bundle;
+import android.os.Message;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.LayoutInflater;
@@ -43,6 +44,11 @@ public class GuideActivity extends BaseActivity implements OnPageChangeListener 
 
 		// 初始化底部小点
 		initDots();
+	}
+
+	@Override
+	protected void handler(Message msg) {
+
 	}
 
 	private void initViews() {

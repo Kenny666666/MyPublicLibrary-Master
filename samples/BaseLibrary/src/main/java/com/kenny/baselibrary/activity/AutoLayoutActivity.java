@@ -1,6 +1,7 @@
 package com.kenny.baselibrary.activity;
 
 import android.os.Bundle;
+import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -50,7 +51,7 @@ import java.util.ArrayList;
  * @author kenny
  * @time 2016/1/31 22:25
  */
-public class AutoLayoutActivity extends BaseActivity {
+public class AutoLayoutActivity extends BaseActivity{
 
     private ViewPager mViewPager;
 
@@ -59,9 +60,17 @@ public class AutoLayoutActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         //requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.auto_layout);
-
+        //初始化view
         initView();
+        //初始化数据
         initDatas();
+    }
+
+    @Override
+    protected void handler(Message msg) {
+        switch (msg.what){
+
+        }
     }
 
     private void initDatas() {
