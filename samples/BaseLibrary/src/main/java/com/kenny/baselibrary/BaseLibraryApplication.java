@@ -18,6 +18,8 @@ import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
+import com.squareup.leakcanary.LeakCanary;
+import com.squareup.leakcanary.RefWatcher;
 import com.tencent.bugly.crashreport.CrashReport;
 
 import org.litepal.LitePalApplication;
@@ -40,6 +42,9 @@ public class BaseLibraryApplication extends LitePalApplication {
     public static BaseLibraryApplication getInstance() {
         return baseApplication;
     }
+    /**内存泄漏监控工具*/
+    private RefWatcher refWatcher;
+
     public static RequestQueue getRequestQueue() {
         if (requestQueue == null) {
             requestQueue = Volley.newRequestQueue(getInstance().getBaseContext());
@@ -47,10 +52,18 @@ public class BaseLibraryApplication extends LitePalApplication {
         return requestQueue;
     }
 
+    public static RefWatcher getRefWatcher(Context context) {
+        BaseLibraryApplication application = (BaseLibraryApplication) context.getApplicationContext();
+        return application.refWatcher;
+    }
+
+
     @Override
     public void onCreate() {
         super.onCreate();
         baseApplication = this;
+        //检测内存泄漏工具配置
+        refWatcher = LeakCanary.install(this);
         //Crash机制，全局异常捕获
         CustomCrashHandler mCustomCrashHandler = CustomCrashHandler.getInstance();
         mCustomCrashHandler.setCustomCrashHanler(getApplicationContext());

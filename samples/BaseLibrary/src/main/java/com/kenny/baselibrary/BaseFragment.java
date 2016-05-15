@@ -15,6 +15,7 @@ import com.android.volley.VolleyError;
 import com.kenny.baselibrary.utils.common.T;
 import com.kenny.baselibrary.utils.network.RequestHelp;
 import com.kenny.baselibrary.utils.network.StringNetWorkResponse;
+import com.squareup.leakcanary.RefWatcher;
 
 
 /**
@@ -133,4 +134,11 @@ public class BaseFragment extends Fragment implements Template,Response.ErrorLis
         }
     }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        //监控 Fragment 泄漏，当 Fragment.onDestroy() 被调用之后，如果这个 fragment 实例没有被销毁，那么就会从 logcat 里看到相应的泄漏信息。
+        RefWatcher refWatcher = BaseLibraryApplication.getRefWatcher(getActivity());
+        refWatcher.watch(this);
+    }
 }

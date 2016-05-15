@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Message;
+import android.os.SystemClock;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -13,6 +14,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -190,8 +192,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
                             T.showShort(mContext, "工具正在开发中......");
 
                         } else if ("Http".equals(menuItem.getTitle())) {
-
-                            T.showShort(mContext, "工具正在开发中......");
+                            //检测内存泄漏工具，点击左侧菜单Http后旋转屏幕，等待10s，会发出通知，可查看泄漏对象
+                            start();
 
                         } else if ("屏幕适配".equals(menuItem.getTitle())) {
 
@@ -200,6 +202,19 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
                         return true;
                     }
                 });
+    }
+
+    public void start(){
+        //这个thread是一个匿名内部类，因此它隐式的持有一个
+        //外部类的对象，也就是MainActivity，如果MainActivity
+        //在Thread执行完成前就销毁了，那么这个activity实例就发生了泄漏
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Log.e("MainActivity","开启线程");
+                SystemClock.sleep(20000);
+            }
+        }).start();
     }
 
     /**
